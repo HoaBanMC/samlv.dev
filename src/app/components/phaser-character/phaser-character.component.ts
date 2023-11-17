@@ -264,7 +264,7 @@ class MainScene extends Phaser.Scene {
 
   }
 
-  override update() {
+  override update(delta: any) {
     const localConfig = JSON.parse(localStorage.getItem('gameConfig'));
     if (+localConfig?.score !== this.score) {
       this.score = +localConfig?.score
@@ -289,7 +289,7 @@ class MainScene extends Phaser.Scene {
       // bomb
       this.bombs.getChildren()?.forEach((bomb: any) => {
         if (Phaser.Math.RND.frac() < 0.02) {
-          this.physics.moveToObject(bomb, this.player, 90);
+          this.physics.moveToObject(bomb, this.player, 150);
         }
         // if (bomb.y > this.game.config.height) {
         //   bomb.destroy(true);
@@ -305,6 +305,8 @@ class MainScene extends Phaser.Scene {
         this.play();
         this.setGameState(GameState.Playing);
       } else if (this.cursorKeys.space.isDown && this.gameState === GameState.GameOver) {
+        this.scoreCount = 0;
+        this.scoreText.setText(`Score: ${this.scoreCount}`);
         this.play();
         this.setGameState(GameState.Playing);
       }
@@ -316,6 +318,8 @@ class MainScene extends Phaser.Scene {
       this.play();
       this.setGameState(GameState.Playing);
     } else if (this.gameState === GameState.GameOver) {
+      this.scoreCount = 0;
+      this.scoreText.setText(`Score: ${this.scoreCount}`);
       this.play();
       this.setGameState(GameState.Playing);
     }
