@@ -312,6 +312,7 @@ class MainScene extends Phaser.Scene {
       }
     }
   }
+  
 
   startTap() {
     if (this.gameState === GameState.Start) {
