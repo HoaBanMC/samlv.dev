@@ -106,7 +106,10 @@ class MainScene extends Phaser.Scene {
   explodeBomb;
 
   gameOverGroup;
-  gameState: GameState = GameState.Playing;
+  gameState: GameState = GameState.Start;
+
+  buttonStart;
+  buttonBg;
 
   constructor() {
     super({ key: 'main' });
@@ -154,7 +157,7 @@ class MainScene extends Phaser.Scene {
 
     const gameOverNote = this.add.text(
       (this.screenSize.width / 2),
-      ((this.screenSize.height + 50) / 2), `Enter Space key to play`,
+      ((this.screenSize.height + 50) / 2), `Click Start to play`,
       { fontFamily: 'Arial', fontSize: 14, color: '#ffffff', align: 'center' }
     );
     gameOverNote.setOrigin(0.5);
@@ -163,8 +166,26 @@ class MainScene extends Phaser.Scene {
     this.gameOverGroup.setDepth(1e9);
     this.gameOverGroup.setVisible(false);
 
+    // button start
+    this.buttonStart = this.add.container(
+      (this.screenSize.width / 2),
+      ((this.screenSize.height + 240) / 2));
+
+    this.buttonBg = this.add.rectangle(0, 0, 200, 60, 0x000000);
+    this.buttonBg.setOrigin(0.5, 0.5);
+
+    const buttonText = this.add.text(0, 0, 'Start', { fontSize: '24px', color: '#fff', });
+    buttonText.setOrigin(0.5, 0.5);
+    this.buttonStart.add(this.buttonBg);
+    this.buttonStart.add(buttonText);
+    this.buttonStart.setDepth(1e9);
+
     this.initPlayer();
     this.setGameState(GameState.Start);
+
+    // Handle button click event
+    this.buttonBg.setInteractive();
+    this.buttonBg.on('pointerup', this.startTap, this);
   }
 
   play() {
@@ -172,23 +193,20 @@ class MainScene extends Phaser.Scene {
     this.initAppleGroup();
     // this.initAppleTree();
 
-    console.log(this.gameState);
-
-
     // make bomb
     this.physics.world.setBounds(0, 0, this.screenSize.width, this.screenSize.height);
     this.bombs = this.physics.add.group();
     this.physics.add.collider(this.player, this.bombs, this.gameOver, null, this);
 
+    this.bombs.getChildren()?.forEach((bomb: any) => {
+      bomb.setDisplaySize(20, 20);
+      bomb.setBounceY(Phaser.Math.FloatBetween(this.screenSize.width - 20, this.screenSize.height - 20));
+    });
+    this.bombGeneratorEvent = this.time.addEvent({ delay: 1000, callback: this.generateBomb, callbackScope: this, loop: true });
+    this.physics.add.collider(this.player, this.bombs, this.gameOver, null, this);
 
-    if (this.gameState === GameState.Start) {
-      this.bombs.getChildren()?.forEach((bomb: any) => {
-        bomb.setDisplaySize(20, 20);
-        bomb.setBounceY(Phaser.Math.FloatBetween(this.screenSize.width - 20, this.screenSize.height - 20));
-      });
-      this.bombGeneratorEvent = this.time.addEvent({ delay: 1000, callback: this.generateBomb, callbackScope: this, loop: true });
-      this.physics.add.collider(this.player, this.bombs, this.gameOver, null, this);
-    }
+    this.physics.resume();
+    this.player.body.setVelocity(0);
   }
 
   setGameState(state: GameState): void {
@@ -197,12 +215,15 @@ class MainScene extends Phaser.Scene {
       case GameState.Start:
         this.gameOverGroup.getChildren()[0].setVisible(false);
         this.gameOverGroup.setVisible(true);
+        this.buttonStart.setVisible(true);
         break;
       case GameState.Playing:
         this.gameOverGroup.setVisible(false);
+        this.buttonStart.setVisible(false);
         break;
       case GameState.GameOver:
         this.gameOverGroup.setVisible(true);
+        this.buttonStart.setVisible(true);
         break;
     }
   }
@@ -217,6 +238,9 @@ class MainScene extends Phaser.Scene {
     // Pause the game
     this.physics.pause();
     this.bombGeneratorEvent.remove(false);
+
+    this.bombs.clear(true, true);
+    this.appleGroup.clear(true, true);
 
     this.player.anims.play('idle', true);
     this.input.removeAllListeners('pointerdown');
@@ -281,9 +305,19 @@ class MainScene extends Phaser.Scene {
         this.play();
         this.setGameState(GameState.Playing);
       } else if (this.cursorKeys.space.isDown && this.gameState === GameState.GameOver) {
-        this.setGameState(GameState.Start);
-        this.scene.restart();
+        this.play();
+        this.setGameState(GameState.Playing);
       }
+    }
+  }
+
+  startTap() {
+    if (this.gameState === GameState.Start) {
+      this.play();
+      this.setGameState(GameState.Playing);
+    } else if (this.gameState === GameState.GameOver) {
+      this.play();
+      this.setGameState(GameState.Playing);
     }
   }
 
