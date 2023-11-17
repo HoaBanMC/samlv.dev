@@ -2,6 +2,8 @@ import { GameState } from "./constants";
 
 export class MainScene extends Phaser.Scene {
     player: any;
+    playerScale = 1;
+
     target;
     appleGroup: any = [];
     cursorKeys: any;
@@ -127,6 +129,8 @@ export class MainScene extends Phaser.Scene {
         this.mainMusic.mute = false;
         this.mainMusic.play();
 
+        this.player.setScale(this.playerScale);
+
         // set sprite and create animate
         this.initAppleGroup();
         // this.initAppleTree();
@@ -140,7 +144,7 @@ export class MainScene extends Phaser.Scene {
             bomb.setDisplaySize(20, 20);
             bomb.setBounceY(Phaser.Math.FloatBetween(this.screenSize.width - 20, this.screenSize.height - 20));
         });
-        this.bombGeneratorEvent = this.time.addEvent({ delay: 1000, callback: this.generateBomb, callbackScope: this, loop: true });
+        this.bombGeneratorEvent = this.time.addEvent({ delay: 1500, callback: this.generateBomb, callbackScope: this, loop: true });
         this.physics.add.collider(this.player, this.bombs, this.gameOver, null, this);
 
         this.physics.resume();
@@ -188,21 +192,21 @@ export class MainScene extends Phaser.Scene {
     }
 
     override update() {
-        const localConfig = JSON.parse(localStorage.getItem('gameConfig'));
-        if (+localConfig?.score !== this.score) {
-            this.score = +localConfig?.score
-            // console.log(localConfig);
-            if (this.score >= 1) {
-                this.player.setScale(this.score);
-            }
-            if (this.score === 3) {
-                this.appleTree.anims.play('big', true)
-            } else if (this.score >= 2) {
-                this.appleTree.anims.play('midle', true)
-            } else if (this.score >= 1) {
-                this.appleTree.anims.play('small', true)
-            }
-        }
+        // const localConfig = JSON.parse(localStorage.getItem('gameConfig'));
+        // if (+localConfig?.score !== this.score) {
+        //     this.score = +localConfig?.score
+        //     // console.log(localConfig);
+        //     if (this.score >= 1) {
+        //         this.player.setScale(this.score);
+        //     }
+        //     // if (this.score === 3) {
+        //     //     this.appleTree.anims.play('big', true)
+        //     // } else if (this.score >= 2) {
+        //     //     this.appleTree.anims.play('midle', true)
+        //     // } else if (this.score >= 1) {
+        //     //     this.appleTree.anims.play('small', true)
+        //     // }
+        // }
 
         if (this.gameState === GameState.Playing) {
             this.movePlayerManager();
@@ -212,7 +216,7 @@ export class MainScene extends Phaser.Scene {
             // bomb
             this.bombs.getChildren()?.forEach((bomb: any) => {
                 if (Phaser.Math.RND.frac() < 0.02) {
-                    this.physics.moveToObject(bomb, this.player, 120 + this.scoreCount);
+                    this.physics.moveToObject(bomb, this.player, 110 + this.scoreCount);
                 }
             });
         } else {
@@ -334,8 +338,12 @@ export class MainScene extends Phaser.Scene {
         player.anims.play('idle', true);
         this.scoreCount += 1;
         this.scoreText.setText(`Score: ${this.scoreCount}`);
-
         this.eatAppleSound.play();
+
+        if (this.scoreCount % 10 === 0 && this.playerScale < 3) {
+            this.playerScale += 0.1;
+            this.player.setScale(this.playerScale);
+        }
     }
 
     createApple() {
@@ -395,7 +403,6 @@ export class MainScene extends Phaser.Scene {
         this.player.body.setSize(40, 50);
         this.player.body.setOffset(10, 10);
 
-        this.player.setScale(this.score);
         this.target = new Phaser.Math.Vector2();
 
         this.player.anims.create({

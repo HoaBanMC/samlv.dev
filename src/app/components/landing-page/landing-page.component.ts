@@ -32,9 +32,9 @@ export class LandingPageComponent {
 
   onChangeScore(value) {
     if (+value === 1) {
-      this.score += 0.2;
+      this.score += 0.1;
     } else if (+value === -1) {
-      this.score -= 0.2;
+      this.score -= 0.1;
     }
 
     if (this.score < 1) {
