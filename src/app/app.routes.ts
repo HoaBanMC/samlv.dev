@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HomeComponent } from './modules/home/home.component';
+import { GameWordleComponent } from './components/game-wordle/game-wordle.component';
 
 export const routes: Routes = [
   {
@@ -19,5 +20,9 @@ export const routes: Routes = [
   {
     path: 'dodge-the-bombs',
     component: LandingPageComponent
+  },
+  {
+    path: 'game-wordle',
+    component: GameWordleComponent
   },
 ];
