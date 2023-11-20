@@ -1,16 +1,13 @@
 .game-container {
-    width: 100vw;
-    height: 100vh;
-    max-height: 100dvh;
     position: relative;
     background: #4d4d4d;
 
     iframe {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, 10px);
+        position: fixed;
+        left: 0;
+        top: 0;
         background-color: #4d4d4d;
-        width: 97dvw;
-        height: 95dvh;
+        width: 100vw;
+        height: 100vh;
     }
 }
