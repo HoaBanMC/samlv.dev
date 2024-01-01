@@ -4,12 +4,17 @@ import { HomeComponent } from './modules/home/home.component';
 import { GameWordleComponent } from './components/game-wordle/game-wordle.component';
 import { MyFarmComponent } from './components/my-farm/my-farm.component';
 import { SimpleRPGComponent } from './components/simple-rpg/simple-rpg.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   // {
   //   path: '',
