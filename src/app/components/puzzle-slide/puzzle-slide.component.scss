@@ -1,0 +1,13 @@
+.game-container {
+    position: relative;
+    background: #4d4d4d;
+
+    iframe {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: #4d4d4d;
+        width: 100vw;
+        height: 100vh;
+    }
+}

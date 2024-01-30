@@ -5,11 +5,12 @@ import { GameWordleComponent } from './components/game-wordle/game-wordle.compon
 import { MyFarmComponent } from './components/my-farm/my-farm.component';
 import { SimpleRPGComponent } from './components/simple-rpg/simple-rpg.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { PuzzleSlideComponent } from './components/puzzle-slide/puzzle-slide.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
@@ -40,4 +41,8 @@ export const routes: Routes = [
     path: 'simple-rpg',
     component: SimpleRPGComponent
   },
+  {
+    path: 'puzzle-slide',
+    component: PuzzleSlideComponent
+  }
 ];
