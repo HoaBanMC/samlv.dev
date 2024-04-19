@@ -1,11 +1,7 @@
 import { Routes } from '@angular/router';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HomeComponent } from './modules/home/home.component';
-import { GameWordleComponent } from './components/game-wordle/game-wordle.component';
-import { MyFarmComponent } from './components/my-farm/my-farm.component';
-import { SimpleRPGComponent } from './components/simple-rpg/simple-rpg.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { PuzzleSlideComponent } from './components/puzzle-slide/puzzle-slide.component';
+import { ConvertXlsx2JsonComponent } from './features/convert-xlsx-2-json/convert-xlsx-2-json.component';
 
 export const routes: Routes = [
   {
@@ -26,23 +22,11 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'dodge-the-bombs',
-    component: LandingPageComponent
+    path: 'games',
+    loadChildren: () => import('./games/games.routes').then(m => m.routes)
   },
   {
-    path: 'game-wordle',
-    component: GameWordleComponent
+    path: 'features',
+    loadChildren: () => import('./features/features.routes').then(m => m.routes)
   },
-  {
-    path: 'my-farm',
-    component: MyFarmComponent
-  },
-  {
-    path: 'simple-rpg',
-    component: SimpleRPGComponent
-  },
-  {
-    path: 'puzzle-slide',
-    component: PuzzleSlideComponent
-  }
 ];

@@ -1,0 +1,63 @@
+<div class="game-preview">
+    <div class="game-title">
+        GAME PREVIEW
+    </div>
+    <div class="game-name">
+        Bug không tự mất đi mà nó chỉ chuyển từ bug này sang bug kia
+    </div>
+</div>
+<div class="middle-content">
+    <div class="game-info">
+        <div class="game-code">
+            Game Code: 123456
+        </div>
+        <div class="subject-code">
+            English
+        </div>
+        <div class="turnon-answer">
+            <div class="btn-switch">
+                <label for="switch-box" [class.show]="isCheckShowHide" [class.hide]="!isCheckShowHide">
+                    <span id="switch-show">Show</span>
+                    <span id="switch-blank">&nbsp;</span>
+                    <span id="switch-hide">Hide</span>
+                    <input type="checkbox" [checked]="isCheckShowHide" (click)="onShowHide()" name="switch-box"
+                        id="switch-box">
+                </label>
+            </div>
+        </div>
+        <div class="button-features">
+            <div class="btn-feature">
+                Play
+            </div>
+            <div class="btn-feature">
+                Edit
+            </div>
+            <div class="btn-feature">
+                Study
+            </div>
+            <div class="btn-feature">
+                Slideshow
+            </div>
+        </div>
+    </div>
+    <div class="list-cards">
+        <div class="list-wrapper">
+            <ng-container *ngFor="let ques of listQuestion; index as index">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="title">
+                            Chọn đáp án đúng
+                        </div>
+                        <div class="content">
+                            Duy đi xe đạp hết con đường dài 9 km trong 0,75 giờ. Hỏi với vận tốc như vậy trong 3 giờ Duy
+                            đi được bao nhiêu km?
+                        </div>
+                    </div>
+                    <div class="ques-id">
+                        ID:374227
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
