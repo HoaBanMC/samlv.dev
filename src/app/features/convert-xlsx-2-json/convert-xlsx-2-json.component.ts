@@ -56,9 +56,9 @@ export class ConvertXlsx2JsonComponent {
           .slice(1)
           .map((value) => {
             return {
-              stt: value[0],
-              typeSchool: value[1],
               nameSchool: value[2],
+              typeSchool: value[1],
+              stt: value[0],
             };
           }).filter((item) => { return item.stt });
         console.log(this.refExcelData);

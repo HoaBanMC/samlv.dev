@@ -1,3 +1,5 @@
+@import "../../../scss/mathplay.scss";
+
 .game-preview {
     width: 100%;
     padding: 30px;
@@ -23,6 +25,7 @@
     display: flex;
 
     .game-info {
+        background-color: #fff;
         width: 300px;
         min-height: 320px;
         height: fit-content;
@@ -112,7 +115,7 @@
                 }
             }
         }
-
+        
         .button-features {
             width: 100%;
             display: flex;
@@ -121,6 +124,8 @@
             gap: 5px;
 
             .btn-feature {
+                width: 100%;
+                max-width: 300px;
                 background: #fb4d3d;
                 color: #fff;
                 transition: all 0.2s;
@@ -128,6 +133,7 @@
                 border-radius: 8px;
                 padding: 7px 10px;
                 text-align: center;
+                margin: auto;
 
                 &:hover {
                     background: #c83d30;
@@ -138,7 +144,7 @@
 
     .list-cards {
         width: calc(100vw - 320px);
-        padding: 0 10px;
+        padding-left: 10px;
 
         .list-wrapper {
             display: flex;
@@ -147,7 +153,7 @@
 
             .card {
                 width: 100%;
-                min-height: 320px;
+                min-height: 120px;
                 height: auto;
                 border-radius: 8px;
                 cursor: pointer;
@@ -159,6 +165,119 @@
 
                 &:hover {
                     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                }
+
+                color: $main-color;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .middle-content {
+        flex-direction: column;
+
+        .game-info {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .list-cards {
+            padding-left: 0;
+            width: 100%;
+            flex-grow: 1;
+        }
+    }
+}
+
+.card-open {
+    width: 90vw;
+    height: 90vh;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .card-open-top {
+        width: 100%;
+        background-color: #3f71ce;
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+
+        .card-open-point {
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fac663;
+        }
+
+        .card-open-x {
+            width: 52px;
+            height: 100%;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            opacity: 0.2;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.01);
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .card-open-content {
+        padding: 10px;
+        height: calc(90vh - 75px);
+        max-height: calc(90dvh - 75px);
+
+        .list-game {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            gap: 10px;
+
+            .game-card {
+                width: 300px;
+                height: 350px;
+                border-radius: 10px;
+                cursor: pointer;
+                box-shadow:
+                    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+                    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                overflow: hidden;
+                padding: 10px;
+
+                &:hover {
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                }
+
+                color: $main-color;
+
+                .game-card-img {
+                    max-width: 100%;
+                    img {
+                        width: 100%;
+                        max-height: 100%;
+                    }
+                }
+
+                .game-card-name {
+                    width: 100%;
+                    text-align: center;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-height: 55px;
+                    font-size: 1.2rem;
+                    flood-color: $main-color;
                 }
             }
         }

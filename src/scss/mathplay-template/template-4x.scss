@@ -1,0 +1,1028 @@
+@import "./share-func.scss";
+
+.template-40 {
+    color: $main-color !important;
+
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .heading {
+        margin-top: -1rem;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 25px !important;
+    }
+
+    .thread {
+        text-align: center;
+        font-size: 19px !important;
+    }
+
+    .question {
+        margin-top: -1.5rem;
+        text-align: center !important;
+        display: flex;
+        padding: 1rem;
+        justify-content: space-around;
+        position: relative;
+
+        .group1 {
+            width: 40%;
+            display: inline-block;
+            text-align: center !important;
+        }
+
+        .group2 {
+            width: 40%;
+            display: inline-block;
+            text-align: center !important;
+        }
+
+        .group3 {
+            width: 40%;
+            display: inline-block;
+            text-align: center !important;
+        }
+
+        .group4 {
+            width: 40%;
+            display: inline-block;
+            text-align: center !important;
+        }
+
+        .cardx {
+            height: calc(23vh - 100px);
+            min-width: 5rem;
+            min-height: 100px;
+            margin: 0;
+            margin-top: 0.75rem;
+            color: $white-color;
+            font-size: $font-normal-size;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-shadow: #d1dbf5 1px 5px 1px !important;
+            position: relative;
+            overflow: auto;
+
+            &:hover {
+                background-color: $button-background-yellow !important;
+            }
+
+            img {
+                max-width: 100% !important;
+                max-height: 100% !important;
+            }
+
+            .position {
+                width: 3px;
+            }
+        }
+
+        .cardx-audio {
+            .play-audio {
+                width: 6rem;
+                height: 5rem;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 1rem center,
+                    left 3.8rem center,
+                    left 3.8rem center;
+                background-size: 2.5rem, 1.75rem, 1.75rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: all 0.1s ease;
+            }
+
+            .opacityAudio {
+                animation: clickAudioCardAnim 0.5s forwards;
+            }
+        }
+
+        .cardx-text {
+            color: $main-color !important;
+            padding: 5px;
+
+            span {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .text-small {
+                font-size: $font-normal-size;
+            }
+
+            .text-big {
+                font-size: $font-large-size;
+                font-weight: 600;
+            }
+        }
+
+        .cardx.selected {
+            background-color: $button-background-yellow !important;
+            box-shadow: none !important;
+            top: 5px;
+            color: $white-color !important;
+        }
+    }
+
+    .div-reset {
+        text-align: center !important;
+    }
+
+    .btn-reset {
+        display: inline-block;
+        line-height: 1;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: $white-color;
+        background-color: #b1b1b1 !important;
+        padding: 10px 15px 10px 15px;
+        transition: 0.2s all ease-in;
+        border: none !important;
+    }
+
+    .content {
+        margin: auto;
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+                margin: auto;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+            // font-weight: 600;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid #6dc8ed;
+                width: 3rem;
+                outline: none;
+                color: #6dc8ed;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid #6dc8ed;
+                color: #6dc8ed;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+.template-43 {
+    .title {
+        color: $main-color;
+        font-size: $font-large-size;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .note {
+        font-size: $font-small-size;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .content {
+        margin: auto;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 0;
+        max-width: 500px;
+    }
+
+    .table-input {
+        max-width: 100%;
+        text-align: center;
+        line-height: 0;
+        border-color: $button-background-yellow;
+        border-radius: 25px;
+        width: 200px;
+        color: $pink-color;
+
+        &:focus {
+            outline: none;
+            box-shadow: inset 0 0 1px 1px $button-background-yellow;
+        }
+    }
+
+    .table-input-frac {
+        max-width: 100%;
+        text-align: center;
+        line-height: 0;
+        border-color: #dd851e;
+        width: 50px;
+        color: rgb(34, 179, 10);
+
+        &:focus {
+            outline: none;
+            box-shadow: inset 0 0 1px 1px #dd851e;
+        }
+    }
+
+    .table-bor {
+        // margin-top: 10px;
+        height: 0px;
+        border: 0;
+        border-top: 1px solid #000;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+
+        .flex-div {
+            width: 40px;
+            margin: 5px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 30px;
+        }
+
+        .flex-div-2 {
+            width: 300px;
+            margin: 5px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 30px;
+        }
+
+        .flex-div-3 {
+            width: 40px;
+            margin: 5px;
+            text-align: center;
+            line-height: 15px;
+            font-size: 30px;
+        }
+
+        .cal-input {
+            height: 35px;
+            position: relative;
+            top: -10px;
+        }
+    }
+
+    .content {
+        margin: auto;
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+                margin: auto;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+        font-size: 30px;
+        width: 100%;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+            display: flex;
+            width: 100%;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid $button-background-yellow;
+                min-width: 3rem !important;
+                width: 3rem;
+                outline: none;
+                color: $pink-color;
+                text-align: center;
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid $button-background-yellow;
+                color: $pink-color;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                // font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+
+            .line-left {
+                flex: 45%;
+                padding: 0px;
+                letter-spacing: 3px;
+                text-align: left;
+                align-self: center;
+            }
+
+            .line-right {
+                flex: 45%;
+                padding: 0px;
+                letter-spacing: 3px;
+                text-align: right;
+                align-self: center;
+            }
+
+            .line-center {
+                flex: 10%;
+                text-align: center;
+                align-self: center;
+            }
+
+            .block-content {
+                text-align: center;
+                display: inline-block;
+                width: fit-content;
+            }
+        }
+    }
+
+    @for $i from 1 through 20 {
+        .top-size-#{$i} {
+            top: #{0 + (-0.1 * $i)}rem !important;
+            position: relative !important;
+        }
+    }
+
+    @for $i from 1 through 20 {
+        .minwidth-size-#{$i} {
+            min-width: #{2 + $i}rem !important;
+        }
+    }
+
+    @for $i from 1 through 20 {
+        .size-#{$i} {
+            width: #{3 + $i}rem !important;
+        }
+    }
+
+    @for $i from 1 through 20 {
+        .input-size-#{$i} {
+            width: #{3 + $i}rem !important;
+        }
+    }
+}
+
+.template-41 {
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .heading {
+        margin-top: -1rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: $main-color !important;
+        font-size: 25px !important;
+    }
+
+    .thread {
+        text-align: center;
+        color: $main-color !important;
+        font-size: 19px !important;
+    }
+
+    .button-reset {
+        margin-top: -2rem;
+        color: $white-color;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 0.6em 0.8em;
+        text-align: center;
+        width: 6rem;
+        color: $white-color;
+        background-color: #b1b1b1 !important;
+        border-radius: 18px;
+        font-size: 13px;
+    }
+
+    .question {
+        margin-top: -1.5rem;
+        text-align: center !important;
+        display: flex;
+        padding: 1rem;
+        justify-content: center;
+        position: relative;
+
+        .group1 {
+            width: 60%;
+            display: inline-block;
+            text-align: center !important;
+            align-self: center;
+        }
+
+        .group2 {
+            width: 60%;
+            display: inline-block;
+            text-align: center !important;
+            align-self: center;
+        }
+
+        .group3 {
+            width: 60%;
+            display: inline-block;
+            text-align: center !important;
+            align-self: center;
+        }
+
+        .group4 {
+            width: 60%;
+            display: inline-block;
+            text-align: center !important;
+            align-self: center;
+        }
+
+        .cardx {
+            min-height: 4rem;
+            min-width: 8rem;
+            margin: 1.5rem 2rem;
+            border-radius: 10px;
+            color: $main-color !important;
+            font-size: $font-normal-size;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 10px;
+            background-color: #e2e9ff;
+            box-shadow: #d1dbf5 0px 5px 0px !important;
+            position: relative;
+
+            &:hover {
+                background-color: $button-background-yellow !important;
+            }
+
+            .position {
+                width: 3px;
+            }
+        }
+
+        .cardx-audio {
+            .play-audio {
+                width: 4rem;
+                height: 4rem;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 1rem center,
+                    left 2.4rem center,
+                    left 2.4rem center;
+                background-size: 1.2rem, 0.75rem, 0.75rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: all 0.1s ease;
+            }
+
+            .opacityAudio {
+                animation: clickAudioSmallAnim 0.5s forwards;
+            }
+        }
+
+        .cardx.selected {
+            background-color: $button-background-yellow !important;
+            box-shadow: none !important;
+            top: 5px;
+            color: $white-color !important;
+        }
+    }
+
+    .div-reset {
+        text-align: center !important;
+    }
+
+    .btn-reset {
+        display: inline-block;
+        line-height: 1;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: $white-color;
+        background-color: #b1b1b1 !important;
+        padding: 10px 15px 10px 15px;
+        transition: 0.2s all ease-in;
+        border: none !important;
+    }
+
+    .content {
+        margin: auto;
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+                margin: auto;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+            // font-weight: 600;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid #6dc8ed;
+                width: 3rem;
+                outline: none;
+                color: #6dc8ed;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid #6dc8ed;
+                color: #6dc8ed;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+.template-42 {
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .heading {
+        margin-top: -1rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: $main-color !important;
+        font-size: 25px !important;
+    }
+
+    .thread {
+        text-align: center;
+        color: $main-color !important;
+        font-size: 19px !important;
+    }
+
+    .button-reset {
+        margin-top: -2rem;
+        color: $white-color;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 0.6em 0.8em;
+        text-align: center;
+        width: 6rem;
+        color: $white-color;
+        background-color: #b1b1b1 !important;
+        border-radius: 18px;
+        font-size: 13px;
+    }
+
+    .question {
+        margin-top: -1.5rem;
+        text-align: center !important;
+        display: inline-block;
+        padding: 1rem 0rem;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+
+        .group1 {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: center !important;
+            justify-content: center;
+        }
+
+        .group2 {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: center !important;
+            justify-content: center;
+        }
+
+        .group3 {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: center !important;
+            justify-content: center;
+        }
+
+        .group4 {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: center !important;
+            justify-content: center;
+        }
+
+        .cardx {
+            position: relative;
+            min-width: 5rem;
+            margin: 1.5rem 2rem;
+            font-size: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            box-shadow: #d1dbf5 0px 5px 0px !important;
+            color: $main-color !important;
+            background-color: #e2e9ff;
+
+            .position {
+                width: 3px;
+            }
+
+            &:hover {
+                background-color: $button-background-yellow !important;
+            }
+        }
+
+        .cardx.selected {
+            background-color: $button-background-yellow !important;
+            box-shadow: none !important;
+            top: 5px;
+            color: $white-color !important;
+        }
+    }
+
+    .question-explain {
+        margin-top: -1.5rem;
+        text-align: center !important;
+        display: inline-block;
+        padding: 1rem 0rem;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+
+        .group1 {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: center !important;
+            justify-content: center;
+        }
+
+        .group2 {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-align: center !important;
+            justify-content: center;
+        }
+
+        .cardx {
+            cursor: pointer;
+            min-width: 5rem;
+            margin: 1.5rem 2rem;
+            font-size: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #2f89fc;
+
+            .position {
+                width: 3px;
+            }
+        }
+
+        .cardx.selected {
+            background-color: $white-color !important;
+            box-shadow: 8px 8px 8px #64c4ed !important;
+            border: none !important;
+        }
+    }
+
+    .card-text {
+        margin: 1.5rem 0.5rem !important;
+        padding: 0px 10px;
+    }
+
+    .card-text-long {
+        font-size: 15px !important;
+        width: 15rem !important;
+        margin: 1.5rem 0.5rem !important;
+        height: auto !important;
+        padding: 0.5rem !important;
+    }
+
+    .card-image {
+        margin: 1.5rem 0.2rem !important;
+        padding: 2px !important;
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            max-height: none !important;
+        }
+    }
+
+    .div-reset {
+        text-align: center !important;
+    }
+
+    .btn-reset {
+        display: inline-block;
+        line-height: 1;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: $white-color;
+        background-color: #b1b1b1 !important;
+        padding: 10px 15px 10px 15px;
+        transition: 0.2s all ease-in;
+        border: none !important;
+    }
+
+    .content {
+        margin: auto;
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+                margin: auto;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+            // font-weight: 600;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid #6dc8ed;
+                width: 3rem;
+                outline: none;
+                color: #6dc8ed;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid #6dc8ed;
+                color: #6dc8ed;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

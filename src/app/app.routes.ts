@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { ConvertXlsx2JsonComponent } from './features/convert-xlsx-2-json/convert-xlsx-2-json.component';
 
 export const routes: Routes = [
   {

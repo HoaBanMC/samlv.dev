@@ -1,0 +1,1275 @@
+@import "./share-func.scss";
+
+.template-23 {
+    color: $main-color !important;
+    text-align: justify;
+
+    .dialogue {
+        text-align: justify !important;
+    }
+
+    .content-justify {
+        margin: 0 auto !important;
+        width: fit-content;
+    }
+
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .list-selection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .select-item {
+            background: $main-color;
+            color: $white-color;
+            border-radius: 3rem;
+            min-width: 5rem;
+            text-align: center;
+            margin: 0.25rem;
+            padding: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+
+    .content {
+        margin: auto;
+        text-align: center;
+
+        .text-small {
+            text-align: center;
+            width: 100% !important;
+            width: fit-content;
+            padding: 0.75rem;
+            margin: 0.75rem auto;
+            font-size: $font-normal-size;
+            border-radius: 1.5rem;
+            border: 1px dashed $main-color;
+        }
+
+        .text-big {
+            text-align: center;
+            width: 100% !important;
+            min-width: 10rem;
+            width: fit-content;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem auto;
+            font-size: $font-large-size;
+            font-weight: 600;
+            border-radius: 2rem;
+            border: 1px dashed $main-color;
+        }
+
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 70%;
+                margin: auto;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .content-audio {
+        position: relative;
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        .play-audio {
+            width: 9rem;
+            height: 9rem;
+            background-color: #e2e9ff;
+            background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+            background-position:
+                left 2rem center,
+                left 5.1rem center,
+                left 5.1rem center;
+            background-size: 3rem, 2rem, 2rem;
+            background-repeat: no-repeat;
+            margin-right: 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: #b8c9ff 0px 5px 0px;
+            transition: all 0.1s ease;
+            position: relative;
+
+            &:hover {
+                background-color: #c9d6ff !important;
+            }
+        }
+
+        .clickAudio {
+            box-shadow: none !important;
+            top: 5px;
+            animation: clickAudioAnim 0.5s forwards;
+            background-color: #c9d6ff !important;
+        }
+
+        .clickAudioSlow {
+            box-shadow: none !important;
+            top: 5px;
+            animation: clickAudioAnimSlow 0.5s forwards;
+            background-color: #c9d6ff !important;
+        }
+
+        .play-audio-slow {
+            width: 7rem;
+            height: 7rem;
+            background-color: #e2e9ff;
+            background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+            background-position:
+                left 1.5rem center,
+                left 4.6rem center,
+                left 4.6rem center;
+            background-size: 3rem, 1rem, 1rem;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: #b8c9ff 0px 5px 0px;
+            position: relative;
+            transition: all 0.1s ease;
+
+            &:hover {
+                background-color: #c9d6ff !important;
+            }
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid $main-color;
+                min-width: 3rem !important;
+                outline: none;
+                color: #ff84a2 !important;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid $main-color;
+                color: #ff84a2 !important;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    .table-answer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin: auto;
+
+        .line {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            margin: 1rem 2rem;
+
+            .title {
+                width: 100%;
+                height: 36px;
+                font-size: 1rem;
+                font-weight: 700;
+                color: $main-color;
+            }
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid $main-color;
+                width: 3rem;
+                outline: none;
+                color: #ff84a2 !important;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+        }
+    }
+
+    .answer-textarea {
+        width: 100% !important;
+        margin: auto;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: 100% !important;
+
+            textarea {
+                // resize: none;
+                scroll-padding: 50px 0 50px 0;
+                width: 100% !important;
+                display: block;
+                padding: 12px 15px 15px;
+                border: 1px dashed $main-color;
+                border-radius: 2rem;
+                outline: none;
+                font-size: $font-normal-size;
+                color: $main-color !important;
+
+                &::-webkit-scrollbar {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    .title-max {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .answer-input-max {
+        width: fit-content;
+        margin: auto !important;
+        text-align: center;
+        font-size: 30px;
+
+        .line-max {
+            text-align: center;
+            margin: 0.5rem auto;
+            width: fit-content;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid $main-color;
+                outline: none;
+                color: #ff84a2 !important;
+                text-align: center;
+                font-size: 30px;
+                width: 3rem;
+            }
+        }
+    }
+
+    .answer-input-audio {
+        font-size: $font-large-size;
+        text-align: center;
+
+        input {
+            margin: 0.1rem 0rem;
+            border-width: 0px 0px 2px;
+            border-color: $main-color !important;
+            color: #ff84a2 !important;
+            border-style: dashed;
+            outline: none;
+            text-align: center;
+            font-size: $font-large-size;
+            min-width: 3rem !important;
+        }
+
+        .answer-value {
+            margin: 0.1rem 0rem;
+            border-width: 0px 0px 2px;
+            border-color: $main-color !important;
+            border-style: dashed;
+            outline: none;
+            text-align: center;
+            font-size: $font-large-size;
+        }
+    }
+
+    @for $i from 1 through 20 {
+        .input-size-#{$i} {
+            width: #{3 + $i}rem !important;
+        }
+    }
+
+    .fa-share {
+        transform: rotate(45deg);
+        color: $button-background-yellow;
+        font-size: $font-large-size;
+    }
+
+    .fa-reply {
+        transform: rotate(135deg);
+        color: $button-background-yellow;
+        font-size: $font-large-size;
+    }
+
+    .can-resize-second {
+        padding: 0;
+        min-width: 1rem;
+    }
+
+    .ans-span-second {
+        position: absolute;
+        height: 0;
+        overflow: hidden;
+        white-space: pre;
+        margin: 0;
+        padding: 0 0.5rem;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+        -webkit-appearance: textfield;
+        appearance: textfield;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+}
+
+.text-pink {
+    color: #ff84a2 !important;
+    font-weight: 600 !important;
+}
+
+.template-24 {
+    color: $main-color !important;
+
+    .dialogue {
+        text-align: justify !important;
+    }
+
+    .content-justify {
+        margin: 0 auto !important;
+        width: fit-content;
+    }
+
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .title-max {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .vertical-container {
+        display: flex;
+        flex-direction: row;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+        max-width: 1000px;
+
+        .content,
+        .list-selection {
+            flex: 50%;
+            flex-grow: 1;
+        }
+
+        .list-selection {
+            padding-left: 20px;
+        }
+
+        .content {
+        margin: auto;
+            img {
+                max-width: 100% !important;
+                max-height: 100%;
+                min-width: 10rem !important;
+            }
+        }
+    }
+
+    .content {
+        margin: auto;
+        text-align: center;
+        color: $main-color !important;
+        font-size: $font-normal-size;
+        margin: auto;
+
+        .text-small {
+            width: fit-content;
+            padding: 0.75rem;
+            margin: 0.75rem auto;
+            border-radius: 1.5rem;
+            border: 1px dashed $main-color;
+        }
+
+        .text-big {
+            min-width: 10rem;
+            width: fit-content;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem auto;
+            font-size: $font-large-size;
+            font-weight: 600;
+            border-radius: 2rem;
+            border: 1px dashed $main-color;
+        }
+
+        .content-audio {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            .play-audio {
+                width: 9rem;
+                height: 9rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 2rem center,
+                    left 5.1rem center,
+                    left 5.1rem center;
+                background-size: 3rem, 2rem, 2rem;
+                background-repeat: no-repeat;
+                margin-right: 1rem;
+                cursor: pointer;
+                border-radius: 20px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                transition: all 0.1s ease;
+                position: relative;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+
+            .clickAudio {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioAnim 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+
+            .clickAudioSlow {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioAnimSlow 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+
+            .play-audio-slow {
+                width: 7rem;
+                height: 7rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 1.5rem center,
+                    left 4.6rem center,
+                    left 4.6rem center;
+                background-size: 3rem, 1rem, 1rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                border-radius: 20px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                position: relative;
+                transition: all 0.1s ease;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+        }
+
+        .content-audio-imgs {
+            text-align: center;
+            margin: 1rem auto;
+            position: relative;
+            max-width: 600px;
+            height: auto;
+            background-color: #eaeefa;
+            border-radius: 20px;
+            display: flex;
+            padding: 0.75rem;
+
+            .play-audio {
+                width: 4rem;
+                height: 4rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 1rem center,
+                    left 2.4rem center,
+                    left 2.4rem center;
+                background-size: 1.2rem, 0.75rem, 0.75rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                border-radius: 10px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                position: relative;
+                transition: all 0.1s ease;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+
+            .clickAudioSmall {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioSmallAnim 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+
+            .text-audio-big {
+                min-width: calc(100% - 6rem);
+                font-size: $font-large-size;
+                font-weight: 600;
+                text-align: center;
+                padding: 10px 15px;
+            }
+
+            .text-audio-small {
+                min-width: calc(100% - 6rem);
+                font-size: $font-normal-size;
+                text-align: left !important;
+                padding: 10px 15px 10px 5px;
+            }
+        }
+
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+
+        .font-max {
+            font-size: 25px;
+        }
+    }
+
+    .list-selection {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+        .select-item {
+            margin: 0.5rem;
+            // min-width: 5rem;
+            font-weight: bold;
+            font-size: $font-normal-size;
+
+            input {
+                display: none;
+            }
+
+            label {
+                cursor: pointer;
+                background: #eaeefa;
+                color: $main-color !important;
+                border-radius: 10px !important;
+                padding: 0.5rem 1rem;
+                text-align: center;
+                min-width: 5rem;
+                font-weight: 500;
+                text-align: center;
+                position: relative;
+                box-shadow: #b8c9ff 0px 2px 0px;
+                transition: all 0.1s ease;
+                display: block;
+                // justify-content: center;
+                // white-space: pre;
+
+                sup {
+                    top: 0.5em !important;
+                }
+
+                i {
+                    font-size: 30px;
+                    padding: 3px 12px;
+                }
+
+                &:hover {
+                    background: $button-background-yellow !important;
+                    color: $white-color !important;
+
+                    .note {
+                        background-image: url("https://mathplay-library.s3.amazonaws.com/icon-template/note-active.svg") !important;
+                        color: $button-background-yellow !important;
+                    }
+                }
+
+                .play-audio-option {
+                    width: 6rem;
+                    height: 5.5rem;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                    background-position:
+                        left 1rem center,
+                        left 3.8rem center,
+                        left 3.8rem center;
+                    background-size: 2.5rem, 1.75rem, 1.75rem;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                    transition: all 0.1s ease;
+                    margin: 1rem auto 0.5rem auto;
+                    display: block;
+                }
+
+                .note {
+                    position: absolute;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/icon-template/note.svg");
+                    background-position: top center;
+                    background-repeat: no-repeat;
+                    background-size: 35px 35px;
+                    color: $white-color;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    text-align: center;
+                    top: -5px;
+                    left: 10px;
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+
+            input[type="radio"]:checked + label > .note {
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-template/note-active.svg") !important;
+                color: $button-background-yellow !important;
+            }
+
+            input[type="radio"]:checked + label {
+                background: $button-background-yellow !important;
+                color: $white-color !important;
+                box-shadow: none !important;
+                top: 2px;
+
+                &::before {
+                    content: none !important;
+                }
+            }
+
+            input[type="checkbox"] + label {
+                padding-left: 40px !important;
+            }
+
+            input[type="checkbox"] + label::before {
+                content: " ";
+                display: block;
+                height: 18px;
+                width: 18px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            input[type="checkbox"] + label::after {
+                content: " ";
+                display: block;
+                height: 16px;
+                width: 16px;
+                border: 2px solid #9ba4c1;
+                transition: 200ms;
+                position: absolute;
+                top: 12px;
+                left: 15px;
+            }
+
+            input[type="checkbox"]:checked + label {
+                background: $button-background-yellow !important;
+                color: $white-color !important;
+                box-shadow: none !important;
+                top: 2px;
+                transition: 100ms ease-in-out;
+
+                &::before {
+                    content: none !important;
+                }
+
+                &::after {
+                    border-top-style: none !important;
+                    border-right-style: none !important;
+                    transform: rotate(-45deg) !important;
+                    height: 8px !important;
+                    border-color: $white-color !important;
+                }
+            }
+
+            img {
+                max-width: 200px;
+            }
+        }
+    }
+
+    .text-max {
+        font-size: 30px !important;
+    }
+
+    .vertical {
+        flex-flow: column;
+        width: fit-content;
+        margin: auto;
+
+        label {
+            width: 100%;
+            text-align: left !important;
+        }
+
+        img {
+            max-width: 100% !important;
+        }
+    }
+
+    .vertical-sort {
+        flex-flow: column;
+        margin: auto;
+        width: 100%;
+        max-width: 400px;
+
+        label {
+            width: 100%;
+            text-align: center !important;
+        }
+
+        img {
+            max-width: 100% !important;
+        }
+    }
+
+    .img-content {
+        input {
+            display: none;
+        }
+
+        label {
+            background: $white-color !important;
+            padding: 0.25rem !important;
+
+            img {
+                border-radius: 1rem;
+            }
+        }
+    }
+
+    .img-content-4 {
+        width: 80% !important;
+        max-width: 480px;
+        flex-wrap: wrap !important;
+        margin: auto;
+
+        .select-item {
+            flex: 40%;
+
+            input {
+                display: none;
+            }
+
+            label {
+                width: 100%;
+                height: 100%;
+                background: $white-color !important;
+                box-shadow: 0px 3px 5px 1px #d1dbf5;
+                padding: 0.25rem !important;
+                cursor: pointer;
+
+                img {
+                    border-radius: 1rem;
+                    width: 100%;
+                }
+            }
+
+            input[type="checkbox"] + label {
+                padding: 0.25rem !important;
+            }
+
+            input[type="checkbox"]:checked + label::after {
+                border-color: $main-color !important;
+            }
+        }
+    }
+
+    @for $i from 1 through 360 {
+        .rotate-size-#{$i} {
+            transform: rotate(#{$i}deg);
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+            // font-weight: 600;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid #6dc8ed;
+                width: 3rem;
+                outline: none;
+                color: #6dc8ed;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid #6dc8ed;
+                color: #6dc8ed;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .answer-display-big {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid #6dc8ed;
+                color: #6dc8ed;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .list-selection {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.template-26 {
+    color: $main-color !important;
+
+    .dialogue {
+        text-align: justify !important;
+    }
+
+    .content-justify {
+        margin: 0 auto !important;
+        width: fit-content;
+    }
+
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .content {
+        margin: auto;
+        text-align: center;
+
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .content-question {
+        width: fit-content;
+        margin: auto;
+
+        .mathplay-question {
+            display: flex;
+            padding: 0.5rem;
+
+            .question-value {
+                flex-grow: 1;
+                padding: 0.5rem;
+
+                .fa-share {
+                    transform: rotate(45deg);
+                    color: $pink-color;
+                    font-size: $font-large-size;
+                }
+
+                .fa-reply {
+                    transform: rotate(135deg);
+                    color: $pink-color;
+                    font-size: $font-large-size;
+                }
+            }
+
+            .mathplay-answer {
+                margin: auto;
+
+                input {
+                    display: none;
+                }
+
+                label {
+                    border-radius: 1rem;
+                    background: #e2e9ff;
+                    color: $main-color !important;
+                    margin: 0.25rem;
+                    padding: 0.25rem;
+                    width: 4rem;
+                    text-align: center;
+                }
+
+                input[type="radio"]:checked + label {
+                    background: $button-background-yellow;
+                    color: $white-color !important;
+
+                    &::before {
+                        content: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .answer-input {
+        width: fit-content;
+        margin: auto !important;
+
+        .line {
+            text-align: justify;
+            margin: 0.5rem 0;
+            width: fit-content;
+            // font-weight: 600;
+
+            input {
+                margin: 0.1rem 0rem;
+                border-radius: 10px !important;
+                border: 1.5px solid #6dc8ed;
+                width: 3rem;
+                outline: none;
+                color: #6dc8ed;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @for $i from 1 through 20 {
+                .input-size-#{$i} {
+                    width: #{3 + $i}rem;
+                }
+            }
+
+            .answer-display {
+                margin: 0.1rem 0rem;
+                border-radius: 10px;
+                border: 1.5px solid #6dc8ed;
+                color: #6dc8ed;
+                display: inline-block;
+                text-align: center;
+                padding: 1px 0.25rem;
+                min-width: 3rem;
+                font-weight: 600;
+            }
+
+            .question-img {
+                display: flex;
+
+                .content-question {
+                    width: 60%;
+                }
+
+                .img-question {
+                    width: 40%;
+                    padding: 0 0.5rem;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+            .fraction {
+                display: inline-block;
+                transform: translate(0, 25%);
+
+                .number-1 {
+                    padding: 5px;
+                    border-bottom: 1px solid;
+                }
+
+                .number-2 {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+.template-25 {
+    .text-drag {
+        color: rgb(47, 177, 230);
+        font-size: 35px;
+    }
+
+    .cont-drag {
+        float: left;
+        height: 100px;
+    }
+
+    .img-drag {
+        width: 80px;
+        height: 80px;
+    }
+
+    .drag-box {
+        width: 90%;
+        display: inline-block;
+        height: auto;
+        min-height: 80px;
+    }
+
+    .drag-box-title-1 {
+        display: inline-block;
+        width: 100%;
+        padding-bottom: 10px;
+        font-size: 18px;
+        background-color: #61cffa;
+        color: $white-color;
+        padding-top: 10px;
+        font-weight: bold;
+        border-radius: 10px 0px 0px 0px;
+    }
+
+    .drag-box-title-2 {
+        display: inline-block;
+        width: 100%;
+        padding-bottom: 10px;
+        font-size: 18px;
+        background-color: #61cffa;
+        color: $white-color;
+        padding-top: 10px;
+        font-weight: bold;
+        border-radius: 0px 10px 0px 0px;
+    }
+
+    .drag-box-container-1 {
+        display: inline-block;
+        background-color: $white-color;
+        text-align: center;
+        vertical-align: top;
+        width: 300px;
+        border: 0.5px solid #d8dadb;
+        border-radius: 10px 10px 0px 10px;
+        min-height: 220px;
+    }
+
+    .drag-box-container-2 {
+        display: inline-block;
+        background-color: $white-color;
+        text-align: center;
+        vertical-align: top;
+        width: 300px;
+        border: 0.5px solid #d8dadb;
+        border-radius: 10px 10px 10px 0px;
+        min-height: 220px;
+    }
+
+    .dropable-200 {
+        height: 200px;
+    }
+
+    .col-left {
+        float: left;
+    }
+}
+
+.template-28 {
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .content {
+        margin: auto;
+        text-align: center;
+    }
+
+    .question-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .answer-item {
+            cursor: grab;
+            background: #3ab5e7;
+            color: $white-color;
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            min-width: 3rem;
+            margin: 0.25rem;
+
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+}
+
+.template-30 {
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+        color: $main-color !important;
+    }
+
+    .question-content {
+        .answer-item {
+            input[type="text"] {
+                background: $white-color !important;
+            }
+        }
+    }
+
+    @include input-number-to-input(8);
+}

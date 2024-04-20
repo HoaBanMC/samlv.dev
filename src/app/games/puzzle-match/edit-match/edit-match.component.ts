@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './edit-match.component.html',
-  styleUrl: './edit-match.component.scss'
+  styleUrls: ['./edit-match.component.scss']
 })
 export class EditMatchComponent {
 

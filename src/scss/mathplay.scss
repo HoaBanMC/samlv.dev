@@ -1,0 +1,277 @@
+// this is special style for mathplay
+$main-color: #2b4182;
+$header-bar-matplay-height: 40px;
+
+.gu-mirror {
+    cursor: -webkit-grab !important;
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
+    filter: alpha(opacity=80) !important;
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.2 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)" !important;
+    filter: alpha(opacity=20) !important;
+}
+
+#step {
+    text-underline-offset: 3px;
+
+    .form-check-label {
+        width: 100% !important;
+        max-width: 450px !important;
+    }
+
+    .select-item {
+
+        // style for question name && hint (result data)
+        input+label {
+            position: relative;
+            cursor: pointer;
+            white-space: pre-wrap !important;
+            height: 100%;
+        }
+
+        input+label.form-check-label {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            transition: all 0.2s ease-in;
+        }
+
+        // input[type=radio]:checked + label.form-check-label, input[type=checkbox]:checked + label.form-check-label{
+        //     background:#1e9f98 !important;
+        // }
+        input[type="radio"]:checked+label.form-check-label:before,
+        input[type="checkbox"]:checked+label.form-check-label:before {
+            border: none;
+            content: none;
+        }
+
+        input[type="radio"]:checked+label,
+        input[type="checkbox"]:checked+label {
+            border-color: transparent;
+            animation: effect_dylan 0.2s ease-out;
+        }
+
+        input[type="radio"]:checked+label:before,
+        input[type="checkbox"]:checked+label:before {
+            content: "\f058";
+            color: #17bcba;
+            font-size: inherit;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid springgreen;
+            left: 0;
+            top: 0;
+        }
+
+        input[type="radio"]:checked+label.boolean:before {
+            content: "";
+        }
+    }
+
+
+    .question-name {
+        app-dynamic-html {
+            input[type="text"] {
+                // border: 1px solid #A7A6AA;
+                // border-radius: 0px !important;
+            }
+
+            input[type="text"]:focus {
+                outline: 0;
+                // border: solid 1px #009aef !important;
+                // box-shadow: 0 0 2px rgba(6,185,247,.65), 0 3px 0 rgba(5,166,222,.07) inset;
+                transition: 0.1s ease-in;
+            }
+        }
+
+        app-dragdrop-dynamic-html {
+            li {
+                cursor: -webkit-grab;
+            }
+        }
+
+        app-drawline-dynamic-html {
+            width: 100%;
+            position: relative;
+        }
+
+        app-drawline2-dynamic-html {
+            width: 100%;
+            position: relative;
+        }
+
+        // style for dynamic content
+        app-dynamic-html,
+        app-dragdrop-dynamic-html,
+        app-drawline-dynamic-html,
+        app-dragdrop-multiple-dynamic-html,
+        app-dynamic-colorpicker-html,
+        app-dynamic-check-boolean-html,
+        app-dynamic-html-circle-character,
+        app-dynamic-check-multiplechoices-html,
+        app-dragdrop-greensock-dynamic-html,
+        app-dragdrop-sort-greensock-dynamic-html {
+            color: $main-color !important;
+
+            width: 100%;
+            margin: auto;
+
+            img {
+                // height: auto !important;
+            }
+
+            .container {
+                all: unset;
+            }
+
+            b,
+            strong {
+                font-weight: bold;
+            }
+
+            .form-check {
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+        }
+
+        app-dragdrop-dynamic-html {
+            img {
+                height: 80px !important;
+            }
+
+            .list-drag {
+                min-height: 80px;
+                background: #fbfbfb;
+            }
+        }
+
+        app-drawline-dynamic-html {
+
+            img,
+            span {
+                pointer-events: none;
+            }
+
+            .custom-box {
+                cursor: pointer;
+                min-height: 12vh;
+                font-size: 16px !important;
+                padding: 5px;
+                line-height: normal;
+                margin: 5px !important;
+                height: auto !important;
+                border-radius: 5px !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                span {
+                    top: auto;
+                    font-size: 16px !important;
+                }
+
+                img {
+                    width: 80px !important;
+                    margin: auto !important;
+                }
+            }
+        }
+
+        app-dynamic-colorpicker-html {
+            .mathplay-select {
+
+                img,
+                span {
+                    pointer-events: none;
+                }
+            }
+        }
+
+        app-dynamic-check-boolean-html {
+            .mathplay-question .col-md-7 {
+                display: flex;
+
+                h3 {
+                    margin: auto !important;
+                    font-size: 15px !important;
+                }
+            }
+        }
+    }
+}
+
+.mathplay-step #step {
+    border: none;
+    box-shadow: none;
+}
+
+app-practice-step-hint {
+    input[type="text"] {
+        pointer-events: none;
+        border-radius: 0px !important;
+    }
+}
+
+.app-body.focus-mode .show-key-pad.key-pad-toggle {
+    max-height: calc(100vh - 265px) !important;
+}
+
+.mathplay-step .step-content {
+    top: $header-bar-matplay-height;
+    overscroll-behavior-y: contain;
+
+    .dropable-number {
+        height: auto !important;
+    }
+}
+
+@keyframes effect_dylan {
+    20% {
+        transform: scale(0.99, 0.99);
+    }
+
+    40% {
+        transform: scale(0.98, 0.98);
+    }
+
+    60% {
+        transform: scale(0.97, 0.97);
+    }
+
+    80% {
+        transform: scale(0.98, 0.98);
+    }
+
+    100% {
+        transform: scale(0.99, 0.99);
+    }
+}
+
+.answer-ielts {
+    white-space: pre-wrap;
+}
+
+@import "mathplay-desktop";
+@import "mathplay-tablet";
+@import "mathplay-mobile";

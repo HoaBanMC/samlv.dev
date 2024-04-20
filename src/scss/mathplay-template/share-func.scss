@@ -1,0 +1,145 @@
+@use "sass:math";
+
+$main-color: #2b4182;
+$main-background-color: #e2e9ff;
+$button-background-yellow: #ffa500;
+$pink-color: #ff84a2;
+$box-shadow-select: #d1dbf5;
+$white-color: #fff;
+
+// font size
+$font-small-size: 1rem;
+$font-normal-size: 1.2rem;
+$font-large-size: 1.5rem;
+
+@mixin input-number-to-input($size) {
+    @for $i from 1 through 24 {
+        .number-item-#{$i} {
+            @if ($i % ($size * 2) > $size) {
+                justify-content: flex-end;
+            } @else {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    .question-content {
+        max-width: #{4 * $size};
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        color: $main-color !important;
+
+        // justify-content: flex-end;
+        .answer-item {
+            width: #{math.div(80%, $size)};
+            text-align: center;
+            margin: 0.75rem #{math.div(10%, $size)};
+            background: $main-color;
+            border-radius: 1rem;
+            color: $white-color;
+
+            position: relative;
+
+            input {
+                width: 100%;
+                border: 1px solid $main-color;
+                color: $pink-color;
+                border-radius: 1rem;
+                outline: none;
+                text-align: center;
+            }
+
+            &::before {
+                content: "";
+                width: 25%;
+                height: 100%;
+                position: absolute;
+                right: -25%;
+                background-image: url(https://s3-ap-southeast-1.amazonaws.com/mathplay-library/For_all/arrow.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            @for $i from 1 through 24 {
+                &:nth-of-type(#{$i}) {
+                    $x: $i%($size * 2);
+
+                    @if $x ==0 {
+                        $x: $size * 2;
+                    }
+
+                    @if $x >$size {
+                        order: #{$i + $size * 3 + 1 - 2 * $x};
+
+                        &::before {
+                            transform: rotate(180deg);
+                            left: -25%;
+                            right: auto;
+                        }
+                    } @else {
+                        order: #{$i};
+                    }
+
+                    @if $x ==$size {
+                        &::before {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            &:nth-of-type(#{$size}n) {
+                // CSS Property;
+                &::before {
+                    rotate: 90;
+                    right: 50%;
+                    width: 1.5rem;
+
+                    transform: translate(50%) rotate(90deg);
+                    top: 100%;
+                    left: auto;
+                }
+            }
+
+            &:last-of-type {
+                &::before {
+                    background: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin clickAudioMixin($name, $speakerSize, $waveSize) {
+    @keyframes #{$name} {
+        0% {
+            background-size: $speakerSize, 0, 0;
+        }
+        20% {
+            background-size: $speakerSize, math.div($waveSize, 2), 0;
+        }
+        40% {
+            background-size: $speakerSize, math.div($waveSize, 1.5), math.div($waveSize, 2);
+        }
+        60% {
+            background-size: $speakerSize, math.div($waveSize, 1.2), math.div($waveSize, 1.5);
+        }
+        80% {
+            background-size: $speakerSize, none, math.div($waveSize, 1.2);
+        }
+        100% {
+            background-size: $speakerSize, none, $waveSize;
+        }
+    }
+}
+
+@include clickAudioMixin(clickAudioAnim, 3rem, 2rem);
+@include clickAudioMixin(clickAudioAnimSlow, 3rem, 1rem);
+@include clickAudioMixin(clickAudioSmallAnim, 1.2rem, 0.75rem);
+@include clickAudioMixin(clickAudioCardAnim, 2.5rem, 1.75rem);
+
+#step {
+    color: #424242;
+}

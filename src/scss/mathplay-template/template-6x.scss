@@ -1,0 +1,1294 @@
+@import "./share-func.scss";
+
+.template-65,
+app-dynamic-html-click-order {
+    .question-area {
+        .select-all-with {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                font-size: $font-large-size;
+                font-weight: 600;
+                text-align: center;
+                color: $main-color !important;
+            }
+
+            .title-max {
+                font-size: $font-large-size;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .content {
+        margin: auto;
+                text-align: center;
+                color: $main-color !important;
+                .text-small {
+                    width: fit-content;
+                    padding: 0.75rem;
+                    margin: 0.75rem auto;
+                    font-size: $font-normal-size;
+                    border-radius: 1.5rem;
+                    border: 1px dashed $main-color;
+                }
+
+                .text-big {
+                    min-width: 10rem;
+                    width: fit-content;
+                    padding: 0.75rem 1rem;
+                    margin: 0.75rem auto;
+                    font-size: $font-large-size;
+                    font-weight: 600;
+                    border-radius: 2rem;
+                    border: 1px dashed $main-color;
+                }
+
+                .content-audio {
+                    margin: 1rem 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+
+                    .play-audio {
+                        width: 9rem;
+                        height: 9rem;
+                        background-color: #e2e9ff;
+                        background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                            url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                            url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                        background-position:
+                            left 2rem center,
+                            left 5.1rem center,
+                            left 5.1rem center;
+                        background-size: 3rem, 2rem, 2rem;
+                        background-repeat: no-repeat;
+                        margin-right: 1rem;
+                        cursor: pointer;
+                        border-radius: 20px;
+                        box-shadow: #b8c9ff 0px 5px 0px;
+                        transition: all 0.1s ease;
+                        position: relative;
+
+                        &:hover {
+                            background-color: #c9d6ff !important;
+                        }
+                    }
+
+                    .clickAudio {
+                        box-shadow: none !important;
+                        top: 5px;
+                        animation: clickAudioAnim 0.5s forwards;
+                        background-color: #c9d6ff !important;
+                    }
+
+                    .clickAudioSlow {
+                        box-shadow: none !important;
+                        top: 5px;
+                        animation: clickAudioAnimSlow 0.5s forwards;
+                        background-color: #c9d6ff !important;
+                    }
+
+                    .play-audio-slow {
+                        width: 7rem;
+                        height: 7rem;
+                        background-color: #e2e9ff;
+                        background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                            url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                            url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                        background-position:
+                            left 1.5rem center,
+                            left 4.6rem center,
+                            left 4.6rem center;
+                        background-size: 3rem, 1rem, 1rem;
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+                        border-radius: 20px;
+                        box-shadow: #b8c9ff 0px 5px 0px;
+                        position: relative;
+                        transition: all 0.1s ease;
+
+                        &:hover {
+                            background-color: #c9d6ff !important;
+                        }
+                    }
+                }
+
+                .content-img {
+                    text-align: center;
+
+                    img {
+                        max-width: 50%;
+                    }
+                }
+
+                .content-many-img {
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+
+                    .img {
+                        max-width: 50%;
+                    }
+                }
+
+                .font-max {
+                    font-size: 25px;
+                }
+            }
+
+            .question {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+
+            .answer-ordered {
+                .grid {
+                    width: 100%;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    display: grid;
+                    grid-auto-rows: 1fr;
+                    grid-row-gap: 24px;
+                    position: relative;
+                    color: $main-color !important;
+
+                    .grid-item {
+                        position: relative;
+                        #buttonsZone {
+                            justify-content: center;
+                        }
+                        .lines-wrapper {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+
+                            .wrapper {
+                                width: 100%;
+                                height: 100%;
+
+                                .lines {
+                                    width: 100%;
+                                    height: 100%;
+                                    overflow: hidden;
+
+                                    .line {
+                                        height: 60px;
+                                        border-bottom: 2px dashed #6d7fb3;
+
+                                        // &:nth-child(1) {
+                                        //   border-top: 2px solid #eaeefa;
+                                        // }
+                                    }
+                                }
+
+                                .contain-button {
+                                    position: absolute;
+                                    top: 0;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    flex-wrap: wrap;
+
+                                    .item {
+                                        width: fit-content;
+                                        margin: 7px 5px;
+                                        height: 42px;
+                                        border-radius: 15px;
+                                        border-bottom: 5px solid #d1dbf5;
+                                        padding: 5px 15px;
+                                        box-shadow: 0 1px 0 #d1dbf5;
+                                        background-color: #eaeefa;
+                                        text-align: center;
+                                        font-size: 20px;
+                                        font-weight: 700;
+                                        line-height: 30px;
+                                        cursor: pointer;
+                                    }
+
+                                    .answered {
+                                        pointer-events: none !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        .buttons {
+                            margin-top: 20px;
+                            min-height: 60px;
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .item {
+                                width: fit-content;
+                                margin: 7px 5px;
+                                height: 42px;
+                                border-radius: 15px;
+                                border-bottom: 5px solid #d1dbf5;
+                                padding: 5px 15px;
+                                box-shadow: 0 1px 0 #d1dbf5;
+                                background-color: #eaeefa;
+                                text-align: center;
+                                font-size: 20px;
+                                font-weight: 700;
+                                line-height: 30px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    background-color: #c9d6ff !important;
+                                }
+                            }
+
+                            .select-item {
+                                background-color: #d1dbf5 !important;
+                                color: #d1dbf5 !important;
+                                pointer-events: none;
+                            }
+
+                            .answered {
+                                pointer-events: none !important;
+                            }
+                        }
+                    }
+                }
+
+                .mathtype {
+                    .grid-item {
+                        .lines-wrapper {
+                            .wrapper {
+                                .lines {
+                                    .line {
+                                        height: 85px;
+                                    }
+                                }
+                                .contain-button {
+                                    .item {
+                                        height: 72px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                    }
+                                }
+                            }
+                        }
+                        .buttons {
+                            .item {
+                                height: 72px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.template-66,
+app-dynamic-html-click-order-cells {
+    .question-area {
+        .title {
+            font-size: $font-large-size;
+            font-weight: 600;
+            text-align: center;
+            color: $main-color !important;
+        }
+
+        .title-max {
+            font-size: $font-large-size;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .content {
+        margin: auto;
+            text-align: center;
+            color: $main-color !important;
+            .text-small {
+                width: fit-content;
+                padding: 0.75rem;
+                margin: 0.75rem auto;
+                font-size: $font-normal-size;
+                border-radius: 1.5rem;
+                border: 1px dashed $main-color;
+            }
+
+            .text-big {
+                min-width: 10rem;
+                width: fit-content;
+                padding: 0.75rem 1rem;
+                margin: 0.75rem auto;
+                font-size: $font-large-size;
+                font-weight: 600;
+                border-radius: 2rem;
+                border: 1px dashed $main-color;
+            }
+
+            .content-audio {
+                margin: 1rem 0;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+
+                .play-audio {
+                    width: 9rem;
+                    height: 9rem;
+                    background-color: #e2e9ff;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                    background-position:
+                        left 2rem center,
+                        left 5.1rem center,
+                        left 5.1rem center;
+                    background-size: 3rem, 2rem, 2rem;
+                    background-repeat: no-repeat;
+                    margin-right: 1rem;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    box-shadow: #b8c9ff 0px 5px 0px;
+                    transition: all 0.1s ease;
+                    position: relative;
+
+                    &:hover {
+                        background-color: #c9d6ff !important;
+                    }
+                }
+
+                .clickAudio {
+                    box-shadow: none !important;
+                    top: 5px;
+                    animation: clickAudioAnim 0.5s forwards;
+                    background-color: #c9d6ff !important;
+                }
+
+                .clickAudioSlow {
+                    box-shadow: none !important;
+                    top: 5px;
+                    animation: clickAudioAnimSlow 0.5s forwards;
+                    background-color: #c9d6ff !important;
+                }
+
+                .play-audio-slow {
+                    width: 7rem;
+                    height: 7rem;
+                    background-color: #e2e9ff;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                    background-position:
+                        left 1.5rem center,
+                        left 4.6rem center,
+                        left 4.6rem center;
+                    background-size: 3rem, 1rem, 1rem;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    box-shadow: #b8c9ff 0px 5px 0px;
+                    position: relative;
+                    transition: all 0.1s ease;
+
+                    &:hover {
+                        background-color: #c9d6ff !important;
+                    }
+                }
+            }
+
+            .content-img {
+                text-align: center;
+
+                img {
+                    max-width: 50%;
+                }
+            }
+
+            .content-many-img {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+
+                .img {
+                    max-width: 50%;
+                }
+            }
+
+            .font-max {
+                font-size: 25px;
+            }
+        }
+
+        .question {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .answer-ordered {
+            .contains-dozone {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+
+                .doZone {
+                    display: flex;
+                    width: 74px;
+                    height: 74px;
+                    margin: 5px;
+                    border-radius: 15px;
+                    border: 2px solid #6f5fdc;
+                    background-color: #cbc2ff;
+                    padding: 1px;
+
+                    .item {
+                        width: 73px;
+                        height: 68px;
+                        border-radius: 15px;
+                        border-bottom: 5px solid #d1dbf5;
+                        box-shadow: 0 1px 0 #d1dbf5;
+                        background-color: #eaeefa;
+                        text-align: center;
+                        font-size: $font-large-size;
+                        font-weight: 700;
+                        line-height: 64px;
+                        cursor: pointer;
+                    }
+
+                    .answered {
+                        pointer-events: none !important;
+                    }
+                }
+            }
+
+            .buttons {
+                margin-top: 20px;
+                min-height: 60px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+
+                .item {
+                    width: 73px;
+                    height: 68px;
+                    margin: 7px 5px;
+                    border-radius: 15px;
+                    border-bottom: 5px solid #d1dbf5;
+                    box-shadow: 0 1px 0 #d1dbf5;
+                    background-color: #eaeefa;
+                    text-align: center;
+                    font-size: $font-large-size;
+                    font-weight: 700;
+                    line-height: 64px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #c9d6ff !important;
+                    }
+                }
+
+                .select-item {
+                    background-color: #d1dbf5 !important;
+                    color: #d1dbf5 !important;
+                    pointer-events: none;
+                }
+
+                .answered {
+                    pointer-events: none !important;
+                }
+            }
+        }
+    }
+}
+
+.template-67,
+app-dynamic-html-select-dropdown-abc {
+    color: $main-color !important;
+    text-align: justify;
+
+    .title {
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .content-img {
+        width: 100%;
+        text-align: center;
+
+        img {
+            max-width: 70%;
+            margin: auto;
+        }
+    }
+
+    .list-selection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .select-item {
+            text-align: left;
+            width: 100%;
+            background: #e2e9ff;
+            color: $main-color !important;
+            border-radius: 3rem;
+            min-width: 5rem;
+            margin: 0.25rem;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+        }
+    }
+
+    .answer-input {
+        width: 100%;
+        margin: auto !important;
+        font-size: $font-normal-size;
+
+        .line {
+            text-align: left;
+            margin: 0.5rem 0;
+
+            .label-answer {
+                position: relative;
+                width: fit-content;
+                margin: 0 0.5rem;
+
+                &::after {
+                    content: "▼";
+                    position: absolute;
+                    top: 40%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    bottom: 0;
+                    line-height: 2rem;
+                    padding: 0 0.5rem;
+                    font-size: 0.75rem;
+                    color: $main-color !important;
+                    pointer-events: none;
+                }
+
+                select {
+                    appearance: none;
+                    padding: 0.25rem 1.5rem;
+                    min-width: 5rem;
+                    max-width: 20rem;
+                    width: fit-content;
+                    border: 1px solid transparent;
+                    border-radius: 1rem;
+                    background-color: #e2e9ff !important;
+                    cursor: pointer;
+                    color: $main-color !important;
+                    font-size: $font-normal-size;
+                    font-weight: 600;
+                    transition: all 1s ease;
+                    text-align: center;
+                    outline: none;
+                    margin: 0.15rem 0;
+
+                    option {
+                        color: $main-color !important;
+                        background-color: $white-color;
+                    }
+                }
+            }
+        }
+
+        .line-big-block {
+            display: inline-block;
+        }
+    }
+
+    .align-center {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
+    }
+}
+
+.template-68,
+app-dynamic-html-recording-elsa {
+    color: $main-color !important;
+    max-width: 800px;
+    margin: auto;
+
+    .question-content {
+        display: flex;
+        width: 100%;
+        position: relative;
+        min-height: 12rem;
+
+        .question-text {
+            width: 100%;
+            max-width: 800px;
+
+            .title {
+                padding: 0 4.2rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                text-align: center;
+                color: $main-color !important;
+            }
+
+            .content {
+        margin: auto;
+                text-align: center;
+                color: $main-color !important;
+                height: 100%;
+                padding: 0.25rem 4.25rem;
+                line-height: inherit !important;
+
+                .content-text {
+                    width: fit-content;
+                    padding: 0.75rem 1.75rem;
+                    margin: 0.75rem auto;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    border-radius: 2.5rem;
+                    background-color: #eaeefa;
+                }
+
+                .answer-text {
+                    width: fit-content;
+                    padding: 0.75rem 1.75rem;
+                    margin: 0.75rem auto;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    border-radius: 2.5rem;
+                    background-color: #eaeefa;
+                    display: block !important;
+
+                    .text {
+                        display: inline-block;
+
+                        table {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+
+                .content-image {
+                    text-align: center;
+
+                    img {
+                        max-width: 90%;
+                    }
+                }
+
+                .play-audio {
+                    width: 0;
+                    height: 0;
+                    visibility: hidden;
+                }
+            }
+
+            .content-audio {
+                margin: 1rem 0;
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+
+                .play-audio {
+                    width: 9rem;
+                    height: 9rem;
+                    background-color: #e2e9ff;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                    background-position:
+                        left 2rem center,
+                        left 5.1rem center,
+                        left 5.1rem center;
+                    background-size: 3rem, 2rem, 2rem;
+                    background-repeat: no-repeat;
+                    margin-right: 1rem;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    box-shadow: #b8c9ff 0px 5px 0px;
+                    transition: all 0.1s ease;
+                    position: relative;
+
+                    &:hover {
+                        background-color: #c9d6ff !important;
+                    }
+                }
+
+                .playing-audio {
+                    box-shadow: none !important;
+                    top: 5px;
+                    animation: clickAudioAnim 0.5s forwards;
+                    background-color: #c9d6ff !important;
+                }
+
+                .playing-audio-slow {
+                    box-shadow: none !important;
+                    top: 5px;
+                    animation: clickAudioAnimSlow 0.5s forwards;
+                    background-color: #c9d6ff !important;
+                }
+
+                .play-audio-slow {
+                    width: 7rem;
+                    height: 7rem;
+                    background-color: #e2e9ff;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                        url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                    background-position:
+                        left 1.5rem center,
+                        left 4.6rem center,
+                        left 4.6rem center;
+                    background-size: 3rem, 1rem, 1rem;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    box-shadow: #b8c9ff 0px 5px 0px;
+                    position: relative;
+                    transition: all 0.1s ease;
+
+                    &:hover {
+                        background-color: #c9d6ff !important;
+                    }
+                }
+            }
+        }
+
+        .question-buttons {
+            width: 4rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            top: 3rem;
+
+            .btn-play {
+                width: 4rem;
+                height: 4rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 0.9rem center,
+                    left 2.4rem center,
+                    left 2.4rem center;
+                background-size: 1.2rem, 0.75rem, 0.75rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                border-radius: 10px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                position: relative;
+                transition: all 0.1s ease;
+                margin-bottom: 10px;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+
+            .btn-playing {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioSmallAnim 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+
+            .btn-play-slow {
+                width: 4rem;
+                height: 4rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 1rem center,
+                    left 2.4rem center,
+                    left 2.4rem center;
+                background-size: 1.2rem, 0.75rem, 0.75rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                border-radius: 10px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                position: relative;
+                transition: all 0.1s ease;
+                margin-bottom: 10px;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+
+            .btn-play-slowing {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioSmallAnim 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+        }
+    }
+
+    .answer-text {
+        display: none;
+    }
+
+    .recording-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 30px;
+
+        .question-answer {
+            text-align: center;
+            padding-top: 0.5rem;
+
+            .btn-record {
+                width: 132px;
+                height: 132px;
+                margin: auto;
+                border-radius: 50%;
+
+                .btn-wrapper {
+                    box-shadow:
+                        0px 6px 16px rgba(109, 127, 179, 0.5),
+                        inset 0px -6px 0px rgba(109, 127, 179, 0.2);
+                    border-radius: 50%;
+                    background: #f3f6ff;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+
+                    img {
+                        margin-top: 16px;
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+
+            .running {
+                animation: vibrate 1s infinite;
+            }
+
+            .timer {
+                color: #6d7fb3;
+                font-weight: 600;
+                font-size: 1.2rem;
+                padding: 10px 0;
+                margin-top: 30px;
+            }
+
+            .box-answer {
+                display: flex;
+                justify-content: center;
+
+                .box-answer-container {
+                    width: fit-content;
+                    min-width: 400px;
+                    border-radius: 15px;
+
+                    .recording-audio {
+                        display: block;
+                        text-align: center;
+                        cursor: pointer;
+
+                        img {
+                            width: 132px;
+                            height: 132px;
+                        }
+                    }
+
+                    .text-replay {
+                        font-size: 1rem;
+                        font-weight: 700;
+                        color: #2b4182;
+                    }
+
+                    .part-footer {
+                        .btn {
+                            margin: 0.5rem;
+                            padding: 10px 20px;
+                            border-radius: 40px;
+                            font-weight: 700;
+                            min-width: 118px;
+                        }
+
+                        .btn-retry {
+                            border: 2px solid #4b36da;
+                            color: #0030c3;
+                        }
+                    }
+                }
+            }
+        }
+
+        .note {
+            color: #e93c66;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+
+    .onplay-question {
+        pointer-events: none !important;
+    }
+
+    .disabled {
+        pointer-events: none;
+        background: #dce3f8 !important;
+    }
+
+    $color: #6d7fb38e;
+    @keyframes vibrate {
+        0%,
+        100% {
+            box-shadow:
+                0 0 0 16px $color,
+                0 0 64px $color;
+        }
+
+        20% {
+            box-shadow:
+                0 0 0 8px $color,
+                0 0 64px $color;
+        }
+
+        40% {
+            box-shadow:
+                0 0 0 24px $color,
+                0 0 64px $color;
+        }
+
+        60% {
+            box-shadow:
+                0 0 0 12px $color,
+                0 0 64px $color;
+        }
+
+        80% {
+            box-shadow:
+                0 0 0 20px $color,
+                0 0 64px $color;
+        }
+    }
+}
+
+.template-69,
+app-dynamic-html-input-by-keypad {
+    .title {
+        color: $main-color !important;
+        font-size: $font-large-size;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .content {
+        margin: auto;
+        color: $main-color !important;
+        width: 100%;
+
+        .text-small {
+            text-align: center;
+            width: 100%;
+            width: fit-content;
+            padding: 0.75rem;
+            margin: 0.75rem auto;
+            font-size: $font-normal-size;
+            border-radius: 1.5rem;
+            border: 1px dashed $main-color;
+        }
+
+        .text-big {
+            text-align: center;
+            width: 100%;
+            min-width: 10rem;
+            width: fit-content;
+            padding: 0.75rem 1rem;
+            margin: 0.75rem auto;
+            font-size: $font-large-size;
+            font-weight: 600;
+            border-radius: 2rem;
+            border: 1px dashed $main-color;
+        }
+
+        .content-audio {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+
+            .play-audio {
+                width: 9rem;
+                height: 9rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-speaker.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 2rem center,
+                    left 5.1rem center,
+                    left 5.1rem center;
+                background-size: 3rem, 2rem, 2rem;
+                background-repeat: no-repeat;
+                margin-right: 1rem;
+                cursor: pointer;
+                border-radius: 20px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                transition: all 0.1s ease;
+                position: relative;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+
+            .clickAudio {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioAnim 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+
+            .clickAudioSlow {
+                box-shadow: none !important;
+                top: 5px;
+                animation: clickAudioAnimSlow 0.5s forwards;
+                background-color: #c9d6ff !important;
+            }
+
+            .play-audio-slow {
+                width: 7rem;
+                height: 7rem;
+                background-color: #e2e9ff;
+                background-image: url("https://mathplay-library.s3.amazonaws.com/icon-snail.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg"),
+                    url("https://mathplay-library.s3.amazonaws.com/icon-wave.svg");
+                background-position:
+                    left 1.5rem center,
+                    left 4.6rem center,
+                    left 4.6rem center;
+                background-size: 3rem, 1rem, 1rem;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                border-radius: 20px;
+                box-shadow: #b8c9ff 0px 5px 0px;
+                position: relative;
+                transition: all 0.1s ease;
+
+                &:hover {
+                    background-color: #c9d6ff !important;
+                }
+            }
+        }
+
+        .content-img {
+            text-align: center;
+
+            img {
+                max-width: 50%;
+                margin: auto;
+            }
+        }
+
+        .content-many-img {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            .img {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .answer-input {
+        color: $main-color !important;
+        width: 100%;
+
+        @for $i from 1 through 20 {
+            .input-size-#{$i} {
+                width: #{1 + $i}rem !important;
+            }
+        }
+
+        .small-line {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.25rem 0;
+            padding: 0.25rem;
+            font-size: $font-normal-size;
+            font-weight: 500;
+
+            input {
+                margin: 0.1rem 0.5rem;
+                border-radius: 10px !important;
+                border: 1.5px solid $main-color;
+                outline: none;
+                color: #ff84a2 !important;
+                text-align: center;
+                font-size: $font-normal-size;
+                padding: 0 0.25rem;
+                caret-color: transparent;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                min-width: 3rem;
+
+                &::placeholder {
+                    opacity: 0.5;
+                    color: $main-color;
+                }
+            }
+        }
+
+        .big-line {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin: 0.25rem 0;
+            padding: 0.25rem;
+            font-size: $font-large-size;
+            font-weight: 600;
+            white-space: pre;
+
+            input {
+                margin: 0.1rem 0.5rem;
+                border-radius: 10px !important;
+                border: 1.5px solid $main-color;
+                outline: none;
+                color: #ff84a2 !important;
+                text-align: center;
+                font-size: 30px;
+                padding: 0 0.25rem;
+                caret-color: transparent;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                min-width: 3rem;
+
+                &::placeholder {
+                    opacity: 0.5;
+                    color: $main-color;
+                }
+            }
+        }
+
+        .dashed-line {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.25rem 0;
+            padding: 0.25rem;
+            font-size: $font-large-size;
+            font-weight: 600;
+
+            input {
+                margin: 0.1rem 0.5rem;
+                border: none;
+                border-bottom: 2px dashed $main-color;
+                outline: none;
+                color: #ff84a2 !important;
+                text-align: center;
+                font-size: 30px;
+                min-width: 8rem;
+                padding: 0 0.25rem;
+                caret-color: transparent;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border-radius: 0 !important;
+            }
+        }
+    }
+
+    .caculator {
+        width: 300px;
+        height: auto;
+        margin: 2rem auto;
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .message {
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            padding: 0.25rem;
+            font-style: italic;
+            color: $pink-color;
+        }
+
+        .keynumbers {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .rowkeys {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 5px auto;
+
+                .numberkey {
+                    width: 99px;
+                    height: 40px;
+                    background-color: #e2e9ff;
+                    border-radius: 10px;
+                    color: $main-color;
+                    font-size: 30px;
+                    font-weight: 600;
+                    text-align: center;
+                    line-height: 40px;
+                    margin: auto 5px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background-color: #c9d6ff !important;
+                    }
+                }
+
+                .symbol {
+                    background-color: #674ffa;
+                    color: $white-color !important;
+
+                    &:hover {
+                        background-color: #7c6aed;
+                    }
+                }
+
+                .backspace {
+                    background-color: transparent;
+                    background-image: url("https://mathplay-library.s3.amazonaws.com/question-template/icon-backspace.svg");
+                    background-size: 44px 33px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+
+                    &:hover {
+                        background-color: transparent !important;
+                        transform: scale(1.01);
+                    }
+                }
+
+                .hidden {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}

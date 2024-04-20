@@ -1,0 +1,12 @@
+@import "../../../../scss/mathplay.scss";
+@import "../../../../scss/mathplay-template/share-func.scss";
+
+.disabled-ques {
+    pointer-events: none;
+}
+
+p,
+input[type="text"],
+.line {
+    font-size: $font-normal-size;
+}

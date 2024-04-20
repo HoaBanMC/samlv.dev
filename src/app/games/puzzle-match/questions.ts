@@ -26,10 +26,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "9000",
-                "1300"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798850,
             "template": 23,
             "typeView": 0,
@@ -74,9 +71,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "2"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798465,
             "template": 24,
             "typeView": 0,
@@ -120,9 +115,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "1"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798666,
             "template": 24,
             "typeView": 0,
@@ -166,9 +159,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "52000"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798718,
             "template": 23,
             "typeView": 0,
@@ -212,9 +203,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "1"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798640,
             "template": 24,
             "typeView": 0,
@@ -258,9 +247,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "3"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798705,
             "template": 24,
             "typeView": 0,
@@ -304,9 +291,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "1500"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798852,
             "template": 23,
             "typeView": 0,
@@ -350,9 +335,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "5000"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798868,
             "template": 23,
             "typeView": 0,
@@ -396,9 +379,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "3000"
-            ],
+            "userOptionText": [],
             "numberQuestion": 12798443,
             "template": 23,
             "typeView": 0,
@@ -442,9 +423,7 @@ export const questions = [
             "typeAnswer": 5,
             "rightAnswer": true,
             "userOptionId": [],
-            "userOptionText": [
-                "1"
-            ],
+            "userOptionText": [ ],
             "numberQuestion": 12798860,
             "template": 24,
             "typeView": 0,

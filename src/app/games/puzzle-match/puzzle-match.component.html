@@ -14,7 +14,7 @@
         <div class="subject-code">
             English
         </div>
-        <div class="turnon-answer">
+        <!-- <div class="turnon-answer">
             <div class="btn-switch">
                 <label for="switch-box" [class.show]="isCheckShowHide" [class.hide]="!isCheckShowHide">
                     <span id="switch-show">Show</span>
@@ -24,9 +24,9 @@
                         id="switch-box">
                 </label>
             </div>
-        </div>
+        </div> -->
         <div class="button-features">
-            <div class="btn-feature">
+            <div class="btn-feature" (click)="playMatch()">
                 Play
             </div>
             <div class="btn-feature">
@@ -45,19 +45,40 @@
             <ng-container *ngFor="let ques of listQuestion; index as index">
                 <div class="card">
                     <div class="card-content">
-                        <div class="title">
-                            Chọn đáp án đúng
-                        </div>
-                        <div class="content">
-                            Duy đi xe đạp hết con đường dài 9 km trong 0,75 giờ. Hỏi với vận tốc như vậy trong 3 giờ Duy
-                            đi được bao nhiêu km?
-                        </div>
+                        <app-questions [question]="ques?.dataStandard"></app-questions>
                     </div>
                     <div class="ques-id">
-                        ID:374227
+                        ID: {{ques?.dataStandard.numberQuestion}}
                     </div>
                 </div>
             </ng-container>
         </div>
     </div>
 </div>
+
+<app-modal-common [clickOutsideClose]="false" [displayX]="false" [id]="idPickGame">
+    <ng-template>
+        <div class="card-open">
+            <div class="card-open-top">
+                <div class="card-open-point">
+                    Danh sách trò chơi
+                </div>
+                <div class="card-open-x" (click)="closeOpenCard()">
+                    X
+                </div>
+            </div>
+            <div class="card-open-content">
+                <div class="list-game">
+                    <div class="game-card" *ngFor="let game of listGame;" (click)="pickGame(game)">
+                        <div class="game-card-img">
+                            <img [src]="game.img" alt="">
+                        </div>
+                        <div class="game-card-name">
+                            {{game.name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</app-modal-common>
