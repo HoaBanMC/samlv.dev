@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { questions } from './questions';
 import { QuestionsComponent } from './questions/questions.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,12 +13,11 @@ import { ModalCommonService } from '../../components/modal-common/modal-common.s
   selector: 'app-puzzle-match',
   standalone: true,
   imports: [
-    CommonModule,
     QuestionsComponent,
     FormsModule,
     ReactiveFormsModule,
     ModalCommonComponent
-  ],
+],
   templateUrl: './puzzle-match.component.html',
   styleUrls: ['./puzzle-match.component.scss'],
 })

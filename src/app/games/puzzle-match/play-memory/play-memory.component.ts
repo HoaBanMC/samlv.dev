@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { checkAnswer, EnumTypeCard, EnumTypeNotQues, listOption, shuffleArray, SOUND_MATCH, STORE_NAME } from '../common/config';
 import { questions } from '../questions';
 import { QuestionsComponent } from '../questions/questions.component';
@@ -14,7 +14,7 @@ import { MODAL_ID } from '../../../components/modal-common/modal-id.const';
 @Component({
   selector: 'app-play-memory',
   standalone: true,
-  imports: [CommonModule, ModalCommonComponent, QuestionsComponent, FormsModule, MathjaxModule],
+  imports: [ModalCommonComponent, QuestionsComponent, FormsModule, MathjaxModule],
   templateUrl: './play-memory.component.html',
   styleUrls: ['./play-memory.component.scss']
 })

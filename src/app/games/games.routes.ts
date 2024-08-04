@@ -12,32 +12,4 @@ export const routes: Routes = [
         path: '',
         component: GamesComponent
     },
-    {
-        path: 'dodge-the-bombs',
-        component: LandingPageComponent
-    },
-    {
-        path: 'game-wordle',
-        component: GameWordleComponent
-    },
-    {
-        path: 'simple-rpg',
-        component: SimpleRPGComponent
-    },
-    {
-        path: 'puzzle-slide',
-        component: PuzzleSlideComponent
-    },
-    {
-        path: 'goldminer',
-        component: PlantTreeComponent
-    },
-    {
-        path: 'clawmachine',
-        component: MyFarmComponent
-    },
-    {
-        path: 'puzzle-match',
-        loadChildren: () => import('./puzzle-match/puzzle-match.routes').then(m => m.routes)
-    },
 ];

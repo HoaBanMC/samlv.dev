@@ -1,71 +1,91 @@
-<div *ngIf="question.content" [class.disabled-ques]="question?.showAnswer"
+@if (question.content) {
+  <div [class.disabled-ques]="question?.showAnswer"
     class="template-default template-{{question.template}}">
-    <app-dynamic-html *ngIf="question.typeView === 0" [answer]="answerOption" [questionId]="question.stepId"
-        [content]="question.content" (userResponse)="userAction($event)"></app-dynamic-html>
-
-    <app-dragdrop-dynamic-html *ngIf="question.typeView === 1" [content]="question.content"
-        (userResponse)="userAction($event)" [answer]="answerOption"></app-dragdrop-dynamic-html>
-
-    <app-drawline-dynamic-html *ngIf="question.typeView === 2" [answer]="answerOption" [content]="question.content"
-        (userResponse)="userAction($event)"></app-drawline-dynamic-html>
-
-    <app-dynamic-colorpicker-html *ngIf="question.typeView === 3" [content]="question.content"
-        (userResponse)="userAction($event)" [question]="question"></app-dynamic-colorpicker-html>
-
-    <app-dragdrop-multiple-dynamic-html *ngIf="question.typeView === 4" [answer]="answerOption"
+    @if (question.typeView === 0) {
+      <app-dynamic-html [answer]="answerOption" [questionId]="question.stepId"
+      [content]="question.content" (userResponse)="userAction($event)"></app-dynamic-html>
+    }
+    @if (question.typeView === 1) {
+      <app-dragdrop-dynamic-html [content]="question.content"
+      (userResponse)="userAction($event)" [answer]="answerOption"></app-dragdrop-dynamic-html>
+    }
+    @if (question.typeView === 2) {
+      <app-drawline-dynamic-html [answer]="answerOption" [content]="question.content"
+      (userResponse)="userAction($event)"></app-drawline-dynamic-html>
+    }
+    @if (question.typeView === 3) {
+      <app-dynamic-colorpicker-html [content]="question.content"
+      (userResponse)="userAction($event)" [question]="question"></app-dynamic-colorpicker-html>
+    }
+    @if (question.typeView === 4) {
+      <app-dragdrop-multiple-dynamic-html [answer]="answerOption"
         [content]="question.content" (userResponse)="userAction($event)">
-    </app-dragdrop-multiple-dynamic-html>
-
-    <app-dynamic-check-boolean-html *ngIf="question.typeView === 5" [content]="question.content"
+      </app-dragdrop-multiple-dynamic-html>
+    }
+    @if (question.typeView === 5) {
+      <app-dynamic-check-boolean-html [content]="question.content"
         (userResponse)="userAction($event)" [question]="question">
-    </app-dynamic-check-boolean-html>
-
-    <app-dynamic-check-multiplechoices-html *ngIf="question.typeView === 6" [content]="question.content"
+      </app-dynamic-check-boolean-html>
+    }
+    @if (question.typeView === 6) {
+      <app-dynamic-check-multiplechoices-html [content]="question.content"
         (userResponse)="userAction($event)" [userAnswer]="question">
-    </app-dynamic-check-multiplechoices-html>
-
-    <app-dynamic-html-circle-character *ngIf="question.typeView === 7" (userResponse)="userAction($event)"
+      </app-dynamic-check-multiplechoices-html>
+    }
+    @if (question.typeView === 7) {
+      <app-dynamic-html-circle-character (userResponse)="userAction($event)"
         [content]="question.content" [question]="question">
-    </app-dynamic-html-circle-character>
-
-    <app-dragdrop-greensock-dynamic-html *ngIf="question.typeView === 8" (userResponse)="userAction($event)"
+      </app-dynamic-html-circle-character>
+    }
+    @if (question.typeView === 8) {
+      <app-dragdrop-greensock-dynamic-html (userResponse)="userAction($event)"
         [question]="question" [content]="question.content">
-    </app-dragdrop-greensock-dynamic-html>
-
-    <app-dragdrop-sort-greensock-dynamic-html *ngIf="question.typeView === 9" (userResponse)="userAction($event)"
+      </app-dragdrop-greensock-dynamic-html>
+    }
+    @if (question.typeView === 9) {
+      <app-dragdrop-sort-greensock-dynamic-html (userResponse)="userAction($event)"
         [question]="question" [content]="question.content">
-    </app-dragdrop-sort-greensock-dynamic-html>
-
-    <app-drawline2-dynamic-html *ngIf="question.typeView === 10" [questionId]="question.stepId"
+      </app-dragdrop-sort-greensock-dynamic-html>
+    }
+    @if (question.typeView === 10) {
+      <app-drawline2-dynamic-html [questionId]="question.stepId"
         [content]="question.content" (userResponse)="userAction($event)">
-    </app-drawline2-dynamic-html>
-
-    <ng-container *ngIf="question.typeView === 24">
-        <app-dynamic-html-click-order *ngIf="question.template === 65" [questionId]="question.stepId"
-            [content]="question.content" [answer]="answerOption"
-            (userResponse)="userAction($event)"></app-dynamic-html-click-order>
-
-        <app-dynamic-html-click-order-cells *ngIf="question.template === 66" [questionId]="question.stepId"
-            [content]="question.content" [answer]="answerOption"
-            (userResponse)="userAction($event)"></app-dynamic-html-click-order-cells>
-
-        <app-dynamic-html-select-dropdown-abc *ngIf="question.template === 67" [questionId]="question.stepId"
-            [content]="question.content" [answer]="question?.userOptionText"
-            (userResponse)="userAction($event)"></app-dynamic-html-select-dropdown-abc>
-
-        <app-dynamic-html-input-by-keypad *ngIf="question.template === 69" [questionId]="question.stepId"
-            [content]="question.content" [answer]="answerOption"
-            (userResponse)="userAction($event)"></app-dynamic-html-input-by-keypad>
-
-        <app-dynamic-picture-pick-answer *ngIf="question.template === 70" [content]="question.content"
-            [answer]="answerOption" (userResponse)="userAction($event)"></app-dynamic-picture-pick-answer>
-
-        <app-dynamic-picture-dragdrop-answer *ngIf="question.template === 71" [content]="question.content"
-            [answer]="answerOption" (userResponse)="userAction($event)"></app-dynamic-picture-dragdrop-answer>
-
-        <app-dynamic-html-text-by-keypad *ngIf="question.template === 72" [questionId]="question.stepId"
-            [content]="question.content" [answer]="answerOption"
-            (userResponse)="userAction($event)"></app-dynamic-html-text-by-keypad>
-
-    </ng-container>
-</div>
+      </app-drawline2-dynamic-html>
+    }
+    @if (question.typeView === 24) {
+      @if (question.template === 65) {
+        <app-dynamic-html-click-order [questionId]="question.stepId"
+          [content]="question.content" [answer]="answerOption"
+        (userResponse)="userAction($event)"></app-dynamic-html-click-order>
+      }
+      @if (question.template === 66) {
+        <app-dynamic-html-click-order-cells [questionId]="question.stepId"
+          [content]="question.content" [answer]="answerOption"
+        (userResponse)="userAction($event)"></app-dynamic-html-click-order-cells>
+      }
+      @if (question.template === 67) {
+        <app-dynamic-html-select-dropdown-abc [questionId]="question.stepId"
+          [content]="question.content" [answer]="question?.userOptionText"
+        (userResponse)="userAction($event)"></app-dynamic-html-select-dropdown-abc>
+      }
+      @if (question.template === 69) {
+        <app-dynamic-html-input-by-keypad [questionId]="question.stepId"
+          [content]="question.content" [answer]="answerOption"
+        (userResponse)="userAction($event)"></app-dynamic-html-input-by-keypad>
+      }
+      @if (question.template === 70) {
+        <app-dynamic-picture-pick-answer [content]="question.content"
+        [answer]="answerOption" (userResponse)="userAction($event)"></app-dynamic-picture-pick-answer>
+      }
+      @if (question.template === 71) {
+        <app-dynamic-picture-dragdrop-answer [content]="question.content"
+        [answer]="answerOption" (userResponse)="userAction($event)"></app-dynamic-picture-dragdrop-answer>
+      }
+      @if (question.template === 72) {
+        <app-dynamic-html-text-by-keypad [questionId]="question.stepId"
+          [content]="question.content" [answer]="answerOption"
+        (userResponse)="userAction($event)"></app-dynamic-html-text-by-keypad>
+      }
+    }
+  </div>
+}

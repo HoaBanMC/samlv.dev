@@ -9,37 +9,39 @@ import { Subscription } from 'rxjs';
     <div class="question-area">
       <div class="select-all-with">
         <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
-          <div class="answer-ordered" *ngIf="listAnswerOpt?.length">
-              <div class="grid" [class.mathtype]="mathtype">
-                  <div class="grid-item">
-                      <div class="lines-wrapper">
-                          <div class="wrapper">
-                              <div class="lines">
-                                  <div class="line"></div>
-                                  <div class="line"></div>
-                                  <div class="line"></div>
-                                  <div class="line"></div>
-                                  <div class="line"></div>
-                              </div>
-                              <div class="contain-button" id="doZone"></div>
-                          </div>
-                      </div>
+        @if (listAnswerOpt?.length) {
+          <div class="answer-ordered">
+            <div class="grid" [class.mathtype]="mathtype">
+              <div class="grid-item">
+                <div class="lines-wrapper">
+                  <div class="wrapper">
+                    <div class="lines">
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                      <div class="line"></div>
+                    </div>
+                    <div class="contain-button" id="doZone"></div>
                   </div>
-                  <div class="grid-item">
-                      <div class="buttons" id="buttonsZone">
-                          <ng-container *ngFor="let opt of listAnswerOpt; index as index">
-                              <div class="button item" [class.answered]="isExplain" [attr.value]="mathtype ? opt.mathtype : opt.text"
-                                  id="button-{{index}}">
-                                  <span [mathJax]="opt.text"></span>
-                              </div>
-                          </ng-container>
-                      </div>
-                  </div>
+                </div>
               </div>
+              <div class="grid-item">
+                <div class="buttons" id="buttonsZone">
+                  @for (opt of listAnswerOpt; track opt; let index = $index) {
+                    <div class="button item" [class.answered]="isExplain" [attr.value]="mathtype ? opt.mathtype : opt.text"
+                      id="button-{{index}}">
+                      <span [mathJax]="opt.text"></span>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
           </div>
+        }
       </div>
-  </div>
-  `
+    </div>
+    `
 })
 export class DynamicHtmlClickOrderComponent implements OnDestroy {
   @Output() userResponse = new EventEmitter<object>();

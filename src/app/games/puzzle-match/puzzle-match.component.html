@@ -1,84 +1,86 @@
 <div class="game-preview">
-    <div class="game-title">
-        GAME PREVIEW
-    </div>
-    <div class="game-name">
-        Bug không tự mất đi mà nó chỉ chuyển từ bug này sang bug kia
-    </div>
+  <div class="game-title">
+    GAME PREVIEW
+  </div>
+  <div class="game-name">
+    Bug không tự mất đi mà nó chỉ chuyển từ bug này sang bug kia
+  </div>
 </div>
 <div class="middle-content">
-    <div class="game-info">
-        <div class="game-code">
-            Game Code: 123456
-        </div>
-        <div class="subject-code">
-            English
-        </div>
-        <!-- <div class="turnon-answer">
-            <div class="btn-switch">
-                <label for="switch-box" [class.show]="isCheckShowHide" [class.hide]="!isCheckShowHide">
-                    <span id="switch-show">Show</span>
-                    <span id="switch-blank">&nbsp;</span>
-                    <span id="switch-hide">Hide</span>
-                    <input type="checkbox" [checked]="isCheckShowHide" (click)="onShowHide()" name="switch-box"
-                        id="switch-box">
-                </label>
-            </div>
-        </div> -->
-        <div class="button-features">
-            <div class="btn-feature" (click)="playMatch()">
-                Play
-            </div>
-            <div class="btn-feature">
-                Edit
-            </div>
-            <div class="btn-feature">
-                Study
-            </div>
-            <div class="btn-feature">
-                Slideshow
-            </div>
-        </div>
+  <div class="game-info">
+    <div class="game-code">
+      Game Code: 123456
     </div>
-    <div class="list-cards">
-        <div class="list-wrapper">
-            <ng-container *ngFor="let ques of listQuestion; index as index">
-                <div class="card">
-                    <div class="card-content">
-                        <app-questions [question]="ques?.dataStandard"></app-questions>
-                    </div>
-                    <div class="ques-id">
-                        ID: {{ques?.dataStandard.numberQuestion}}
-                    </div>
-                </div>
-            </ng-container>
-        </div>
+    <div class="subject-code">
+      English
     </div>
+    <!-- <div class="turnon-answer">
+    <div class="btn-switch">
+      <label for="switch-box" [class.show]="isCheckShowHide" [class.hide]="!isCheckShowHide">
+        <span id="switch-show">Show</span>
+        <span id="switch-blank">&nbsp;</span>
+        <span id="switch-hide">Hide</span>
+        <input type="checkbox" [checked]="isCheckShowHide" (click)="onShowHide()" name="switch-box"
+          id="switch-box">
+      </label>
+    </div>
+  </div> -->
+  <div class="button-features">
+    <div class="btn-feature" (click)="playMatch()">
+      Play
+    </div>
+    <div class="btn-feature">
+      Edit
+    </div>
+    <div class="btn-feature">
+      Study
+    </div>
+    <div class="btn-feature">
+      Slideshow
+    </div>
+  </div>
+</div>
+<div class="list-cards">
+  <div class="list-wrapper">
+    @for (ques of listQuestion; track ques; let index = $index) {
+      <div class="card">
+        <div class="card-content">
+          <app-questions [question]="ques?.dataStandard"></app-questions>
+        </div>
+        <div class="ques-id">
+          ID: {{ques?.dataStandard.numberQuestion}}
+        </div>
+      </div>
+    }
+  </div>
+</div>
 </div>
 
 <app-modal-common [clickOutsideClose]="false" [displayX]="false" [id]="idPickGame">
-    <ng-template>
-        <div class="card-open">
-            <div class="card-open-top">
-                <div class="card-open-point">
-                    Danh sách trò chơi
-                </div>
-                <div class="card-open-x" (click)="closeOpenCard()">
-                    X
-                </div>
-            </div>
-            <div class="card-open-content">
-                <div class="list-game">
-                    <div class="game-card" *ngFor="let game of listGame;" (click)="pickGame(game)">
-                        <div class="game-card-img">
-                            <img [src]="game.img" alt="">
-                        </div>
-                        <div class="game-card-name">
-                            {{game.name}}
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <ng-template>
+    <div class="card-open">
+      <div class="card-open-top">
+        <div class="card-open-point">
+          Danh sách trò chơi
         </div>
-    </ng-template>
+        <div class="card-open-x" (click)="closeOpenCard()">
+          X
+        </div>
+      </div>
+      <div class="card-open-content">
+        <div class="list-game">
+          @for (game of listGame; track game) {
+            <div class="game-card" (click)="pickGame(game)">
+              <div class="game-card-img">
+                <img [src]="game.img" alt="">
+              </div>
+              <div class="game-card-name">
+                {{game.name}}
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </app-modal-common>

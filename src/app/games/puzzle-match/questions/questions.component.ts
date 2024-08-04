@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { DynamicHTMLModule } from '../../../components/dynamic-html/module';
 
@@ -9,9 +9,8 @@ import { DynamicHTMLModule } from '../../../components/dynamic-html/module';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
-    CommonModule,
     DynamicHTMLModule
-  ]
+]
 })
 export class QuestionsComponent implements OnInit {
   @Input() question;

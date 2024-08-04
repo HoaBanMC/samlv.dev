@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import Phaser from 'phaser';
 import { LandingPageService } from '../landing-page/landing-page.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { MainScene } from './main.scene';
 @Component({
   selector: 'app-phaser-character',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './phaser-character.component.html',
   styleUrl: './phaser-character.component.scss'
 })

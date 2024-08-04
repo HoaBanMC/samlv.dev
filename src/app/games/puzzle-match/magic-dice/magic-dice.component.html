@@ -1,43 +1,45 @@
 <app-modal-common [clickOutsideClose]="false" [displayX]="false" [id]="idInitMagicDice">
-    <ng-template>
-        <div class="card-open">
-            <div class="card-open-top">
-                <div class="card-open-point">
-                    Cấu hình trò chơi
-                </div>
-                <!-- <div class="card-open-x" (click)="closeOpenCard('idEditTeam')">
-                    X
-                </div> -->
-            </div>
-            <div class="card-open-content">
-                <div class="card-open-config">
-                    <div class="card-open-config-item">
-                        <div class="option-title">Team</div>
-                        <div class="options">
-                            <div class="option" (click)="changeTeam(opt)" [class.option-active]="teamCount === opt.team"
-                                *ngFor="let opt of listOption;">
-                                {{opt.team}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-open-config-item">
-                        <div class="option-title">Grid Size</div>
-                        <div class="options">
-                            <input type="range" step="2" min="4"
-                                [max]="listQuestion?.length * 2 > 20 ? 20 : listQuestion?.length * 2"
-                                [(ngModel)]="gridSizeSelected" class="slider" id="myRange">
-                            {{gridSizeSelected}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-actions">
-                <div class="card-open-answer">
-                    <div class="btn-answer btn-team-replay" (click)="playMatch()">
-                        Xác nhận
-                    </div>
-                </div>
-            </div>
+  <ng-template>
+    <div class="card-open">
+      <div class="card-open-top">
+        <div class="card-open-point">
+          Cấu hình trò chơi
         </div>
-    </ng-template>
+        <!-- <div class="card-open-x" (click)="closeOpenCard('idEditTeam')">
+        X
+      </div> -->
+    </div>
+    <div class="card-open-content">
+      <div class="card-open-config">
+        <div class="card-open-config-item">
+          <div class="option-title">Team</div>
+          <div class="options">
+            @for (opt of listOption; track opt) {
+              <div class="option" (click)="changeTeam(opt)" [class.option-active]="teamCount === opt.team"
+                >
+                {{opt.team}}
+              </div>
+            }
+          </div>
+        </div>
+        <div class="card-open-config-item">
+          <div class="option-title">Grid Size</div>
+          <div class="options">
+            <input type="range" step="2" min="4"
+              [max]="listQuestion?.length * 2 > 20 ? 20 : listQuestion?.length * 2"
+              [(ngModel)]="gridSizeSelected" class="slider" id="myRange">
+            {{gridSizeSelected}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-actions">
+      <div class="card-open-answer">
+        <div class="btn-answer btn-team-replay" (click)="playMatch()">
+          Xác nhận
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
 </app-modal-common>

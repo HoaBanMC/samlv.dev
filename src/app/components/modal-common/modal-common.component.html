@@ -1,12 +1,14 @@
-<ng-container *ngIf="showModal">
-    <div class="background" (click)="clickOutside()" [style.background]="backgroundColor"></div>
-    <div class="modal-common" [style.background]="backgroundModal" [class.custom-popup]="withHeader" @modalAnimation>
-        <span *ngIf="displayX && !withHeader" class="icon" (click)="closeModal()">
-            <img src="/assets/common/close.png" alt="">
-        </span>
-       <ng-container *ngIf="templateRef">
-        <ng-template [ngTemplateOutlet]="templateRef" >
-        </ng-template>
-       </ng-container>
-    </div>
-</ng-container>
+@if (showModal) {
+  <div class="background" (click)="clickOutside()" [style.background]="backgroundColor"></div>
+  <div class="modal-common" [style.background]="backgroundModal" [class.custom-popup]="withHeader" @modalAnimation>
+    @if (displayX && !withHeader) {
+      <span class="icon" (click)="closeModal()">
+        <img src="/assets/common/close.png" alt="">
+      </span>
+    }
+    @if (templateRef) {
+      <ng-template [ngTemplateOutlet]="templateRef" >
+      </ng-template>
+    }
+  </div>
+}

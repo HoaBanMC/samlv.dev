@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import Phaser from 'phaser';
 
 @Component({
   selector: 'app-phaser-demo',
   standalone: true,
-  imports: [
-    CommonModule
-  ],
+  imports: [],
   templateUrl: './phaser-demo.component.html',
   styleUrl: './phaser-demo.component.scss'
 })

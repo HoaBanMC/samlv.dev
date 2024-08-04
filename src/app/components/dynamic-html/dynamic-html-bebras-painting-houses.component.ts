@@ -10,2456 +10,2460 @@ import {
 @Component({
   selector: "dynamic-html-bebras-painting-houses",
   template: `<div class="container">
-    <div class="note-content" *ngIf="!explain">
-      <p>
-        Những người trên phố Taro quyết định sơn nhà của họ theo các quy tắc
-        sau:
-      </p>
-      <ul>
-        <li>
-          Tất cả các ngôi nhà phải được sơn màu đỏ, xanh nhạt hoặc xanh đậm.
-        </li>
-        <li>Các nhà cạnh nhau không được cùng màu.</li>
-        <li>
-          Một ngôi nhà không được cùng màu với ngôi nhà ngay bên kia đường.
-        </li>
-      </ul>
-      <p>
-        Trong hình dưới đây, bạn có thể thấy rằng một số ngôi nhà đã được sơn.
-      </p>
-      <br />
-      <p>
-        <strong>Nhiệm vụ:</strong><br />Chọn màu sắc cho tất cả các ngôi nhà sao
-        cho tuân theo các quy tắc trên.<br />
-        Nhấp vào những ngôi nhà màu trắng để chuyển qua các màu.
-      </p>
-    </div>
-
-    <div id="task-container">
-      <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
-      <svg
-        width="1189"
-        height="514"
-        viewBox="0 0 1189 514"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="planting-house">
-          <rect
-            id="background"
-            x="0.375"
-            y="205.482"
-            width="1188.25"
-            height="307.768"
-            fill="#C9BC9C"
-          />
-          <g id="houses">
-            <g class="item" id="item-4" (click)="changeColor(4)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3"
-                  d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4"
-                  x="1056.02"
-                  y="181.298"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17"
-                  x="1017.2"
-                  y="93.8365"
-                  width="156.669"
-                  height="46.2365"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_2"
-                  d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_2"
-                  x="1056.02"
-                  y="181.298"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_2"
-                  x="1017.2"
-                  y="93.8365"
-                  width="156.669"
-                  height="46.2365"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_3"
-                  d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_3"
-                  x="1056.02"
-                  y="181.298"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_3"
-                  x="1017.2"
-                  y="93.8365"
-                  width="156.669"
-                  height="46.2365"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_4"
-                  d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_4"
-                  x="1056.02"
-                  y="181.298"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_4"
-                  x="1017.2"
-                  y="93.8365"
-                  width="156.669"
-                  height="46.2365"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5">
+      @if (!explain) {
+        <div class="note-content">
+          <p>
+            Những người trên phố Taro quyết định sơn nhà của họ theo các quy tắc
+            sau:
+          </p>
+          <ul>
+            <li>
+              Tất cả các ngôi nhà phải được sơn màu đỏ, xanh nhạt hoặc xanh đậm.
+            </li>
+            <li>Các nhà cạnh nhau không được cùng màu.</li>
+            <li>
+              Một ngôi nhà không được cùng màu với ngôi nhà ngay bên kia đường.
+            </li>
+          </ul>
+          <p>
+            Trong hình dưới đây, bạn có thể thấy rằng một số ngôi nhà đã được sơn.
+          </p>
+          <br />
+          <p>
+            <strong>Nhiệm vụ:</strong><br />Chọn màu sắc cho tất cả các ngôi nhà sao
+            cho tuân theo các quy tắc trên.<br />
+            Nhấp vào những ngôi nhà màu trắng để chuyển qua các màu.
+          </p>
+        </div>
+      }
+    
+      <div id="task-container">
+        <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
+        <svg
+          width="1189"
+          height="514"
+          viewBox="0 0 1189 514"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          >
+          <g id="planting-house">
+            <rect
+              id="background"
+              x="0.375"
+              y="205.482"
+              width="1188.25"
+              height="307.768"
+              fill="#C9BC9C"
+              />
+            <g id="houses">
+              <g class="item" id="item-4" (click)="changeColor(4)">
+                <g class="csvg-hidden" id="red">
+                  <path
+                    id="Rectangle 3"
+                    d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 1095.53 151.649)"
-                    fill="black"
-                  />
+                    id="Rectangle 4"
+                    x="1056.02"
+                    y="181.298"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 7"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 1110.81 147.635)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1118.3 224.422)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1102.01 172.351)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1108.39 192.737)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1115.04 213.992)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1098.75 161.921)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1105.4 183.176)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1111.7 203.325)"
-                    fill="black"
-                  />
+                    id="Rectangle 17"
+                    x="1017.2"
+                    y="93.8365"
+                    width="156.669"
+                    height="46.2365"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6">
-                  <g id="Union">
-                    <mask id="path-23-inside-1_11_129" fill="white">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_2"
+                    d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_2"
+                    x="1056.02"
+                    y="181.298"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 17_2"
+                    x="1017.2"
+                    y="93.8365"
+                    width="156.669"
+                    height="46.2365"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_3"
+                    d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_3"
+                    x="1056.02"
+                    y="181.298"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 17_3"
+                    x="1017.2"
+                    y="93.8365"
+                    width="156.669"
+                    height="46.2365"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_4"
+                    d="M1036.26 140.073H1034.38V141.948V226.335V228.21H1036.26H1154.91H1156.79V226.335V141.948V140.073H1154.91H1036.26Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_4"
+                    x="1056.02"
+                    y="181.298"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 17_4"
+                    x="1017.2"
+                    y="93.8365"
+                    width="156.669"
+                    height="46.2365"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5">
+                    <rect
+                      id="Rectangle 6"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 1095.53 151.649)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 1110.81 147.635)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1118.3 224.422)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1102.01 172.351)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1108.39 192.737)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1115.04 213.992)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1098.75 161.921)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1105.4 183.176)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1111.7 203.325)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6">
+                    <g id="Union">
+                      <mask id="path-23-inside-1_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1150.43 210.944H1130.3V228.789V229.02H1130.32C1130.6 231.256 1134.99 233.032 1140.37 233.032C1145.74 233.032 1150.13 231.256 1150.42 229.02H1150.43V228.789V210.944Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M1150.43 210.944H1130.3V228.789V229.02H1130.32C1130.6 231.256 1134.99 233.032 1140.37 233.032C1145.74 233.032 1150.13 231.256 1150.42 229.02H1150.43V228.789V210.944Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M1150.43 210.944H1130.3V228.789V229.02H1130.32C1130.6 231.256 1134.99 233.032 1140.37 233.032C1145.74 233.032 1150.13 231.256 1150.42 229.02H1150.43V228.789V210.944Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M1130.3 210.944V209.194H1128.55V210.944H1130.3ZM1150.43 210.944H1152.18V209.194H1150.43V210.944ZM1130.3 229.02H1128.55V230.77H1130.3V229.02ZM1130.32 229.02L1132.05 228.799L1131.86 227.27H1130.32V229.02ZM1150.42 229.02V227.27H1148.87L1148.68 228.799L1150.42 229.02ZM1150.43 229.02V230.77H1152.18V229.02H1150.43ZM1130.3 212.694H1150.43V209.194H1130.3V212.694ZM1132.05 228.789V210.944H1128.55V228.789H1132.05ZM1132.05 229.02V228.789H1128.55V229.02H1132.05ZM1130.32 227.27H1130.3V230.77H1130.32V227.27ZM1140.37 231.282C1137.85 231.282 1135.64 230.863 1134.08 230.24C1133.3 229.927 1132.76 229.59 1132.42 229.288C1132.08 228.983 1132.06 228.809 1132.05 228.799L1128.58 229.241C1128.72 230.349 1129.35 231.235 1130.08 231.892C1130.82 232.551 1131.76 233.078 1132.78 233.489C1134.84 234.312 1137.51 234.782 1140.37 234.782V231.282ZM1148.68 228.799C1148.68 228.809 1148.65 228.983 1148.31 229.288C1147.98 229.59 1147.43 229.927 1146.65 230.24C1145.09 230.863 1142.88 231.282 1140.37 231.282V234.782C1143.23 234.782 1145.9 234.312 1147.95 233.489C1148.98 233.078 1149.92 232.551 1150.65 231.892C1151.38 231.235 1152.01 230.349 1152.15 229.241L1148.68 228.799ZM1150.43 227.27H1150.42V230.77H1150.43V227.27ZM1148.68 228.789V229.02H1152.18V228.789H1148.68ZM1148.68 210.944V228.789H1152.18V210.944H1148.68Z"
-                      fill="black"
-                      mask="url(#path-23-inside-1_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7">
-                    <mask
-                      id="mask0_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="1130"
-                      y="207"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5"
-                        d="M1149.56 211.266C1149.56 211.551 1149.42 211.899 1149.02 212.298C1148.62 212.7 1147.99 213.103 1147.14 213.46C1145.45 214.172 1143.06 214.634 1140.37 214.634C1137.68 214.634 1135.28 214.172 1133.59 213.46C1132.74 213.103 1132.12 212.7 1131.71 212.298C1131.31 211.899 1131.18 211.551 1131.18 211.266C1131.18 210.982 1131.31 210.634 1131.71 210.235C1132.12 209.832 1132.74 209.43 1133.59 209.073C1135.28 208.361 1137.68 207.899 1140.37 207.899C1143.06 207.899 1145.45 208.361 1147.14 209.073C1147.99 209.43 1148.62 209.832 1149.02 210.235C1149.42 210.634 1149.56 210.982 1149.56 211.266Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask0_11_129)">
-                      <path
-                        id="Ellipse 4"
-                        d="M1149.56 211.266C1149.56 211.551 1149.42 211.899 1149.02 212.298C1148.62 212.7 1147.99 213.103 1147.14 213.46C1145.45 214.172 1143.06 214.634 1140.37 214.634C1137.68 214.634 1135.28 214.172 1133.59 213.46C1132.74 213.103 1132.12 212.7 1131.71 212.298C1131.31 211.899 1131.18 211.551 1131.18 211.266C1131.18 210.982 1131.31 210.634 1131.71 210.235C1132.12 209.832 1132.74 209.43 1133.59 209.073C1135.28 208.361 1137.68 207.899 1140.37 207.899C1143.06 207.899 1145.45 208.361 1147.14 209.073C1147.99 209.43 1148.62 209.832 1149.02 210.235C1149.42 210.634 1149.56 210.982 1149.56 211.266Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16"
-                        d="M1126.48 207.667L1135.76 204.903C1134.24 210.974 1135.29 213.647 1140.15 217.27L1130.86 220.035L1126.48 207.667Z"
+                        d="M1130.3 210.944V209.194H1128.55V210.944H1130.3ZM1150.43 210.944H1152.18V209.194H1150.43V210.944ZM1130.3 229.02H1128.55V230.77H1130.3V229.02ZM1130.32 229.02L1132.05 228.799L1131.86 227.27H1130.32V229.02ZM1150.42 229.02V227.27H1148.87L1148.68 228.799L1150.42 229.02ZM1150.43 229.02V230.77H1152.18V229.02H1150.43ZM1130.3 212.694H1150.43V209.194H1130.3V212.694ZM1132.05 228.789V210.944H1128.55V228.789H1132.05ZM1132.05 229.02V228.789H1128.55V229.02H1132.05ZM1130.32 227.27H1130.3V230.77H1130.32V227.27ZM1140.37 231.282C1137.85 231.282 1135.64 230.863 1134.08 230.24C1133.3 229.927 1132.76 229.59 1132.42 229.288C1132.08 228.983 1132.06 228.809 1132.05 228.799L1128.58 229.241C1128.72 230.349 1129.35 231.235 1130.08 231.892C1130.82 232.551 1131.76 233.078 1132.78 233.489C1134.84 234.312 1137.51 234.782 1140.37 234.782V231.282ZM1148.68 228.799C1148.68 228.809 1148.65 228.983 1148.31 229.288C1147.98 229.59 1147.43 229.927 1146.65 230.24C1145.09 230.863 1142.88 231.282 1140.37 231.282V234.782C1143.23 234.782 1145.9 234.312 1147.95 233.489C1148.98 233.078 1149.92 232.551 1150.65 231.892C1151.38 231.235 1152.01 230.349 1152.15 229.241L1148.68 228.799ZM1150.43 227.27H1150.42V230.77H1150.43V227.27ZM1148.68 228.789V229.02H1152.18V228.789H1148.68ZM1148.68 210.944V228.789H1152.18V210.944H1148.68Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-23-inside-1_11_129)"
+                        />
                     </g>
+                    <g id="Group 7">
+                      <mask
+                        id="mask0_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="1130"
+                        y="207"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5"
+                          d="M1149.56 211.266C1149.56 211.551 1149.42 211.899 1149.02 212.298C1148.62 212.7 1147.99 213.103 1147.14 213.46C1145.45 214.172 1143.06 214.634 1140.37 214.634C1137.68 214.634 1135.28 214.172 1133.59 213.46C1132.74 213.103 1132.12 212.7 1131.71 212.298C1131.31 211.899 1131.18 211.551 1131.18 211.266C1131.18 210.982 1131.31 210.634 1131.71 210.235C1132.12 209.832 1132.74 209.43 1133.59 209.073C1135.28 208.361 1137.68 207.899 1140.37 207.899C1143.06 207.899 1145.45 208.361 1147.14 209.073C1147.99 209.43 1148.62 209.832 1149.02 210.235C1149.42 210.634 1149.56 210.982 1149.56 211.266Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask0_11_129)">
+                        <path
+                          id="Ellipse 4"
+                          d="M1149.56 211.266C1149.56 211.551 1149.42 211.899 1149.02 212.298C1148.62 212.7 1147.99 213.103 1147.14 213.46C1145.45 214.172 1143.06 214.634 1140.37 214.634C1137.68 214.634 1135.28 214.172 1133.59 213.46C1132.74 213.103 1132.12 212.7 1131.71 212.298C1131.31 211.899 1131.18 211.551 1131.18 211.266C1131.18 210.982 1131.31 210.634 1131.71 210.235C1132.12 209.832 1132.74 209.43 1133.59 209.073C1135.28 208.361 1137.68 207.899 1140.37 207.899C1143.06 207.899 1145.45 208.361 1147.14 209.073C1147.99 209.43 1148.62 209.832 1149.02 210.235C1149.42 210.634 1149.56 210.982 1149.56 211.266Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16"
+                          d="M1126.48 207.667L1135.76 204.903C1134.24 210.974 1135.29 213.647 1140.15 217.27L1130.86 220.035L1126.48 207.667Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3"
+                      d="M1130.61 212.627C1136.04 223.164 1149.63 223.44 1150.08 212.004"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-3" (click)="changeColor(3)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3"
-                    d="M1130.61 212.627C1136.04 223.164 1149.63 223.44 1150.08 212.004"
+                    id="Rectangle 3_5"
+                    d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1"
+                    d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_5"
+                    x="792.747"
+                    y="180.652"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-3" (click)="changeColor(3)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_5"
-                  d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1"
-                  d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_5"
-                  x="792.747"
-                  y="180.652"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_6"
-                  d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_2"
-                  d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_6"
-                  x="792.747"
-                  y="180.652"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_7"
-                  d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_3"
-                  d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_7"
-                  x="792.747"
-                  y="180.652"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_8"
-                  d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_4"
-                  d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_8"
-                  x="792.747"
-                  y="180.652"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_2">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_6"
+                    d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_2"
+                    d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_2"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 827.833 151.649)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_2"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 843.106 147.635)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 850.604 224.422)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 834.31 172.351)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 840.689 192.737)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 847.34 213.992)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 831.047 161.921)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 837.698 183.176)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_2"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 844.002 203.325)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_6"
+                    x="792.747"
+                    y="180.652"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_2">
-                  <g id="Union_2">
-                    <mask id="path-50-inside-2_11_129" fill="white">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_7"
+                    d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_3"
+                    d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_7"
+                    x="792.747"
+                    y="180.652"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_8"
+                    d="M772.984 139.427H771.109V141.302V225.689V227.564H772.984H891.638H893.513V225.689V141.302V139.427H891.638H772.984Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_4"
+                    d="M755.14 139.404L832.311 17.4449L909.482 139.404H755.14Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_8"
+                    x="792.747"
+                    y="180.652"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_2">
+                    <rect
+                      id="Rectangle 6_2"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 827.833 151.649)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_2"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 843.106 147.635)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 850.604 224.422)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 834.31 172.351)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 840.689 192.737)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 847.34 213.992)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 831.047 161.921)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 837.698 183.176)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_2"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 844.002 203.325)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_2">
+                    <g id="Union_2">
+                      <mask id="path-50-inside-2_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M882.73 210.944H862.602V228.789V229.02H862.617C862.901 231.256 867.292 233.032 872.666 233.032C878.041 233.032 882.432 231.256 882.716 229.02H882.73V228.789V210.944Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M882.73 210.944H862.602V228.789V229.02H862.617C862.901 231.256 867.292 233.032 872.666 233.032C878.041 233.032 882.432 231.256 882.716 229.02H882.73V228.789V210.944Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M882.73 210.944H862.602V228.789V229.02H862.617C862.901 231.256 867.292 233.032 872.666 233.032C878.041 233.032 882.432 231.256 882.716 229.02H882.73V228.789V210.944Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M862.602 210.944V209.194H860.852V210.944H862.602ZM882.73 210.944H884.48V209.194H882.73V210.944ZM862.602 229.02H860.852V230.77H862.602V229.02ZM862.617 229.02L864.353 228.799L864.159 227.27H862.617V229.02ZM882.716 229.02V227.27H881.174L880.98 228.799L882.716 229.02ZM882.73 229.02V230.77H884.48V229.02H882.73ZM862.602 212.694H882.73V209.194H862.602V212.694ZM864.352 228.789V210.944H860.852V228.789H864.352ZM864.352 229.02V228.789H860.852V229.02H864.352ZM862.617 227.27H862.602V230.77H862.617V227.27ZM872.666 231.282C870.151 231.282 867.939 230.863 866.384 230.24C865.604 229.927 865.057 229.59 864.72 229.288C864.381 228.983 864.354 228.809 864.353 228.799L860.881 229.241C861.022 230.349 861.65 231.235 862.382 231.892C863.116 232.551 864.056 233.078 865.082 233.489C867.136 234.312 869.807 234.782 872.666 234.782V231.282ZM880.98 228.799C880.978 228.809 880.951 228.983 880.612 229.288C880.275 229.59 879.729 229.927 878.949 230.24C877.393 230.863 875.181 231.282 872.666 231.282V234.782C875.526 234.782 878.196 234.312 880.251 233.489C881.276 233.078 882.216 232.551 882.951 231.892C883.682 231.235 884.311 230.349 884.452 229.241L880.98 228.799ZM882.73 227.27H882.716V230.77H882.73V227.27ZM880.98 228.789V229.02H884.48V228.789H880.98ZM880.98 210.944V228.789H884.48V210.944H880.98Z"
-                      fill="black"
-                      mask="url(#path-50-inside-2_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_2">
-                    <mask
-                      id="mask1_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="862"
-                      y="207"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_2"
-                        d="M881.855 211.266C881.855 211.551 881.722 211.899 881.322 212.298C880.918 212.7 880.289 213.103 879.443 213.46C877.753 214.172 875.358 214.634 872.666 214.634C869.975 214.634 867.58 214.172 865.89 213.46C865.043 213.103 864.415 212.7 864.011 212.298C863.61 211.899 863.477 211.551 863.477 211.266C863.477 210.982 863.61 210.634 864.011 210.235C864.415 209.832 865.043 209.43 865.89 209.073C867.58 208.361 869.975 207.899 872.666 207.899C875.358 207.899 877.753 208.361 879.443 209.073C880.289 209.43 880.918 209.832 881.322 210.235C881.722 210.634 881.855 210.982 881.855 211.266Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask1_11_129)">
-                      <path
-                        id="Ellipse 4_2"
-                        d="M881.855 211.266C881.855 211.551 881.722 211.899 881.322 212.298C880.918 212.7 880.289 213.103 879.443 213.46C877.753 214.172 875.358 214.634 872.666 214.634C869.975 214.634 867.58 214.172 865.89 213.46C865.043 213.103 864.415 212.7 864.011 212.298C863.61 211.899 863.477 211.551 863.477 211.266C863.477 210.982 863.61 210.634 864.011 210.235C864.415 209.832 865.043 209.43 865.89 209.073C867.58 208.361 869.975 207.899 872.666 207.899C875.358 207.899 877.753 208.361 879.443 209.073C880.289 209.43 880.918 209.832 881.322 210.235C881.722 210.634 881.855 210.982 881.855 211.266Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_2"
-                        d="M858.778 207.667L868.062 204.903C866.538 210.974 867.59 213.647 872.447 217.27L863.163 220.035L858.778 207.667Z"
+                        d="M862.602 210.944V209.194H860.852V210.944H862.602ZM882.73 210.944H884.48V209.194H882.73V210.944ZM862.602 229.02H860.852V230.77H862.602V229.02ZM862.617 229.02L864.353 228.799L864.159 227.27H862.617V229.02ZM882.716 229.02V227.27H881.174L880.98 228.799L882.716 229.02ZM882.73 229.02V230.77H884.48V229.02H882.73ZM862.602 212.694H882.73V209.194H862.602V212.694ZM864.352 228.789V210.944H860.852V228.789H864.352ZM864.352 229.02V228.789H860.852V229.02H864.352ZM862.617 227.27H862.602V230.77H862.617V227.27ZM872.666 231.282C870.151 231.282 867.939 230.863 866.384 230.24C865.604 229.927 865.057 229.59 864.72 229.288C864.381 228.983 864.354 228.809 864.353 228.799L860.881 229.241C861.022 230.349 861.65 231.235 862.382 231.892C863.116 232.551 864.056 233.078 865.082 233.489C867.136 234.312 869.807 234.782 872.666 234.782V231.282ZM880.98 228.799C880.978 228.809 880.951 228.983 880.612 229.288C880.275 229.59 879.729 229.927 878.949 230.24C877.393 230.863 875.181 231.282 872.666 231.282V234.782C875.526 234.782 878.196 234.312 880.251 233.489C881.276 233.078 882.216 232.551 882.951 231.892C883.682 231.235 884.311 230.349 884.452 229.241L880.98 228.799ZM882.73 227.27H882.716V230.77H882.73V227.27ZM880.98 228.789V229.02H884.48V228.789H880.98ZM880.98 210.944V228.789H884.48V210.944H880.98Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-50-inside-2_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_2">
+                      <mask
+                        id="mask1_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="862"
+                        y="207"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_2"
+                          d="M881.855 211.266C881.855 211.551 881.722 211.899 881.322 212.298C880.918 212.7 880.289 213.103 879.443 213.46C877.753 214.172 875.358 214.634 872.666 214.634C869.975 214.634 867.58 214.172 865.89 213.46C865.043 213.103 864.415 212.7 864.011 212.298C863.61 211.899 863.477 211.551 863.477 211.266C863.477 210.982 863.61 210.634 864.011 210.235C864.415 209.832 865.043 209.43 865.89 209.073C867.58 208.361 869.975 207.899 872.666 207.899C875.358 207.899 877.753 208.361 879.443 209.073C880.289 209.43 880.918 209.832 881.322 210.235C881.722 210.634 881.855 210.982 881.855 211.266Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask1_11_129)">
+                        <path
+                          id="Ellipse 4_2"
+                          d="M881.855 211.266C881.855 211.551 881.722 211.899 881.322 212.298C880.918 212.7 880.289 213.103 879.443 213.46C877.753 214.172 875.358 214.634 872.666 214.634C869.975 214.634 867.58 214.172 865.89 213.46C865.043 213.103 864.415 212.7 864.011 212.298C863.61 211.899 863.477 211.551 863.477 211.266C863.477 210.982 863.61 210.634 864.011 210.235C864.415 209.832 865.043 209.43 865.89 209.073C867.58 208.361 869.975 207.899 872.666 207.899C875.358 207.899 877.753 208.361 879.443 209.073C880.289 209.43 880.918 209.832 881.322 210.235C881.722 210.634 881.855 210.982 881.855 211.266Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_2"
+                          d="M858.778 207.667L868.062 204.903C866.538 210.974 867.59 213.647 872.447 217.27L863.163 220.035L858.778 207.667Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_2"
+                      d="M862.904 212.627C868.339 223.164 881.925 223.44 882.375 212.004"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-2" (click)="changeColor(2)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_2"
-                    d="M862.904 212.627C868.339 223.164 881.925 223.44 882.375 212.004"
+                    id="Rectangle 3_9"
+                    d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_5"
+                    d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_9"
+                    x="551.11"
+                    y="178.255"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-2" (click)="changeColor(2)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_9"
-                  d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_5"
-                  d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_9"
-                  x="551.11"
-                  y="178.255"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_10"
-                  d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_6"
-                  d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_10"
-                  x="551.11"
-                  y="178.255"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_11"
-                  d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_7"
-                  d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_11"
-                  x="551.11"
-                  y="178.255"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_12"
-                  d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_8"
-                  d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_12"
-                  x="551.11"
-                  y="178.255"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_3">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_10"
+                    d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_6"
+                    d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_3"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 588.008 149.712)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_3"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 603.282 145.699)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 610.779 222.486)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 594.486 170.414)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 600.865 190.8)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 607.516 212.055)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 591.222 159.984)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 597.873 181.239)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_3"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 604.178 201.388)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_10"
+                    x="551.11"
+                    y="178.255"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_3">
-                  <g id="Union_3">
-                    <mask id="path-77-inside-3_11_129" fill="white">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_11"
+                    d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_7"
+                    d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_11"
+                    x="551.11"
+                    y="178.255"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_12"
+                    d="M531.348 137.03H529.473V138.905V223.291V225.166H531.348H650.002H651.877V223.291V138.905V137.03H650.002H531.348Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_8"
+                    d="M513.504 137.007L590.675 15.0471L667.846 137.007H513.504Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_12"
+                    x="551.11"
+                    y="178.255"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_3">
+                    <rect
+                      id="Rectangle 6_3"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 588.008 149.712)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_3"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 603.282 145.699)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 610.779 222.486)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 594.486 170.414)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 600.865 190.8)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 607.516 212.055)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 591.222 159.984)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 597.873 181.239)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_3"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 604.178 201.388)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_3">
+                    <g id="Union_3">
+                      <mask id="path-77-inside-3_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M642.906 209.007H622.778V227.083H622.793C623.077 229.319 627.467 231.095 632.842 231.095C638.217 231.095 642.607 229.319 642.891 227.083H642.906V226.863C642.906 226.86 642.906 226.856 642.906 226.853C642.906 226.849 642.906 226.846 642.906 226.842V209.007Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M642.906 209.007H622.778V227.083H622.793C623.077 229.319 627.467 231.095 632.842 231.095C638.217 231.095 642.607 229.319 642.891 227.083H642.906V226.863C642.906 226.86 642.906 226.856 642.906 226.853C642.906 226.849 642.906 226.846 642.906 226.842V209.007Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M642.906 209.007H622.778V227.083H622.793C623.077 229.319 627.467 231.095 632.842 231.095C638.217 231.095 642.607 229.319 642.891 227.083H642.906V226.863C642.906 226.86 642.906 226.856 642.906 226.853C642.906 226.849 642.906 226.846 642.906 226.842V209.007Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M622.778 209.007V207.257H621.028V209.007H622.778ZM642.906 209.007H644.656V207.257H642.906V209.007ZM622.778 227.083H621.028V228.833H622.778V227.083ZM622.793 227.083L624.529 226.863L624.334 225.333H622.793V227.083ZM642.891 227.083V225.333H641.35L641.155 226.863L642.891 227.083ZM642.906 227.083V228.833H644.656V227.083H642.906ZM642.906 226.863L641.156 226.853V226.863H642.906ZM642.906 226.842L641.156 226.842L641.156 226.853L642.906 226.842ZM622.778 210.757H642.906V207.257H622.778V210.757ZM624.528 227.083V209.007H621.028V227.083H624.528ZM622.793 225.333H622.778V228.833H622.793V225.333ZM632.842 229.345C630.327 229.345 628.115 228.927 626.559 228.303C625.78 227.991 625.233 227.654 624.896 227.351C624.557 227.047 624.53 226.872 624.529 226.863L621.057 227.304C621.197 228.412 621.826 229.298 622.558 229.955C623.292 230.615 624.232 231.141 625.257 231.552C627.312 232.375 629.983 232.845 632.842 232.845V229.345ZM641.155 226.863C641.154 226.872 641.127 227.047 640.788 227.351C640.451 227.654 639.904 227.991 639.125 228.303C637.569 228.927 635.357 229.345 632.842 229.345V232.845C635.701 232.845 638.372 232.375 640.427 231.552C641.452 231.141 642.392 230.615 643.126 229.955C643.858 229.298 644.487 228.412 644.627 227.304L641.155 226.863ZM642.906 225.333H642.891V228.833H642.906V225.333ZM641.156 226.863V227.083H644.656V226.863H641.156ZM641.156 226.853L641.156 226.853L644.656 226.874C644.656 226.866 644.656 226.859 644.656 226.853H641.156ZM641.156 226.853L641.156 226.853H644.656C644.656 226.846 644.656 226.839 644.656 226.832L641.156 226.853ZM641.156 209.007V226.842H644.656V209.007H641.156Z"
-                      fill="black"
-                      mask="url(#path-77-inside-3_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_3">
-                    <mask
-                      id="mask2_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="622"
-                      y="205"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_3"
-                        d="M642.031 209.33C642.031 209.614 641.898 209.962 641.497 210.361C641.094 210.764 640.465 211.166 639.618 211.523C637.929 212.236 635.533 212.697 632.842 212.697C630.151 212.697 627.755 212.236 626.066 211.523C625.219 211.166 624.59 210.764 624.187 210.361C623.786 209.962 623.653 209.614 623.653 209.33C623.653 209.045 623.786 208.697 624.187 208.298C624.59 207.896 625.219 207.493 626.066 207.136C627.755 206.424 630.151 205.962 632.842 205.962C635.533 205.962 637.929 206.424 639.618 207.136C640.465 207.493 641.094 207.896 641.497 208.298C641.898 208.697 642.031 209.045 642.031 209.33Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask2_11_129)">
-                      <path
-                        id="Ellipse 4_3"
-                        d="M642.031 209.33C642.031 209.614 641.898 209.962 641.497 210.361C641.094 210.764 640.465 211.166 639.618 211.523C637.929 212.236 635.533 212.697 632.842 212.697C630.151 212.697 627.755 212.236 626.066 211.523C625.219 211.166 624.59 210.764 624.187 210.361C623.786 209.962 623.653 209.614 623.653 209.33C623.653 209.045 623.786 208.697 624.187 208.298C624.59 207.896 625.219 207.493 626.066 207.136C627.755 206.424 630.151 205.962 632.842 205.962C635.533 205.962 637.929 206.424 639.618 207.136C640.465 207.493 641.094 207.896 641.497 208.298C641.898 208.697 642.031 209.045 642.031 209.33Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_3"
-                        d="M618.954 205.731L628.238 202.966C626.714 209.038 627.766 211.71 632.623 215.334L623.339 218.098L618.954 205.731Z"
+                        d="M622.778 209.007V207.257H621.028V209.007H622.778ZM642.906 209.007H644.656V207.257H642.906V209.007ZM622.778 227.083H621.028V228.833H622.778V227.083ZM622.793 227.083L624.529 226.863L624.334 225.333H622.793V227.083ZM642.891 227.083V225.333H641.35L641.155 226.863L642.891 227.083ZM642.906 227.083V228.833H644.656V227.083H642.906ZM642.906 226.863L641.156 226.853V226.863H642.906ZM642.906 226.842L641.156 226.842L641.156 226.853L642.906 226.842ZM622.778 210.757H642.906V207.257H622.778V210.757ZM624.528 227.083V209.007H621.028V227.083H624.528ZM622.793 225.333H622.778V228.833H622.793V225.333ZM632.842 229.345C630.327 229.345 628.115 228.927 626.559 228.303C625.78 227.991 625.233 227.654 624.896 227.351C624.557 227.047 624.53 226.872 624.529 226.863L621.057 227.304C621.197 228.412 621.826 229.298 622.558 229.955C623.292 230.615 624.232 231.141 625.257 231.552C627.312 232.375 629.983 232.845 632.842 232.845V229.345ZM641.155 226.863C641.154 226.872 641.127 227.047 640.788 227.351C640.451 227.654 639.904 227.991 639.125 228.303C637.569 228.927 635.357 229.345 632.842 229.345V232.845C635.701 232.845 638.372 232.375 640.427 231.552C641.452 231.141 642.392 230.615 643.126 229.955C643.858 229.298 644.487 228.412 644.627 227.304L641.155 226.863ZM642.906 225.333H642.891V228.833H642.906V225.333ZM641.156 226.863V227.083H644.656V226.863H641.156ZM641.156 226.853L641.156 226.853L644.656 226.874C644.656 226.866 644.656 226.859 644.656 226.853H641.156ZM641.156 226.853L641.156 226.853H644.656C644.656 226.846 644.656 226.839 644.656 226.832L641.156 226.853ZM641.156 209.007V226.842H644.656V209.007H641.156Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-77-inside-3_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_3">
+                      <mask
+                        id="mask2_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="622"
+                        y="205"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_3"
+                          d="M642.031 209.33C642.031 209.614 641.898 209.962 641.497 210.361C641.094 210.764 640.465 211.166 639.618 211.523C637.929 212.236 635.533 212.697 632.842 212.697C630.151 212.697 627.755 212.236 626.066 211.523C625.219 211.166 624.59 210.764 624.187 210.361C623.786 209.962 623.653 209.614 623.653 209.33C623.653 209.045 623.786 208.697 624.187 208.298C624.59 207.896 625.219 207.493 626.066 207.136C627.755 206.424 630.151 205.962 632.842 205.962C635.533 205.962 637.929 206.424 639.618 207.136C640.465 207.493 641.094 207.896 641.497 208.298C641.898 208.697 642.031 209.045 642.031 209.33Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask2_11_129)">
+                        <path
+                          id="Ellipse 4_3"
+                          d="M642.031 209.33C642.031 209.614 641.898 209.962 641.497 210.361C641.094 210.764 640.465 211.166 639.618 211.523C637.929 212.236 635.533 212.697 632.842 212.697C630.151 212.697 627.755 212.236 626.066 211.523C625.219 211.166 624.59 210.764 624.187 210.361C623.786 209.962 623.653 209.614 623.653 209.33C623.653 209.045 623.786 208.697 624.187 208.298C624.59 207.896 625.219 207.493 626.066 207.136C627.755 206.424 630.151 205.962 632.842 205.962C635.533 205.962 637.929 206.424 639.618 207.136C640.465 207.493 641.094 207.896 641.497 208.298C641.898 208.697 642.031 209.045 642.031 209.33Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_3"
+                          d="M618.954 205.731L628.238 202.966C626.714 209.038 627.766 211.71 632.623 215.334L623.339 218.098L618.954 205.731Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_3"
+                      d="M623.08 210.69C628.515 221.227 642.101 221.504 642.55 210.068"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-1" (click)="changeColor(1)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_3"
-                    d="M623.08 210.69C628.515 221.227 642.101 221.504 642.55 210.068"
+                    id="Rectangle 3_13"
+                    d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_9"
+                    d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_13"
+                    x="309.477"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-1" (click)="changeColor(1)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_13"
-                  d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_9"
-                  d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_13"
-                  x="309.477"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_14"
-                  d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_10"
-                  d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_14"
-                  x="309.477"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_15"
-                  d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_11"
-                  d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_15"
-                  x="309.477"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_16"
-                  d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_12"
-                  d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_16"
-                  x="309.477"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_4">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_14"
+                    d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_10"
+                    d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_4"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 348.991 145.654)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_4"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 364.264 141.641)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 371.762 218.428)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 355.469 166.356)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 361.847 186.742)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 368.498 207.998)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 352.205 155.926)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 358.856 177.181)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_4"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 365.161 197.33)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_14"
+                    x="309.477"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_4">
-                  <g id="Union_4">
-                    <mask id="path-104-inside-4_11_129" fill="white">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_15"
+                    d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_11"
+                    d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_15"
+                    x="309.477"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_16"
+                    d="M289.714 126.239H287.839V128.114V212.501V214.376H289.714H408.368H410.243V212.501V128.114V126.239H408.368H289.714Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_12"
+                    d="M272.986 141.756L349.041 65.5644L425.096 141.756H272.986Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_16"
+                    x="309.477"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_4">
+                    <rect
+                      id="Rectangle 6_4"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 348.991 145.654)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_4"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 364.264 141.641)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 371.762 218.428)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 355.469 166.356)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 361.847 186.742)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 368.498 207.998)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 352.205 155.926)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 358.856 177.181)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_4"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 365.161 197.33)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_4">
+                    <g id="Union_4">
+                      <mask id="path-104-inside-4_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M403.888 204.949H383.76V222.784C383.76 222.788 383.76 222.791 383.76 222.795C383.76 222.798 383.76 222.802 383.76 222.805V223.025H383.775C384.059 225.261 388.449 227.037 393.824 227.037C399.199 227.037 403.589 225.261 403.874 223.025H403.888V204.949Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M403.888 204.949H383.76V222.784C383.76 222.788 383.76 222.791 383.76 222.795C383.76 222.798 383.76 222.802 383.76 222.805V223.025H383.775C384.059 225.261 388.449 227.037 393.824 227.037C399.199 227.037 403.589 225.261 403.874 223.025H403.888V204.949Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M403.888 204.949H383.76V222.784C383.76 222.788 383.76 222.791 383.76 222.795C383.76 222.798 383.76 222.802 383.76 222.805V223.025H383.775C384.059 225.261 388.449 227.037 393.824 227.037C399.199 227.037 403.589 225.261 403.874 223.025H403.888V204.949Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M383.76 204.949V203.199H382.01V204.949H383.76ZM403.888 204.949H405.638V203.199H403.888V204.949ZM383.76 222.784L385.51 222.794V222.784H383.76ZM383.76 222.805H385.51L385.51 222.795L383.76 222.805ZM383.76 223.025H382.01V224.775H383.76V223.025ZM383.775 223.025L385.511 222.805L385.317 221.275H383.775V223.025ZM403.874 223.025V221.275H402.332L402.137 222.805L403.874 223.025ZM403.888 223.025V224.775H405.638V223.025H403.888ZM383.76 206.699H403.888V203.199H383.76V206.699ZM385.51 222.784V204.949H382.01V222.784H385.51ZM385.51 222.795C385.51 222.795 385.51 222.794 385.51 222.794L382.01 222.774C382.01 222.781 382.01 222.788 382.01 222.795H385.51ZM385.51 222.795C385.51 222.795 385.51 222.795 385.51 222.795H382.01C382.01 222.802 382.01 222.808 382.01 222.815L385.51 222.795ZM385.51 223.025V222.805H382.01V223.025H385.51ZM383.775 221.275H383.76V224.775H383.775V221.275ZM393.824 225.287C391.309 225.287 389.097 224.869 387.542 224.245C386.762 223.933 386.215 223.596 385.878 223.293C385.539 222.989 385.512 222.814 385.511 222.805L382.039 223.246C382.18 224.354 382.808 225.24 383.54 225.897C384.274 226.557 385.214 227.083 386.239 227.494C388.294 228.317 390.965 228.787 393.824 228.787V225.287ZM402.137 222.805C402.136 222.814 402.109 222.989 401.77 223.293C401.433 223.596 400.887 223.933 400.107 224.245C398.551 224.869 396.339 225.287 393.824 225.287V228.787C396.684 228.787 399.354 228.317 401.409 227.494C402.434 227.083 403.374 226.557 404.109 225.897C404.84 225.24 405.469 224.354 405.61 223.246L402.137 222.805ZM403.888 221.275H403.874V224.775H403.888V221.275ZM402.138 204.949V223.025H405.638V204.949H402.138Z"
-                      fill="black"
-                      mask="url(#path-104-inside-4_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_4">
-                    <mask
-                      id="mask3_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="383"
-                      y="201"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_4"
-                        d="M403.013 205.272C403.013 205.556 402.88 205.904 402.48 206.303C402.076 206.706 401.447 207.108 400.601 207.465C398.911 208.178 396.516 208.639 393.824 208.639C391.133 208.639 388.738 208.178 387.048 207.465C386.201 207.108 385.573 206.706 385.169 206.303C384.768 205.904 384.635 205.556 384.635 205.272C384.635 204.987 384.768 204.639 385.169 204.24C385.573 203.838 386.201 203.435 387.048 203.078C388.738 202.366 391.133 201.904 393.824 201.904C396.516 201.904 398.911 202.366 400.601 203.078C401.447 203.435 402.076 203.838 402.48 204.24C402.88 204.639 403.013 204.987 403.013 205.272Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask3_11_129)">
-                      <path
-                        id="Ellipse 4_4"
-                        d="M403.013 205.272C403.013 205.556 402.88 205.904 402.48 206.303C402.076 206.706 401.447 207.108 400.601 207.465C398.911 208.178 396.516 208.639 393.824 208.639C391.133 208.639 388.738 208.178 387.048 207.465C386.201 207.108 385.573 206.706 385.169 206.303C384.768 205.904 384.635 205.556 384.635 205.272C384.635 204.987 384.768 204.639 385.169 204.24C385.573 203.838 386.201 203.435 387.048 203.078C388.738 202.366 391.133 201.904 393.824 201.904C396.516 201.904 398.911 202.366 400.601 203.078C401.447 203.435 402.076 203.838 402.48 204.24C402.88 204.639 403.013 204.987 403.013 205.272Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_4"
-                        d="M379.936 201.673L389.22 198.908C387.696 204.98 388.748 207.652 393.605 211.276L384.321 214.04L379.936 201.673Z"
+                        d="M383.76 204.949V203.199H382.01V204.949H383.76ZM403.888 204.949H405.638V203.199H403.888V204.949ZM383.76 222.784L385.51 222.794V222.784H383.76ZM383.76 222.805H385.51L385.51 222.795L383.76 222.805ZM383.76 223.025H382.01V224.775H383.76V223.025ZM383.775 223.025L385.511 222.805L385.317 221.275H383.775V223.025ZM403.874 223.025V221.275H402.332L402.137 222.805L403.874 223.025ZM403.888 223.025V224.775H405.638V223.025H403.888ZM383.76 206.699H403.888V203.199H383.76V206.699ZM385.51 222.784V204.949H382.01V222.784H385.51ZM385.51 222.795C385.51 222.795 385.51 222.794 385.51 222.794L382.01 222.774C382.01 222.781 382.01 222.788 382.01 222.795H385.51ZM385.51 222.795C385.51 222.795 385.51 222.795 385.51 222.795H382.01C382.01 222.802 382.01 222.808 382.01 222.815L385.51 222.795ZM385.51 223.025V222.805H382.01V223.025H385.51ZM383.775 221.275H383.76V224.775H383.775V221.275ZM393.824 225.287C391.309 225.287 389.097 224.869 387.542 224.245C386.762 223.933 386.215 223.596 385.878 223.293C385.539 222.989 385.512 222.814 385.511 222.805L382.039 223.246C382.18 224.354 382.808 225.24 383.54 225.897C384.274 226.557 385.214 227.083 386.239 227.494C388.294 228.317 390.965 228.787 393.824 228.787V225.287ZM402.137 222.805C402.136 222.814 402.109 222.989 401.77 223.293C401.433 223.596 400.887 223.933 400.107 224.245C398.551 224.869 396.339 225.287 393.824 225.287V228.787C396.684 228.787 399.354 228.317 401.409 227.494C402.434 227.083 403.374 226.557 404.109 225.897C404.84 225.24 405.469 224.354 405.61 223.246L402.137 222.805ZM403.888 221.275H403.874V224.775H403.888V221.275ZM402.138 204.949V223.025H405.638V204.949H402.138Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-104-inside-4_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_4">
+                      <mask
+                        id="mask3_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="383"
+                        y="201"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_4"
+                          d="M403.013 205.272C403.013 205.556 402.88 205.904 402.48 206.303C402.076 206.706 401.447 207.108 400.601 207.465C398.911 208.178 396.516 208.639 393.824 208.639C391.133 208.639 388.738 208.178 387.048 207.465C386.201 207.108 385.573 206.706 385.169 206.303C384.768 205.904 384.635 205.556 384.635 205.272C384.635 204.987 384.768 204.639 385.169 204.24C385.573 203.838 386.201 203.435 387.048 203.078C388.738 202.366 391.133 201.904 393.824 201.904C396.516 201.904 398.911 202.366 400.601 203.078C401.447 203.435 402.076 203.838 402.48 204.24C402.88 204.639 403.013 204.987 403.013 205.272Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask3_11_129)">
+                        <path
+                          id="Ellipse 4_4"
+                          d="M403.013 205.272C403.013 205.556 402.88 205.904 402.48 206.303C402.076 206.706 401.447 207.108 400.601 207.465C398.911 208.178 396.516 208.639 393.824 208.639C391.133 208.639 388.738 208.178 387.048 207.465C386.201 207.108 385.573 206.706 385.169 206.303C384.768 205.904 384.635 205.556 384.635 205.272C384.635 204.987 384.768 204.639 385.169 204.24C385.573 203.838 386.201 203.435 387.048 203.078C388.738 202.366 391.133 201.904 393.824 201.904C396.516 201.904 398.911 202.366 400.601 203.078C401.447 203.435 402.076 203.838 402.48 204.24C402.88 204.639 403.013 204.987 403.013 205.272Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_4"
+                          d="M379.936 201.673L389.22 198.908C387.696 204.98 388.748 207.652 393.605 211.276L384.321 214.04L379.936 201.673Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_4"
+                      d="M384.062 206.632C389.497 217.169 403.083 217.446 403.532 206.01"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-0" (click)="changeColor(0)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_4"
-                    d="M384.062 206.632C389.497 217.169 403.083 217.446 403.532 206.01"
+                    id="Rectangle 3_17"
+                    d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_13"
+                    d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_17"
+                    x="53.8516"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-0" (click)="changeColor(0)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_17"
-                  d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_13"
-                  d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_17"
-                  x="53.8516"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_18"
-                  d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_14"
-                  d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_18"
-                  x="53.8516"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_19"
-                  d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_15"
-                  d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_19"
-                  x="53.8516"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_20"
-                  d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_16"
-                  d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_20"
-                  x="53.8516"
-                  y="167.464"
-                  width="36.961"
-                  height="46.9118"
-                  fill="#7A6A56"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_5">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_18"
+                    d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_14"
+                    d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_5"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 88.938 146.484)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_5"
-                    width="1.69353"
-                    height="82.7937"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 104.211 142.471)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 111.709 219.258)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 95.4155 167.186)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 101.794 187.572)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 108.445 208.828)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 92.1519 156.756)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 98.8027 178.012)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_5"
-                    width="1.46933"
-                    height="17.4857"
-                    rx="0.734664"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 105.108 198.16)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_18"
+                    x="53.8516"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_5">
-                  <g id="Union_5">
-                    <mask id="path-131-inside-5_11_129" fill="white">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_19"
+                    d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_15"
+                    d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_19"
+                    x="53.8516"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_20"
+                    d="M34.0894 126.239H32.2144V128.114V212.501V214.376H34.0894H152.743H154.618V212.501V128.114V126.239H152.743H34.0894Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_16"
+                    d="M16.2454 126.216L93.4162 4.25661L170.587 126.216H16.2454Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_20"
+                    x="53.8516"
+                    y="167.464"
+                    width="36.961"
+                    height="46.9118"
+                    fill="#7A6A56"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_5">
+                    <rect
+                      id="Rectangle 6_5"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 88.938 146.484)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_5"
+                      width="1.69353"
+                      height="82.7937"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 104.211 142.471)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 111.709 219.258)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 95.4155 167.186)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 101.794 187.572)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 108.445 208.828)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 92.1519 156.756)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 98.8027 178.012)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_5"
+                      width="1.46933"
+                      height="17.4857"
+                      rx="0.734664"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 105.108 198.16)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_5">
+                    <g id="Union_5">
+                      <mask id="path-131-inside-5_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M143.835 205.779H123.708V223.625V223.855H123.722C124.006 226.091 128.397 227.867 133.771 227.867C139.146 227.867 143.537 226.091 143.821 223.855H143.835V223.625V205.779Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M143.835 205.779H123.708V223.625V223.855H123.722C124.006 226.091 128.397 227.867 133.771 227.867C139.146 227.867 143.537 226.091 143.821 223.855H143.835V223.625V205.779Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M143.835 205.779H123.708V223.625V223.855H123.722C124.006 226.091 128.397 227.867 133.771 227.867C139.146 227.867 143.537 226.091 143.821 223.855H143.835V223.625V205.779Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M123.708 205.779V204.029H121.958V205.779H123.708ZM143.835 205.779H145.585V204.029H143.835V205.779ZM123.708 223.855H121.958V225.605H123.708V223.855ZM123.722 223.855L125.458 223.635L125.264 222.105H123.722V223.855ZM143.821 223.855V222.105H142.279L142.085 223.635L143.821 223.855ZM143.835 223.855V225.605H145.585V223.855H143.835ZM123.708 207.529H143.835V204.029H123.708V207.529ZM125.458 223.625V205.779H121.958V223.625H125.458ZM125.458 223.855V223.625H121.958V223.855H125.458ZM123.722 222.105H123.708V225.605H123.722V222.105ZM133.771 226.117C131.256 226.117 129.044 225.699 127.489 225.075C126.709 224.763 126.163 224.426 125.826 224.123C125.486 223.819 125.459 223.644 125.458 223.635L121.986 224.076C122.127 225.184 122.755 226.07 123.487 226.727C124.221 227.387 125.162 227.913 126.187 228.324C128.241 229.148 130.912 229.617 133.771 229.617V226.117ZM142.085 223.635C142.084 223.644 142.057 223.819 141.717 224.123C141.38 224.426 140.834 224.763 140.054 225.075C138.499 225.699 136.287 226.117 133.771 226.117V229.617C136.631 229.617 139.302 229.148 141.356 228.324C142.381 227.913 143.322 227.387 144.056 226.727C144.788 226.07 145.416 225.184 145.557 224.076L142.085 223.635ZM143.835 222.105H143.821V225.605H143.835V222.105ZM142.085 223.625V223.855H145.585V223.625H142.085ZM142.085 205.779V223.625H145.585V205.779H142.085Z"
-                      fill="black"
-                      mask="url(#path-131-inside-5_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_5">
-                    <mask
-                      id="mask4_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="123"
-                      y="201"
-                      width="21"
-                      height="10"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_5"
-                        d="M142.96 206.102C142.96 206.386 142.827 206.734 142.427 207.133C142.023 207.536 141.395 207.938 140.548 208.295C138.858 209.008 136.463 209.469 133.771 209.469C131.08 209.469 128.685 209.008 126.995 208.295C126.148 207.938 125.52 207.536 125.116 207.133C124.716 206.734 124.583 206.386 124.583 206.102C124.583 205.817 124.716 205.469 125.116 205.07C125.52 204.668 126.148 204.265 126.995 203.908C128.685 203.196 131.08 202.734 133.771 202.734C136.463 202.734 138.858 203.196 140.548 203.908C141.395 204.265 142.023 204.668 142.427 205.07C142.827 205.469 142.96 205.817 142.96 206.102Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask4_11_129)">
-                      <path
-                        id="Ellipse 4_5"
-                        d="M142.96 206.102C142.96 206.386 142.827 206.734 142.427 207.133C142.023 207.536 141.395 207.938 140.548 208.295C138.858 209.008 136.463 209.469 133.771 209.469C131.08 209.469 128.685 209.008 126.995 208.295C126.148 207.938 125.52 207.536 125.116 207.133C124.716 206.734 124.583 206.386 124.583 206.102C124.583 205.817 124.716 205.469 125.116 205.07C125.52 204.668 126.148 204.265 126.995 203.908C128.685 203.196 131.08 202.734 133.771 202.734C136.463 202.734 138.858 203.196 140.548 203.908C141.395 204.265 142.023 204.668 142.427 205.07C142.827 205.469 142.96 205.817 142.96 206.102Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_5"
-                        d="M119.883 202.503L129.168 199.738C127.644 205.81 128.696 208.482 133.553 212.106L124.268 214.87L119.883 202.503Z"
+                        d="M123.708 205.779V204.029H121.958V205.779H123.708ZM143.835 205.779H145.585V204.029H143.835V205.779ZM123.708 223.855H121.958V225.605H123.708V223.855ZM123.722 223.855L125.458 223.635L125.264 222.105H123.722V223.855ZM143.821 223.855V222.105H142.279L142.085 223.635L143.821 223.855ZM143.835 223.855V225.605H145.585V223.855H143.835ZM123.708 207.529H143.835V204.029H123.708V207.529ZM125.458 223.625V205.779H121.958V223.625H125.458ZM125.458 223.855V223.625H121.958V223.855H125.458ZM123.722 222.105H123.708V225.605H123.722V222.105ZM133.771 226.117C131.256 226.117 129.044 225.699 127.489 225.075C126.709 224.763 126.163 224.426 125.826 224.123C125.486 223.819 125.459 223.644 125.458 223.635L121.986 224.076C122.127 225.184 122.755 226.07 123.487 226.727C124.221 227.387 125.162 227.913 126.187 228.324C128.241 229.148 130.912 229.617 133.771 229.617V226.117ZM142.085 223.635C142.084 223.644 142.057 223.819 141.717 224.123C141.38 224.426 140.834 224.763 140.054 225.075C138.499 225.699 136.287 226.117 133.771 226.117V229.617C136.631 229.617 139.302 229.148 141.356 228.324C142.381 227.913 143.322 227.387 144.056 226.727C144.788 226.07 145.416 225.184 145.557 224.076L142.085 223.635ZM143.835 222.105H143.821V225.605H143.835V222.105ZM142.085 223.625V223.855H145.585V223.625H142.085ZM142.085 205.779V223.625H145.585V205.779H142.085Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-131-inside-5_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_5">
+                      <mask
+                        id="mask4_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="123"
+                        y="201"
+                        width="21"
+                        height="10"
+                        >
+                        <path
+                          id="Ellipse 5_5"
+                          d="M142.96 206.102C142.96 206.386 142.827 206.734 142.427 207.133C142.023 207.536 141.395 207.938 140.548 208.295C138.858 209.008 136.463 209.469 133.771 209.469C131.08 209.469 128.685 209.008 126.995 208.295C126.148 207.938 125.52 207.536 125.116 207.133C124.716 206.734 124.583 206.386 124.583 206.102C124.583 205.817 124.716 205.469 125.116 205.07C125.52 204.668 126.148 204.265 126.995 203.908C128.685 203.196 131.08 202.734 133.771 202.734C136.463 202.734 138.858 203.196 140.548 203.908C141.395 204.265 142.023 204.668 142.427 205.07C142.827 205.469 142.96 205.817 142.96 206.102Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask4_11_129)">
+                        <path
+                          id="Ellipse 4_5"
+                          d="M142.96 206.102C142.96 206.386 142.827 206.734 142.427 207.133C142.023 207.536 141.395 207.938 140.548 208.295C138.858 209.008 136.463 209.469 133.771 209.469C131.08 209.469 128.685 209.008 126.995 208.295C126.148 207.938 125.52 207.536 125.116 207.133C124.716 206.734 124.583 206.386 124.583 206.102C124.583 205.817 124.716 205.469 125.116 205.07C125.52 204.668 126.148 204.265 126.995 203.908C128.685 203.196 131.08 202.734 133.771 202.734C136.463 202.734 138.858 203.196 140.548 203.908C141.395 204.265 142.023 204.668 142.427 205.07C142.827 205.469 142.96 205.817 142.96 206.102Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_5"
+                          d="M119.883 202.503L129.168 199.738C127.644 205.81 128.696 208.482 133.553 212.106L124.268 214.87L119.883 202.503Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_5"
+                      d="M124.009 207.462C129.444 217.999 143.03 218.276 143.48 206.84"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-9" (click)="changeColor(9)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_5"
-                    d="M124.009 207.462C129.444 217.999 143.03 218.276 143.48 206.84"
+                    id="Rectangle 3_21"
+                    d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_17"
+                    d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_21"
+                    x="1099.19"
+                    y="439.439"
+                    width="36.961"
+                    height="27.3599"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-9" (click)="changeColor(9)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_21"
-                  d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_17"
-                  d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_21"
-                  x="1099.19"
-                  y="439.439"
-                  width="36.961"
-                  height="27.3599"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_22"
-                  d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_18"
-                  d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_22"
-                  x="1099.19"
-                  y="439.439"
-                  width="36.961"
-                  height="27.3599"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_23"
-                  d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_19"
-                  d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_23"
-                  x="1099.19"
-                  y="439.439"
-                  width="36.961"
-                  height="27.3599"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_24"
-                  d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_20"
-                  d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_24"
-                  x="1099.19"
-                  y="439.439"
-                  width="36.961"
-                  height="27.3599"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_6">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_22"
+                    d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_18"
+                    d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_6"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 1036.26 416.43)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_6"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 1051.53 412.416)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1063.14 502.359)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1043.91 440.874)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1051.44 464.946)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1059.29 490.044)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1040.05 428.559)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1047.91 453.657)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_6"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1055.35 477.448)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_22"
+                    x="1099.19"
+                    y="439.439"
+                    width="36.961"
+                    height="27.3599"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_6">
-                  <g id="Union_6">
-                    <mask id="path-158-inside-6_11_129" fill="white">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_23"
+                    d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_19"
+                    d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_23"
+                    x="1099.19"
+                    y="439.439"
+                    width="36.961"
+                    height="27.3599"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_24"
+                    d="M1036.16 414.538H1034.28V416.413V500.799V502.674H1036.16H1154.81H1156.69V500.799V416.413V414.538H1154.81H1036.16Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_20"
+                    d="M1019.43 430.055L1095.48 353.863L1171.54 430.055H1019.43Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_24"
+                    x="1099.19"
+                    y="439.439"
+                    width="36.961"
+                    height="27.3599"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_6">
+                    <rect
+                      id="Rectangle 6_6"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 1036.26 416.43)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_6"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 1051.53 412.416)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1063.14 502.359)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1043.91 440.874)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1051.44 464.946)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1059.29 490.044)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1040.05 428.559)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1047.91 453.657)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_6"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 1055.35 477.448)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_6">
+                    <g id="Union_6">
+                      <mask id="path-158-inside-6_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1091.51 490.24H1071.38V508.075C1071.38 508.078 1071.38 508.082 1071.38 508.085C1071.38 508.089 1071.38 508.092 1071.38 508.096V508.316H1071.39C1071.68 510.552 1076.07 512.328 1081.44 512.328C1086.82 512.328 1091.21 510.552 1091.49 508.316H1091.51V490.24Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M1091.51 490.24H1071.38V508.075C1071.38 508.078 1071.38 508.082 1071.38 508.085C1071.38 508.089 1071.38 508.092 1071.38 508.096V508.316H1071.39C1071.68 510.552 1076.07 512.328 1081.44 512.328C1086.82 512.328 1091.21 510.552 1091.49 508.316H1091.51V490.24Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M1091.51 490.24H1071.38V508.075C1071.38 508.078 1071.38 508.082 1071.38 508.085C1071.38 508.089 1071.38 508.092 1071.38 508.096V508.316H1071.39C1071.68 510.552 1076.07 512.328 1081.44 512.328C1086.82 512.328 1091.21 510.552 1091.49 508.316H1091.51V490.24Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M1071.38 490.24V488.49H1069.63V490.24H1071.38ZM1091.51 490.24H1093.26V488.49H1091.51V490.24ZM1071.38 508.075L1073.13 508.085V508.075H1071.38ZM1071.38 508.096H1073.13L1073.13 508.086L1071.38 508.096ZM1071.38 508.316H1069.63V510.066H1071.38V508.316ZM1071.39 508.316L1073.13 508.095L1072.94 506.566H1071.39V508.316ZM1091.49 508.316V506.566H1089.95L1089.76 508.095L1091.49 508.316ZM1091.51 508.316V510.066H1093.26V508.316H1091.51ZM1071.38 491.99H1091.51V488.49H1071.38V491.99ZM1073.13 508.075V490.24H1069.63V508.075H1073.13ZM1073.13 508.085C1073.13 508.085 1073.13 508.085 1073.13 508.085L1069.63 508.065C1069.63 508.072 1069.63 508.078 1069.63 508.085H1073.13ZM1073.13 508.086C1073.13 508.086 1073.13 508.086 1073.13 508.085H1069.63C1069.63 508.092 1069.63 508.099 1069.63 508.106L1073.13 508.086ZM1073.13 508.316V508.096H1069.63V508.316H1073.13ZM1071.39 506.566H1071.38V510.066H1071.39V506.566ZM1081.44 510.578C1078.93 510.578 1076.72 510.159 1075.16 509.536C1074.38 509.223 1073.84 508.886 1073.5 508.584C1073.16 508.279 1073.13 508.105 1073.13 508.095L1069.66 508.536C1069.8 509.645 1070.43 510.531 1071.16 511.188C1071.89 511.847 1072.83 512.374 1073.86 512.785C1075.91 513.608 1078.58 514.078 1081.44 514.078V510.578ZM1089.76 508.095C1089.76 508.105 1089.73 508.279 1089.39 508.584C1089.05 508.886 1088.51 509.223 1087.73 509.536C1086.17 510.159 1083.96 510.578 1081.44 510.578V514.078C1084.3 514.078 1086.97 513.608 1089.03 512.785C1090.05 512.374 1090.99 511.847 1091.73 511.188C1092.46 510.531 1093.09 509.645 1093.23 508.536L1089.76 508.095ZM1091.51 506.566H1091.49V510.066H1091.51V506.566ZM1089.76 490.24V508.316H1093.26V490.24H1089.76Z"
-                      fill="black"
-                      mask="url(#path-158-inside-6_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_6">
-                    <mask
-                      id="mask5_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="1071"
-                      y="486"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_6"
-                        d="M1090.63 490.562C1090.63 490.847 1090.5 491.195 1090.1 491.594C1089.7 491.996 1089.07 492.399 1088.22 492.756C1086.53 493.468 1084.14 493.93 1081.44 493.93C1078.75 493.93 1076.36 493.468 1074.67 492.756C1073.82 492.399 1073.19 491.996 1072.79 491.594C1072.39 491.195 1072.26 490.847 1072.26 490.562C1072.26 490.278 1072.39 489.93 1072.79 489.531C1073.19 489.128 1073.82 488.726 1074.67 488.369C1076.36 487.657 1078.75 487.195 1081.44 487.195C1084.14 487.195 1086.53 487.657 1088.22 488.369C1089.07 488.726 1089.7 489.128 1090.1 489.531C1090.5 489.93 1090.63 490.278 1090.63 490.562Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask5_11_129)">
-                      <path
-                        id="Ellipse 4_6"
-                        d="M1090.63 490.562C1090.63 490.847 1090.5 491.195 1090.1 491.594C1089.7 491.996 1089.07 492.399 1088.22 492.756C1086.53 493.468 1084.14 493.93 1081.44 493.93C1078.75 493.93 1076.36 493.468 1074.67 492.756C1073.82 492.399 1073.19 491.996 1072.79 491.594C1072.39 491.195 1072.26 490.847 1072.26 490.562C1072.26 490.278 1072.39 489.93 1072.79 489.531C1073.19 489.128 1073.82 488.726 1074.67 488.369C1076.36 487.657 1078.75 487.195 1081.44 487.195C1084.14 487.195 1086.53 487.657 1088.22 488.369C1089.07 488.726 1089.7 489.128 1090.1 489.531C1090.5 489.93 1090.63 490.278 1090.63 490.562Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_6"
-                        d="M1067.56 486.963L1076.84 484.199C1075.32 490.27 1076.37 492.943 1081.23 496.566L1071.94 499.331L1067.56 486.963Z"
+                        d="M1071.38 490.24V488.49H1069.63V490.24H1071.38ZM1091.51 490.24H1093.26V488.49H1091.51V490.24ZM1071.38 508.075L1073.13 508.085V508.075H1071.38ZM1071.38 508.096H1073.13L1073.13 508.086L1071.38 508.096ZM1071.38 508.316H1069.63V510.066H1071.38V508.316ZM1071.39 508.316L1073.13 508.095L1072.94 506.566H1071.39V508.316ZM1091.49 508.316V506.566H1089.95L1089.76 508.095L1091.49 508.316ZM1091.51 508.316V510.066H1093.26V508.316H1091.51ZM1071.38 491.99H1091.51V488.49H1071.38V491.99ZM1073.13 508.075V490.24H1069.63V508.075H1073.13ZM1073.13 508.085C1073.13 508.085 1073.13 508.085 1073.13 508.085L1069.63 508.065C1069.63 508.072 1069.63 508.078 1069.63 508.085H1073.13ZM1073.13 508.086C1073.13 508.086 1073.13 508.086 1073.13 508.085H1069.63C1069.63 508.092 1069.63 508.099 1069.63 508.106L1073.13 508.086ZM1073.13 508.316V508.096H1069.63V508.316H1073.13ZM1071.39 506.566H1071.38V510.066H1071.39V506.566ZM1081.44 510.578C1078.93 510.578 1076.72 510.159 1075.16 509.536C1074.38 509.223 1073.84 508.886 1073.5 508.584C1073.16 508.279 1073.13 508.105 1073.13 508.095L1069.66 508.536C1069.8 509.645 1070.43 510.531 1071.16 511.188C1071.89 511.847 1072.83 512.374 1073.86 512.785C1075.91 513.608 1078.58 514.078 1081.44 514.078V510.578ZM1089.76 508.095C1089.76 508.105 1089.73 508.279 1089.39 508.584C1089.05 508.886 1088.51 509.223 1087.73 509.536C1086.17 510.159 1083.96 510.578 1081.44 510.578V514.078C1084.3 514.078 1086.97 513.608 1089.03 512.785C1090.05 512.374 1090.99 511.847 1091.73 511.188C1092.46 510.531 1093.09 509.645 1093.23 508.536L1089.76 508.095ZM1091.51 506.566H1091.49V510.066H1091.51V506.566ZM1089.76 490.24V508.316H1093.26V490.24H1089.76Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-158-inside-6_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_6">
+                      <mask
+                        id="mask5_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="1071"
+                        y="486"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_6"
+                          d="M1090.63 490.562C1090.63 490.847 1090.5 491.195 1090.1 491.594C1089.7 491.996 1089.07 492.399 1088.22 492.756C1086.53 493.468 1084.14 493.93 1081.44 493.93C1078.75 493.93 1076.36 493.468 1074.67 492.756C1073.82 492.399 1073.19 491.996 1072.79 491.594C1072.39 491.195 1072.26 490.847 1072.26 490.562C1072.26 490.278 1072.39 489.93 1072.79 489.531C1073.19 489.128 1073.82 488.726 1074.67 488.369C1076.36 487.657 1078.75 487.195 1081.44 487.195C1084.14 487.195 1086.53 487.657 1088.22 488.369C1089.07 488.726 1089.7 489.128 1090.1 489.531C1090.5 489.93 1090.63 490.278 1090.63 490.562Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask5_11_129)">
+                        <path
+                          id="Ellipse 4_6"
+                          d="M1090.63 490.562C1090.63 490.847 1090.5 491.195 1090.1 491.594C1089.7 491.996 1089.07 492.399 1088.22 492.756C1086.53 493.468 1084.14 493.93 1081.44 493.93C1078.75 493.93 1076.36 493.468 1074.67 492.756C1073.82 492.399 1073.19 491.996 1072.79 491.594C1072.39 491.195 1072.26 490.847 1072.26 490.562C1072.26 490.278 1072.39 489.93 1072.79 489.531C1073.19 489.128 1073.82 488.726 1074.67 488.369C1076.36 487.657 1078.75 487.195 1081.44 487.195C1084.14 487.195 1086.53 487.657 1088.22 488.369C1089.07 488.726 1089.7 489.128 1090.1 489.531C1090.5 489.93 1090.63 490.278 1090.63 490.562Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_6"
+                          d="M1067.56 486.963L1076.84 484.199C1075.32 490.27 1076.37 492.943 1081.23 496.566L1071.94 499.331L1067.56 486.963Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_6"
+                      d="M1071.68 491.923C1077.12 502.46 1090.7 502.736 1091.15 491.3"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-8" (click)="changeColor(8)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_6"
-                    d="M1071.68 491.923C1077.12 502.46 1090.7 502.736 1091.15 491.3"
+                    id="Rectangle 3_25"
+                    d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_21"
+                    d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_25"
+                    x="827.87"
+                    y="432.614"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-8" (click)="changeColor(8)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_25"
-                  d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_21"
-                  d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_25"
-                  x="827.87"
-                  y="432.614"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_26"
-                  d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_22"
-                  d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_26"
-                  x="827.87"
-                  y="432.614"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_27"
-                  d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_23"
-                  d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_27"
-                  x="827.87"
-                  y="432.614"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_28"
-                  d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_24"
-                  d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_28"
-                  x="827.87"
-                  y="432.614"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_7">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_26"
+                    d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_22"
+                    d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_7"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 852.087 415.784)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_7"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 867.36 411.771)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 878.974 501.714)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 859.736 440.229)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 867.268 464.3)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 875.121 489.398)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 855.882 427.913)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 863.735 453.011)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_7"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 871.18 476.802)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_26"
+                    x="827.87"
+                    y="432.614"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_7">
-                  <g id="Union_7">
-                    <mask id="path-185-inside-7_11_129" fill="white">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_27"
+                    d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_23"
+                    d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_27"
+                    x="827.87"
+                    y="432.614"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_28"
+                    d="M794.823 417.212H792.948V419.087V503.474V505.349H794.823H913.477H915.352V503.474V419.087V417.212H913.477H794.823Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_24"
+                    d="M776.979 417.189L854.15 295.23L931.321 417.189H776.979Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_28"
+                    x="827.87"
+                    y="432.614"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_7">
+                    <rect
+                      id="Rectangle 6_7"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 852.087 415.784)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_7"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 867.36 411.771)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 878.974 501.714)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 859.736 440.229)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 867.268 464.3)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 875.121 489.398)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 855.882 427.913)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 863.735 453.011)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_7"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 871.18 476.802)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_7">
+                    <g id="Union_7">
+                      <mask id="path-185-inside-7_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M907.338 489.594H887.21V507.44V507.67H887.224C887.508 509.906 891.899 511.682 897.274 511.682C902.648 511.682 907.039 509.906 907.323 507.67H907.338V507.44V489.594Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M907.338 489.594H887.21V507.44V507.67H887.224C887.508 509.906 891.899 511.682 897.274 511.682C902.648 511.682 907.039 509.906 907.323 507.67H907.338V507.44V489.594Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M907.338 489.594H887.21V507.44V507.67H887.224C887.508 509.906 891.899 511.682 897.274 511.682C902.648 511.682 907.039 509.906 907.323 507.67H907.338V507.44V489.594Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M887.21 489.594V487.844H885.46V489.594H887.21ZM907.338 489.594H909.088V487.844H907.338V489.594ZM887.21 507.67H885.46V509.42H887.21V507.67ZM887.224 507.67L888.96 507.45L888.766 505.92H887.224V507.67ZM907.323 507.67V505.92H905.781L905.587 507.45L907.323 507.67ZM907.338 507.67V509.42H909.088V507.67H907.338ZM887.21 491.344H907.338V487.844H887.21V491.344ZM888.96 507.44V489.594H885.46V507.44H888.96ZM888.96 507.67V507.44H885.46V507.67H888.96ZM887.224 505.92H887.21V509.42H887.224V505.92ZM897.274 509.932C894.758 509.932 892.546 509.514 890.991 508.89C890.211 508.578 889.665 508.241 889.328 507.938C888.989 507.634 888.962 507.459 888.96 507.45L885.488 507.891C885.629 508.999 886.258 509.885 886.989 510.542C887.724 511.202 888.664 511.728 889.689 512.139C891.744 512.963 894.414 513.432 897.274 513.432V509.932ZM905.587 507.45C905.586 507.459 905.559 507.634 905.22 507.938C904.883 508.241 904.336 508.578 903.556 508.89C902.001 509.514 899.789 509.932 897.274 509.932V513.432C900.133 513.432 902.804 512.963 904.858 512.139C905.884 511.728 906.824 511.202 907.558 510.542C908.29 509.885 908.918 508.999 909.059 507.891L905.587 507.45ZM907.338 505.92H907.323V509.42H907.338V505.92ZM905.588 507.44V507.67H909.088V507.44H905.588ZM905.588 489.594V507.44H909.088V489.594H905.588Z"
-                      fill="black"
-                      mask="url(#path-185-inside-7_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_7">
-                    <mask
-                      id="mask6_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="887"
-                      y="485"
-                      width="21"
-                      height="10"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_7"
-                        d="M906.463 489.917C906.463 490.201 906.329 490.549 905.929 490.948C905.525 491.351 904.897 491.753 904.05 492.11C902.36 492.823 899.965 493.284 897.274 493.284C894.582 493.284 892.187 492.823 890.497 492.11C889.651 491.753 889.022 491.351 888.618 490.948C888.218 490.549 888.085 490.201 888.085 489.917C888.085 489.632 888.218 489.284 888.618 488.885C889.022 488.483 889.651 488.08 890.497 487.723C892.187 487.011 894.582 486.549 897.274 486.549C899.965 486.549 902.36 487.011 904.05 487.723C904.897 488.08 905.525 488.483 905.929 488.885C906.329 489.284 906.463 489.632 906.463 489.917Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask6_11_129)">
-                      <path
-                        id="Ellipse 4_7"
-                        d="M906.463 489.917C906.463 490.201 906.329 490.549 905.929 490.948C905.525 491.351 904.897 491.753 904.05 492.11C902.36 492.823 899.965 493.284 897.274 493.284C894.582 493.284 892.187 492.823 890.497 492.11C889.651 491.753 889.022 491.351 888.618 490.948C888.218 490.549 888.085 490.201 888.085 489.917C888.085 489.632 888.218 489.284 888.618 488.885C889.022 488.483 889.651 488.08 890.497 487.723C892.187 487.011 894.582 486.549 897.274 486.549C899.965 486.549 902.36 487.011 904.05 487.723C904.897 488.08 905.525 488.483 905.929 488.885C906.329 489.284 906.463 489.632 906.463 489.917Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_7"
-                        d="M883.385 486.318L892.67 483.553C891.146 489.625 892.198 492.297 897.055 495.921L887.77 498.685L883.385 486.318Z"
+                        d="M887.21 489.594V487.844H885.46V489.594H887.21ZM907.338 489.594H909.088V487.844H907.338V489.594ZM887.21 507.67H885.46V509.42H887.21V507.67ZM887.224 507.67L888.96 507.45L888.766 505.92H887.224V507.67ZM907.323 507.67V505.92H905.781L905.587 507.45L907.323 507.67ZM907.338 507.67V509.42H909.088V507.67H907.338ZM887.21 491.344H907.338V487.844H887.21V491.344ZM888.96 507.44V489.594H885.46V507.44H888.96ZM888.96 507.67V507.44H885.46V507.67H888.96ZM887.224 505.92H887.21V509.42H887.224V505.92ZM897.274 509.932C894.758 509.932 892.546 509.514 890.991 508.89C890.211 508.578 889.665 508.241 889.328 507.938C888.989 507.634 888.962 507.459 888.96 507.45L885.488 507.891C885.629 508.999 886.258 509.885 886.989 510.542C887.724 511.202 888.664 511.728 889.689 512.139C891.744 512.963 894.414 513.432 897.274 513.432V509.932ZM905.587 507.45C905.586 507.459 905.559 507.634 905.22 507.938C904.883 508.241 904.336 508.578 903.556 508.89C902.001 509.514 899.789 509.932 897.274 509.932V513.432C900.133 513.432 902.804 512.963 904.858 512.139C905.884 511.728 906.824 511.202 907.558 510.542C908.29 509.885 908.918 508.999 909.059 507.891L905.587 507.45ZM907.338 505.92H907.323V509.42H907.338V505.92ZM905.588 507.44V507.67H909.088V507.44H905.588ZM905.588 489.594V507.44H909.088V489.594H905.588Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-185-inside-7_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_7">
+                      <mask
+                        id="mask6_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="887"
+                        y="485"
+                        width="21"
+                        height="10"
+                        >
+                        <path
+                          id="Ellipse 5_7"
+                          d="M906.463 489.917C906.463 490.201 906.329 490.549 905.929 490.948C905.525 491.351 904.897 491.753 904.05 492.11C902.36 492.823 899.965 493.284 897.274 493.284C894.582 493.284 892.187 492.823 890.497 492.11C889.651 491.753 889.022 491.351 888.618 490.948C888.218 490.549 888.085 490.201 888.085 489.917C888.085 489.632 888.218 489.284 888.618 488.885C889.022 488.483 889.651 488.08 890.497 487.723C892.187 487.011 894.582 486.549 897.274 486.549C899.965 486.549 902.36 487.011 904.05 487.723C904.897 488.08 905.525 488.483 905.929 488.885C906.329 489.284 906.463 489.632 906.463 489.917Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask6_11_129)">
+                        <path
+                          id="Ellipse 4_7"
+                          d="M906.463 489.917C906.463 490.201 906.329 490.549 905.929 490.948C905.525 491.351 904.897 491.753 904.05 492.11C902.36 492.823 899.965 493.284 897.274 493.284C894.582 493.284 892.187 492.823 890.497 492.11C889.651 491.753 889.022 491.351 888.618 490.948C888.218 490.549 888.085 490.201 888.085 489.917C888.085 489.632 888.218 489.284 888.618 488.885C889.022 488.483 889.651 488.08 890.497 487.723C892.187 487.011 894.582 486.549 897.274 486.549C899.965 486.549 902.36 487.011 904.05 487.723C904.897 488.08 905.525 488.483 905.929 488.885C906.329 489.284 906.463 489.632 906.463 489.917Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_7"
+                          d="M883.385 486.318L892.67 483.553C891.146 489.625 892.198 492.297 897.055 495.921L887.77 498.685L883.385 486.318Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_7"
+                      d="M887.512 491.277C892.946 501.814 906.533 502.091 906.982 490.655"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-7" (click)="changeColor(7)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_7"
-                    d="M887.512 491.277C892.946 501.814 906.533 502.091 906.982 490.655"
+                    id="Rectangle 3_29"
+                    d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_29"
+                    x="543.563"
+                    y="429.386"
+                    width="36.961"
+                    height="27.4521"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 17_5"
+                    x="510.177"
+                    y="369.685"
+                    width="156.669"
+                    height="46.2365"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-7" (click)="changeColor(7)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_29"
-                  d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_29"
-                  x="543.563"
-                  y="429.386"
-                  width="36.961"
-                  height="27.4521"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_5"
-                  x="510.177"
-                  y="369.685"
-                  width="156.669"
-                  height="46.2365"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_30"
-                  d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_30"
-                  x="543.563"
-                  y="429.386"
-                  width="36.961"
-                  height="27.4521"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_6"
-                  x="510.177"
-                  y="369.685"
-                  width="156.669"
-                  height="46.2365"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_31"
-                  d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_31"
-                  x="543.563"
-                  y="429.386"
-                  width="36.961"
-                  height="27.4521"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_7"
-                  x="510.177"
-                  y="369.685"
-                  width="156.669"
-                  height="46.2365"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_32"
-                  d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_32"
-                  x="543.563"
-                  y="429.386"
-                  width="36.961"
-                  height="27.4521"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 17_8"
-                  x="510.177"
-                  y="369.685"
-                  width="156.669"
-                  height="46.2365"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_8">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_30"
+                    d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_8"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 584.084 415.138)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_30"
+                    x="543.563"
+                    y="429.386"
+                    width="36.961"
+                    height="27.4521"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 7_8"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 599.357 411.125)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 610.971 501.068)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 591.732 439.583)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 599.265 463.655)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 607.118 488.752)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 587.879 427.268)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 595.732 452.365)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_8"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 603.177 476.157)"
-                    fill="black"
-                  />
+                    id="Rectangle 17_6"
+                    x="510.177"
+                    y="369.685"
+                    width="156.669"
+                    height="46.2365"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_8">
-                  <g id="Union_8">
-                    <mask id="path-212-inside-8_11_129" fill="white">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_31"
+                    d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_31"
+                    x="543.563"
+                    y="429.386"
+                    width="36.961"
+                    height="27.4521"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 17_7"
+                    x="510.177"
+                    y="369.685"
+                    width="156.669"
+                    height="46.2365"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_32"
+                    d="M529.235 415.921H527.36V417.796V502.183V504.058H529.235H647.889H649.764V502.183V417.796V415.921H647.889H529.235Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_32"
+                    x="543.563"
+                    y="429.386"
+                    width="36.961"
+                    height="27.4521"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 17_8"
+                    x="510.177"
+                    y="369.685"
+                    width="156.669"
+                    height="46.2365"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_8">
+                    <rect
+                      id="Rectangle 6_8"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 584.084 415.138)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_8"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 599.357 411.125)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 610.971 501.068)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 591.732 439.583)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 599.265 463.655)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 607.118 488.752)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 587.879 427.268)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 595.732 452.365)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_8"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 603.177 476.157)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_8">
+                    <g id="Union_8">
+                      <mask id="path-212-inside-8_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M639.335 488.948H619.207V507.025H619.222C619.506 509.261 623.896 511.037 629.271 511.037C634.646 511.037 639.036 509.261 639.32 507.025H639.335V506.8C639.335 506.798 639.335 506.796 639.335 506.794C639.335 506.792 639.335 506.79 639.335 506.788V488.948Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M639.335 488.948H619.207V507.025H619.222C619.506 509.261 623.896 511.037 629.271 511.037C634.646 511.037 639.036 509.261 639.32 507.025H639.335V506.8C639.335 506.798 639.335 506.796 639.335 506.794C639.335 506.792 639.335 506.79 639.335 506.788V488.948Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M639.335 488.948H619.207V507.025H619.222C619.506 509.261 623.896 511.037 629.271 511.037C634.646 511.037 639.036 509.261 639.32 507.025H639.335V506.8C639.335 506.798 639.335 506.796 639.335 506.794C639.335 506.792 639.335 506.79 639.335 506.788V488.948Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M619.207 488.948V487.198H617.457V488.948H619.207ZM639.335 488.948H641.085V487.198H639.335V488.948ZM619.207 507.025H617.457V508.775H619.207V507.025ZM619.222 507.025L620.958 506.804L620.763 505.275H619.222V507.025ZM639.32 507.025V505.275H637.779L637.584 506.804L639.32 507.025ZM639.335 507.025V508.775H641.085V507.025H639.335ZM639.335 506.8L637.585 506.795V506.8H639.335ZM639.335 506.788L637.585 506.788L637.585 506.793L639.335 506.788ZM619.207 490.698H639.335V487.198H619.207V490.698ZM620.957 507.025V488.948H617.457V507.025H620.957ZM619.222 505.275H619.207V508.775H619.222V505.275ZM629.271 509.287C626.756 509.287 624.544 508.868 622.988 508.245C622.209 507.932 621.662 507.595 621.325 507.293C620.986 506.988 620.959 506.814 620.958 506.804L617.486 507.245C617.626 508.354 618.255 509.24 618.987 509.897C619.721 510.556 620.661 511.083 621.686 511.493C623.741 512.317 626.412 512.787 629.271 512.787V509.287ZM637.584 506.804C637.583 506.814 637.556 506.988 637.217 507.293C636.88 507.595 636.333 507.932 635.554 508.245C633.998 508.868 631.786 509.287 629.271 509.287V512.787C632.13 512.787 634.801 512.317 636.856 511.493C637.881 511.083 638.821 510.556 639.555 509.897C640.287 509.24 640.916 508.354 641.056 507.245L637.584 506.804ZM639.335 505.275H639.32V508.775H639.335V505.275ZM637.585 506.8V507.025H641.085V506.8H637.585ZM637.585 506.794L637.585 506.795L641.085 506.805C641.085 506.802 641.085 506.798 641.085 506.794H637.585ZM637.585 506.793L637.585 506.794H641.085C641.085 506.79 641.085 506.786 641.085 506.783L637.585 506.793ZM637.585 488.948V506.788H641.085V488.948H637.585Z"
-                      fill="black"
-                      mask="url(#path-212-inside-8_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_8">
-                    <mask
-                      id="mask7_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="619"
-                      y="485"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_8"
-                        d="M638.46 489.271C638.46 489.556 638.327 489.904 637.926 490.303C637.523 490.705 636.894 491.108 636.047 491.465C634.358 492.177 631.962 492.639 629.271 492.639C626.58 492.639 624.184 492.177 622.495 491.465C621.648 491.108 621.019 490.705 620.616 490.303C620.215 489.904 620.082 489.556 620.082 489.271C620.082 488.987 620.215 488.639 620.616 488.24C621.019 487.837 621.648 487.435 622.495 487.078C624.184 486.365 626.58 485.904 629.271 485.904C631.962 485.904 634.358 486.365 636.047 487.078C636.894 487.435 637.523 487.837 637.926 488.24C638.327 488.639 638.46 488.987 638.46 489.271Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask7_11_129)">
-                      <path
-                        id="Ellipse 4_8"
-                        d="M638.46 489.271C638.46 489.556 638.327 489.904 637.926 490.303C637.523 490.705 636.894 491.108 636.047 491.465C634.358 492.177 631.962 492.639 629.271 492.639C626.58 492.639 624.184 492.177 622.495 491.465C621.648 491.108 621.019 490.705 620.616 490.303C620.215 489.904 620.082 489.556 620.082 489.271C620.082 488.987 620.215 488.639 620.616 488.24C621.019 487.837 621.648 487.435 622.495 487.078C624.184 486.365 626.58 485.904 629.271 485.904C631.962 485.904 634.358 486.365 636.047 487.078C636.894 487.435 637.523 487.837 637.926 488.24C638.327 488.639 638.46 488.987 638.46 489.271Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_8"
-                        d="M615.383 485.672L624.667 482.908C623.143 488.979 624.195 491.652 629.052 495.275L619.768 498.039L615.383 485.672Z"
+                        d="M619.207 488.948V487.198H617.457V488.948H619.207ZM639.335 488.948H641.085V487.198H639.335V488.948ZM619.207 507.025H617.457V508.775H619.207V507.025ZM619.222 507.025L620.958 506.804L620.763 505.275H619.222V507.025ZM639.32 507.025V505.275H637.779L637.584 506.804L639.32 507.025ZM639.335 507.025V508.775H641.085V507.025H639.335ZM639.335 506.8L637.585 506.795V506.8H639.335ZM639.335 506.788L637.585 506.788L637.585 506.793L639.335 506.788ZM619.207 490.698H639.335V487.198H619.207V490.698ZM620.957 507.025V488.948H617.457V507.025H620.957ZM619.222 505.275H619.207V508.775H619.222V505.275ZM629.271 509.287C626.756 509.287 624.544 508.868 622.988 508.245C622.209 507.932 621.662 507.595 621.325 507.293C620.986 506.988 620.959 506.814 620.958 506.804L617.486 507.245C617.626 508.354 618.255 509.24 618.987 509.897C619.721 510.556 620.661 511.083 621.686 511.493C623.741 512.317 626.412 512.787 629.271 512.787V509.287ZM637.584 506.804C637.583 506.814 637.556 506.988 637.217 507.293C636.88 507.595 636.333 507.932 635.554 508.245C633.998 508.868 631.786 509.287 629.271 509.287V512.787C632.13 512.787 634.801 512.317 636.856 511.493C637.881 511.083 638.821 510.556 639.555 509.897C640.287 509.24 640.916 508.354 641.056 507.245L637.584 506.804ZM639.335 505.275H639.32V508.775H639.335V505.275ZM637.585 506.8V507.025H641.085V506.8H637.585ZM637.585 506.794L637.585 506.795L641.085 506.805C641.085 506.802 641.085 506.798 641.085 506.794H637.585ZM637.585 506.793L637.585 506.794H641.085C641.085 506.79 641.085 506.786 641.085 506.783L637.585 506.793ZM637.585 488.948V506.788H641.085V488.948H637.585Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-212-inside-8_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_8">
+                      <mask
+                        id="mask7_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="619"
+                        y="485"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_8"
+                          d="M638.46 489.271C638.46 489.556 638.327 489.904 637.926 490.303C637.523 490.705 636.894 491.108 636.047 491.465C634.358 492.177 631.962 492.639 629.271 492.639C626.58 492.639 624.184 492.177 622.495 491.465C621.648 491.108 621.019 490.705 620.616 490.303C620.215 489.904 620.082 489.556 620.082 489.271C620.082 488.987 620.215 488.639 620.616 488.24C621.019 487.837 621.648 487.435 622.495 487.078C624.184 486.365 626.58 485.904 629.271 485.904C631.962 485.904 634.358 486.365 636.047 487.078C636.894 487.435 637.523 487.837 637.926 488.24C638.327 488.639 638.46 488.987 638.46 489.271Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask7_11_129)">
+                        <path
+                          id="Ellipse 4_8"
+                          d="M638.46 489.271C638.46 489.556 638.327 489.904 637.926 490.303C637.523 490.705 636.894 491.108 636.047 491.465C634.358 492.177 631.962 492.639 629.271 492.639C626.58 492.639 624.184 492.177 622.495 491.465C621.648 491.108 621.019 490.705 620.616 490.303C620.215 489.904 620.082 489.556 620.082 489.271C620.082 488.987 620.215 488.639 620.616 488.24C621.019 487.837 621.648 487.435 622.495 487.078C624.184 486.365 626.58 485.904 629.271 485.904C631.962 485.904 634.358 486.365 636.047 487.078C636.894 487.435 637.523 487.837 637.926 488.24C638.327 488.639 638.46 488.987 638.46 489.271Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_8"
+                          d="M615.383 485.672L624.667 482.908C623.143 488.979 624.195 491.652 629.052 495.275L619.768 498.039L615.383 485.672Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_8"
+                      d="M619.509 490.631C624.944 501.168 638.53 501.445 638.979 490.009"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
+                </g>
+              </g>
+              <g class="item" id="item-6" (click)="changeColor(6)">
+                <g class="csvg-hidden" id="red">
                   <path
-                    id="Vector 3_8"
-                    d="M619.509 490.631C624.944 501.168 638.53 501.445 638.979 490.009"
+                    id="Rectangle 3_33"
+                    d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
+                    fill="#FF0000"
                     stroke="black"
-                    stroke-width="1.75"
-                  />
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_25"
+                    d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_33"
+                    x="351.039"
+                    y="427.357"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-              </g>
-            </g>
-            <g class="item" id="item-6" (click)="changeColor(6)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="Rectangle 3_33"
-                  d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_25"
-                  d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_33"
-                  x="351.039"
-                  y="427.357"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="Rectangle 3_34"
-                  d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_26"
-                  d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_34"
-                  x="351.039"
-                  y="427.357"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="Rectangle 3_35"
-                  d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_27"
-                  d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_35"
-                  x="351.039"
-                  y="427.357"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="Rectangle 3_36"
-                  d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="Polygon 1_28"
-                  d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="Rectangle 4_36"
-                  x="351.039"
-                  y="427.357"
-                  width="36.961"
-                  height="32.6167"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <g id="Group 5_9">
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="Rectangle 3_34"
+                    d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_26"
+                    d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                   <rect
-                    id="Rectangle 6_9"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967171 -0.254126 0.298649 0.954363 293.739 417.352)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 7_9"
-                    width="1.69353"
-                    height="97.7612"
-                    rx="0.846765"
-                    transform="matrix(0.967165 -0.254145 0.298626 0.954369 309.012 413.338)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 8_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 320.626 503.281)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 14_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 301.387 441.797)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 13_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 308.919 465.868)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 12_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 316.772 490.966)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 11_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 297.534 429.481)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 10_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 305.387 454.579)"
-                    fill="black"
-                  />
-                  <rect
-                    id="Rectangle 9_9"
-                    width="1.73495"
-                    height="17.4857"
-                    rx="0.867477"
-                    transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 312.832 478.37)"
-                    fill="black"
-                  />
+                    id="Rectangle 4_34"
+                    x="351.039"
+                    y="427.357"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
                 </g>
-                <g id="Group 6_9">
-                  <g id="Union_9">
-                    <mask id="path-239-inside-9_11_129" fill="white">
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="Rectangle 3_35"
+                    d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_27"
+                    d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_35"
+                    x="351.039"
+                    y="427.357"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="Rectangle 3_36"
+                    d="M285.285 413.8H283.41V415.675V500.062V501.937H285.285H403.939H405.814V500.062V415.675V413.8H403.939H285.285Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="Polygon 1_28"
+                    d="M267.441 413.777L344.611 291.817L421.782 413.777H267.441Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="Rectangle 4_36"
+                    x="351.039"
+                    y="427.357"
+                    width="36.961"
+                    height="32.6167"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <g id="Group 5_9">
+                    <rect
+                      id="Rectangle 6_9"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967171 -0.254126 0.298649 0.954363 293.739 417.352)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 7_9"
+                      width="1.69353"
+                      height="97.7612"
+                      rx="0.846765"
+                      transform="matrix(0.967165 -0.254145 0.298626 0.954369 309.012 413.338)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 8_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 320.626 503.281)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 14_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 301.387 441.797)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 13_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 308.919 465.868)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 12_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 316.772 490.966)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 11_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 297.534 429.481)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 10_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 305.387 454.579)"
+                      fill="black"
+                      />
+                    <rect
+                      id="Rectangle 9_9"
+                      width="1.73495"
+                      height="17.4857"
+                      rx="0.867477"
+                      transform="matrix(-0.298626 -0.954369 0.967165 -0.254145 312.832 478.37)"
+                      fill="black"
+                      />
+                  </g>
+                  <g id="Group 6_9">
+                    <g id="Union_9">
+                      <mask id="path-239-inside-9_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M348.99 491.162H328.862V509.008V509.238H328.876C329.16 511.474 333.551 513.25 338.926 513.25C344.3 513.25 348.691 511.474 348.975 509.238H348.99V509.008V491.162Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M348.99 491.162H328.862V509.008V509.238H328.876C329.16 511.474 333.551 513.25 338.926 513.25C344.3 513.25 348.691 511.474 348.975 509.238H348.99V509.008V491.162Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M348.99 491.162H328.862V509.008V509.238H328.876C329.16 511.474 333.551 513.25 338.926 513.25C344.3 513.25 348.691 511.474 348.975 509.238H348.99V509.008V491.162Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M328.862 491.162V489.412H327.112V491.162H328.862ZM348.99 491.162H350.74V489.412H348.99V491.162ZM328.862 509.238H327.112V510.988H328.862V509.238ZM328.876 509.238L330.612 509.018L330.418 507.488H328.876V509.238ZM348.975 509.238V507.488H347.433L347.239 509.018L348.975 509.238ZM348.99 509.238V510.988H350.74V509.238H348.99ZM328.862 492.912H348.99V489.412H328.862V492.912ZM330.612 509.008V491.162H327.112V509.008H330.612ZM330.612 509.238V509.008H327.112V509.238H330.612ZM328.876 507.488H328.862V510.988H328.876V507.488ZM338.926 511.5C336.411 511.5 334.199 511.082 332.643 510.458C331.863 510.146 331.317 509.809 330.98 509.506C330.641 509.202 330.614 509.027 330.612 509.018L327.14 509.459C327.281 510.567 327.91 511.453 328.641 512.11C329.376 512.77 330.316 513.296 331.341 513.707C333.396 514.53 336.066 515 338.926 515V511.5ZM347.239 509.018C347.238 509.027 347.211 509.202 346.872 509.506C346.535 509.809 345.988 510.146 345.208 510.458C343.653 511.082 341.441 511.5 338.926 511.5V515C341.785 515 344.456 514.53 346.51 513.707C347.536 513.296 348.476 512.77 349.21 512.11C349.942 511.453 350.57 510.567 350.711 509.459L347.239 509.018ZM348.99 507.488H348.975V510.988H348.99V507.488ZM347.24 509.008V509.238H350.74V509.008H347.24ZM347.24 491.162V509.008H350.74V491.162H347.24Z"
-                      fill="black"
-                      mask="url(#path-239-inside-9_11_129)"
-                    />
-                  </g>
-                  <g id="Group 7_9">
-                    <mask
-                      id="mask8_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="328"
-                      y="487"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_9"
-                        d="M348.115 491.485C348.115 491.769 347.982 492.117 347.581 492.516C347.177 492.919 346.549 493.321 345.702 493.678C344.012 494.391 341.617 494.852 338.926 494.852C336.234 494.852 333.839 494.391 332.149 493.678C331.303 493.321 330.674 492.919 330.27 492.516C329.87 492.117 329.737 491.769 329.737 491.485C329.737 491.2 329.87 490.852 330.27 490.453C330.674 490.051 331.303 489.648 332.149 489.291C333.839 488.579 336.234 488.117 338.926 488.117C341.617 488.117 344.012 488.579 345.702 489.291C346.549 489.648 347.177 490.051 347.581 490.453C347.982 490.852 348.115 491.2 348.115 491.485Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask8_11_129)">
-                      <path
-                        id="Ellipse 4_9"
-                        d="M348.115 491.485C348.115 491.769 347.982 492.117 347.581 492.516C347.177 492.919 346.549 493.321 345.702 493.678C344.012 494.391 341.617 494.852 338.926 494.852C336.234 494.852 333.839 494.391 332.149 493.678C331.303 493.321 330.674 492.919 330.27 492.516C329.87 492.117 329.737 491.769 329.737 491.485C329.737 491.2 329.87 490.852 330.27 490.453C330.674 490.051 331.303 489.648 332.149 489.291C333.839 488.579 336.234 488.117 338.926 488.117C341.617 488.117 344.012 488.579 345.702 489.291C346.549 489.648 347.177 490.051 347.581 490.453C347.982 490.852 348.115 491.2 348.115 491.485Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_9"
-                        d="M325.038 487.885L334.322 485.121C332.798 491.192 333.85 493.865 338.707 497.488L329.423 500.253L325.038 487.885Z"
+                        d="M328.862 491.162V489.412H327.112V491.162H328.862ZM348.99 491.162H350.74V489.412H348.99V491.162ZM328.862 509.238H327.112V510.988H328.862V509.238ZM328.876 509.238L330.612 509.018L330.418 507.488H328.876V509.238ZM348.975 509.238V507.488H347.433L347.239 509.018L348.975 509.238ZM348.99 509.238V510.988H350.74V509.238H348.99ZM328.862 492.912H348.99V489.412H328.862V492.912ZM330.612 509.008V491.162H327.112V509.008H330.612ZM330.612 509.238V509.008H327.112V509.238H330.612ZM328.876 507.488H328.862V510.988H328.876V507.488ZM338.926 511.5C336.411 511.5 334.199 511.082 332.643 510.458C331.863 510.146 331.317 509.809 330.98 509.506C330.641 509.202 330.614 509.027 330.612 509.018L327.14 509.459C327.281 510.567 327.91 511.453 328.641 512.11C329.376 512.77 330.316 513.296 331.341 513.707C333.396 514.53 336.066 515 338.926 515V511.5ZM347.239 509.018C347.238 509.027 347.211 509.202 346.872 509.506C346.535 509.809 345.988 510.146 345.208 510.458C343.653 511.082 341.441 511.5 338.926 511.5V515C341.785 515 344.456 514.53 346.51 513.707C347.536 513.296 348.476 512.77 349.21 512.11C349.942 511.453 350.57 510.567 350.711 509.459L347.239 509.018ZM348.99 507.488H348.975V510.988H348.99V507.488ZM347.24 509.008V509.238H350.74V509.008H347.24ZM347.24 491.162V509.008H350.74V491.162H347.24Z"
                         fill="black"
-                        fill-opacity="0.2"
-                      />
+                        mask="url(#path-239-inside-9_11_129)"
+                        />
                     </g>
+                    <g id="Group 7_9">
+                      <mask
+                        id="mask8_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="328"
+                        y="487"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_9"
+                          d="M348.115 491.485C348.115 491.769 347.982 492.117 347.581 492.516C347.177 492.919 346.549 493.321 345.702 493.678C344.012 494.391 341.617 494.852 338.926 494.852C336.234 494.852 333.839 494.391 332.149 493.678C331.303 493.321 330.674 492.919 330.27 492.516C329.87 492.117 329.737 491.769 329.737 491.485C329.737 491.2 329.87 490.852 330.27 490.453C330.674 490.051 331.303 489.648 332.149 489.291C333.839 488.579 336.234 488.117 338.926 488.117C341.617 488.117 344.012 488.579 345.702 489.291C346.549 489.648 347.177 490.051 347.581 490.453C347.982 490.852 348.115 491.2 348.115 491.485Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask8_11_129)">
+                        <path
+                          id="Ellipse 4_9"
+                          d="M348.115 491.485C348.115 491.769 347.982 492.117 347.581 492.516C347.177 492.919 346.549 493.321 345.702 493.678C344.012 494.391 341.617 494.852 338.926 494.852C336.234 494.852 333.839 494.391 332.149 493.678C331.303 493.321 330.674 492.919 330.27 492.516C329.87 492.117 329.737 491.769 329.737 491.485C329.737 491.2 329.87 490.852 330.27 490.453C330.674 490.051 331.303 489.648 332.149 489.291C333.839 488.579 336.234 488.117 338.926 488.117C341.617 488.117 344.012 488.579 345.702 489.291C346.549 489.648 347.177 490.051 347.581 490.453C347.982 490.852 348.115 491.2 348.115 491.485Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_9"
+                          d="M325.038 487.885L334.322 485.121C332.798 491.192 333.85 493.865 338.707 497.488L329.423 500.253L325.038 487.885Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
+                    </g>
+                    <path
+                      id="Vector 3_9"
+                      d="M329.164 492.845C334.598 503.382 348.184 503.658 348.634 492.222"
+                      stroke="black"
+                      stroke-width="1.75"
+                      />
                   </g>
-                  <path
-                    id="Vector 3_9"
-                    d="M329.164 492.845C334.598 503.382 348.184 503.658 348.634 492.222"
-                    stroke="black"
-                    stroke-width="1.75"
-                  />
                 </g>
               </g>
-            </g>
-            <g class="item" id="item-5" (click)="changeColor(5)">
-              <g class="csvg-hidden" id="red">
-                <path
-                  id="option-3"
-                  d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="option-2"
-                  x="55.4629"
-                  y="423.115"
-                  width="41.3892"
-                  height="43.2227"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="option-1"
-                  d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
-                  fill="#FF0000"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="blue">
-                <path
-                  id="option-3_2"
-                  d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="option-2_2"
-                  x="55.4629"
-                  y="423.115"
-                  width="41.3892"
-                  height="43.2227"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="option-1_2"
-                  d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
-                  fill="#00007F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="green">
-                <path
-                  id="option-3_3"
-                  d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="option-2_3"
-                  x="55.4629"
-                  y="423.115"
-                  width="41.3892"
-                  height="43.2227"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="option-1_3"
-                  d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
-                  fill="#7FFF7F"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g id="default">
-                <path
-                  id="option-3_4"
-                  d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <rect
-                  id="option-2_4"
-                  x="55.4629"
-                  y="423.115"
-                  width="41.3892"
-                  height="43.2227"
-                  fill="#008FC7"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-                <path
-                  id="option-1_4"
-                  d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
-                  fill="white"
-                  stroke="black"
-                  stroke-width="3.75"
-                />
-              </g>
-              <g class="csvg-hidden" id="canPaint">
-                <path
-                  id="Union_10"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M113.22 409.351C113.08 408.904 113.334 408.446 113.786 408.327C114.239 408.209 114.718 408.474 114.858 408.92L129.527 455.801L133.435 468.291C133.437 468.295 133.438 468.299 133.439 468.303C133.44 468.307 133.442 468.311 133.443 468.315L141.229 493.197L141.234 493.214L141.239 493.231L143.546 500.604C143.686 501.051 143.433 501.509 142.98 501.628C142.528 501.747 142.048 501.481 141.908 501.035L139.855 494.472L126.221 498.055L128.275 504.617C128.414 505.064 128.161 505.522 127.709 505.641C127.256 505.76 126.776 505.494 126.637 505.048L124.34 497.709C124.334 497.693 124.328 497.675 124.322 497.658C124.317 497.64 124.312 497.623 124.308 497.605L120.487 485.395C120.48 485.377 120.474 485.36 120.468 485.342C120.463 485.324 120.458 485.307 120.454 485.289L116.542 472.79C116.537 472.776 116.532 472.761 116.528 472.747C116.523 472.732 116.519 472.718 116.515 472.703L112.629 460.283C112.624 460.271 112.62 460.258 112.615 460.244C112.611 460.231 112.608 460.218 112.604 460.205L109.095 448.993C109.091 448.98 109.087 448.968 109.083 448.955C109.079 448.942 109.075 448.93 109.072 448.917L105.093 436.201C105.089 436.192 105.086 436.183 105.083 436.173C105.08 436.163 105.077 436.154 105.075 436.144L101.234 423.87L101.23 423.857L101.226 423.844L97.9462 413.364C97.8066 412.918 98.06 412.46 98.5123 412.341C98.9646 412.222 99.4445 412.488 99.5842 412.934L102.609 422.599L116.244 419.016L113.22 409.351ZM118.426 473.144L121.849 484.083L135.483 480.501L132.06 469.561L118.426 473.144ZM131.542 467.905L117.908 471.488L114.513 460.642L128.148 457.059L131.542 467.905ZM113.995 458.986L110.981 449.352L124.616 445.769L127.63 455.403L113.995 458.986ZM120.616 432.987L124.098 444.114L110.462 447.697L106.981 436.57L120.616 432.987ZM116.763 420.672L103.127 424.255L106.463 434.915L120.098 431.332L116.763 420.672ZM125.703 496.399L122.367 485.739L136.001 482.156L139.337 492.816L125.703 496.399Z"
-                  fill="black"
-                />
-                <g id="Group 6_10">
-                  <g id="Union_11">
-                    <mask id="path-258-inside-10_11_129" fill="white">
+              <g class="item" id="item-5" (click)="changeColor(5)">
+                <g class="csvg-hidden" id="red">
+                  <path
+                    id="option-3"
+                    d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="option-2"
+                    x="55.4629"
+                    y="423.115"
+                    width="41.3892"
+                    height="43.2227"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="option-1"
+                    d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
+                    fill="#FF0000"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="blue">
+                  <path
+                    id="option-3_2"
+                    d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="option-2_2"
+                    x="55.4629"
+                    y="423.115"
+                    width="41.3892"
+                    height="43.2227"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="option-1_2"
+                    d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
+                    fill="#00007F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="green">
+                  <path
+                    id="option-3_3"
+                    d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="option-2_3"
+                    x="55.4629"
+                    y="423.115"
+                    width="41.3892"
+                    height="43.2227"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="option-1_3"
+                    d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
+                    fill="#7FFF7F"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g id="default">
+                  <path
+                    id="option-3_4"
+                    d="M36.1025 406.237H34.2275V408.112V492.499V494.374H36.1025H154.756H156.631V492.499V408.112V406.237H154.756H36.1025Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <rect
+                    id="option-2_4"
+                    x="55.4629"
+                    y="423.115"
+                    width="41.3892"
+                    height="43.2227"
+                    fill="#008FC7"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                  <path
+                    id="option-1_4"
+                    d="M16.463 407.114L36.4513 358.71H154.781L173.555 407.114H16.463Z"
+                    fill="white"
+                    stroke="black"
+                    stroke-width="3.75"
+                    />
+                </g>
+                <g class="csvg-hidden" id="canPaint">
+                  <path
+                    id="Union_10"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M113.22 409.351C113.08 408.904 113.334 408.446 113.786 408.327C114.239 408.209 114.718 408.474 114.858 408.92L129.527 455.801L133.435 468.291C133.437 468.295 133.438 468.299 133.439 468.303C133.44 468.307 133.442 468.311 133.443 468.315L141.229 493.197L141.234 493.214L141.239 493.231L143.546 500.604C143.686 501.051 143.433 501.509 142.98 501.628C142.528 501.747 142.048 501.481 141.908 501.035L139.855 494.472L126.221 498.055L128.275 504.617C128.414 505.064 128.161 505.522 127.709 505.641C127.256 505.76 126.776 505.494 126.637 505.048L124.34 497.709C124.334 497.693 124.328 497.675 124.322 497.658C124.317 497.64 124.312 497.623 124.308 497.605L120.487 485.395C120.48 485.377 120.474 485.36 120.468 485.342C120.463 485.324 120.458 485.307 120.454 485.289L116.542 472.79C116.537 472.776 116.532 472.761 116.528 472.747C116.523 472.732 116.519 472.718 116.515 472.703L112.629 460.283C112.624 460.271 112.62 460.258 112.615 460.244C112.611 460.231 112.608 460.218 112.604 460.205L109.095 448.993C109.091 448.98 109.087 448.968 109.083 448.955C109.079 448.942 109.075 448.93 109.072 448.917L105.093 436.201C105.089 436.192 105.086 436.183 105.083 436.173C105.08 436.163 105.077 436.154 105.075 436.144L101.234 423.87L101.23 423.857L101.226 423.844L97.9462 413.364C97.8066 412.918 98.06 412.46 98.5123 412.341C98.9646 412.222 99.4445 412.488 99.5842 412.934L102.609 422.599L116.244 419.016L113.22 409.351ZM118.426 473.144L121.849 484.083L135.483 480.501L132.06 469.561L118.426 473.144ZM131.542 467.905L117.908 471.488L114.513 460.642L128.148 457.059L131.542 467.905ZM113.995 458.986L110.981 449.352L124.616 445.769L127.63 455.403L113.995 458.986ZM120.616 432.987L124.098 444.114L110.462 447.697L106.981 436.57L120.616 432.987ZM116.763 420.672L103.127 424.255L106.463 434.915L120.098 431.332L116.763 420.672ZM125.703 496.399L122.367 485.739L136.001 482.156L139.337 492.816L125.703 496.399Z"
+                    fill="black"
+                    />
+                  <g id="Group 6_10">
+                    <g id="Union_11">
+                      <mask id="path-258-inside-10_11_129" fill="white">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M152.945 486.366H132.817V504.212V504.442H132.832C133.116 506.678 137.506 508.454 142.881 508.454C148.255 508.454 152.646 506.678 152.93 504.442H152.945V504.212V486.366Z"
+                          />
+                      </mask>
                       <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
                         d="M152.945 486.366H132.817V504.212V504.442H132.832C133.116 506.678 137.506 508.454 142.881 508.454C148.255 508.454 152.646 506.678 152.93 504.442H152.945V504.212V486.366Z"
-                      />
-                    </mask>
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M152.945 486.366H132.817V504.212V504.442H132.832C133.116 506.678 137.506 508.454 142.881 508.454C148.255 508.454 152.646 506.678 152.93 504.442H152.945V504.212V486.366Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M132.817 486.366V484.616H131.067V486.366H132.817ZM152.945 486.366H154.695V484.616H152.945V486.366ZM132.817 504.442H131.067V506.192H132.817V504.442ZM132.832 504.442L134.568 504.222L134.373 502.692H132.832V504.442ZM152.93 504.442V502.692H151.388L151.194 504.222L152.93 504.442ZM152.945 504.442V506.192H154.695V504.442H152.945ZM132.817 488.116H152.945V484.616H132.817V488.116ZM134.567 504.212V486.366H131.067V504.212H134.567ZM134.567 504.442V504.212H131.067V504.442H134.567ZM132.832 502.692H132.817V506.192H132.832V502.692ZM142.881 506.704C140.366 506.704 138.154 506.286 136.598 505.662C135.818 505.35 135.272 505.013 134.935 504.71C134.596 504.406 134.569 504.231 134.568 504.222L131.095 504.663C131.236 505.771 131.865 506.657 132.597 507.315C133.331 507.974 134.271 508.5 135.296 508.911C137.351 509.735 140.021 510.204 142.881 510.204V506.704ZM151.194 504.222C151.193 504.231 151.166 504.406 150.827 504.71C150.49 505.013 149.943 505.35 149.163 505.662C147.608 506.286 145.396 506.704 142.881 506.704V510.204C145.74 510.204 148.411 509.735 150.466 508.911C151.491 508.5 152.431 507.974 153.165 507.315C153.897 506.657 154.525 505.771 154.666 504.663L151.194 504.222ZM152.945 502.692H152.93V506.192H152.945V502.692ZM151.195 504.212V504.442H154.695V504.212H151.195ZM151.195 486.366V504.212H154.695V486.366H151.195Z"
-                      fill="black"
-                      mask="url(#path-258-inside-10_11_129)"
-                    />
-                  </g>
-                  <path
-                    id="Vector 3_10"
-                    d="M133.119 488.049C138.553 498.586 152.14 498.863 152.589 487.427"
-                    stroke="black"
-                    stroke-width="1.75"
-                  />
-                  <g id="Group 7_10">
-                    <mask
-                      id="mask9_11_129"
-                      style="mask-type:alpha"
-                      maskUnits="userSpaceOnUse"
-                      x="132"
-                      y="482"
-                      width="21"
-                      height="9"
-                    >
+                        fill="white"
+                        />
                       <path
-                        id="Ellipse 5_10"
-                        d="M152.07 486.689C152.07 486.974 151.937 487.321 151.536 487.72C151.132 488.123 150.504 488.525 149.657 488.882C147.967 489.595 145.572 490.056 142.881 490.056C140.19 490.056 137.794 489.595 136.104 488.882C135.258 488.525 134.629 488.123 134.225 487.72C133.825 487.321 133.692 486.974 133.692 486.689C133.692 486.404 133.825 486.056 134.225 485.657C134.629 485.255 135.258 484.852 136.104 484.495C137.794 483.783 140.19 483.321 142.881 483.321C145.572 483.321 147.967 483.783 149.657 484.495C150.504 484.852 151.132 485.255 151.536 485.657C151.937 486.056 152.07 486.404 152.07 486.689Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                    </mask>
-                    <g mask="url(#mask9_11_129)">
-                      <path
-                        id="Ellipse 4_10"
-                        d="M152.07 486.689C152.07 486.974 151.937 487.321 151.536 487.72C151.132 488.123 150.504 488.525 149.657 488.882C147.967 489.595 145.572 490.056 142.881 490.056C140.19 490.056 137.794 489.595 136.104 488.882C135.258 488.525 134.629 488.123 134.225 487.72C133.825 487.321 133.692 486.974 133.692 486.689C133.692 486.404 133.825 486.056 134.225 485.657C134.629 485.255 135.258 484.852 136.104 484.495C137.794 483.783 140.19 483.321 142.881 483.321C145.572 483.321 147.967 483.783 149.657 484.495C150.504 484.852 151.132 485.255 151.536 485.657C151.937 486.056 152.07 486.404 152.07 486.689Z"
-                        fill="#C9BC9C"
-                        stroke="black"
-                        stroke-width="1.75"
-                      />
-                      <path
-                        id="Rectangle 16_10"
-                        d="M128.993 483.09L138.277 480.325C136.753 486.397 137.805 489.069 142.662 492.693L133.378 495.457L128.993 483.09Z"
+                        d="M132.817 486.366V484.616H131.067V486.366H132.817ZM152.945 486.366H154.695V484.616H152.945V486.366ZM132.817 504.442H131.067V506.192H132.817V504.442ZM132.832 504.442L134.568 504.222L134.373 502.692H132.832V504.442ZM152.93 504.442V502.692H151.388L151.194 504.222L152.93 504.442ZM152.945 504.442V506.192H154.695V504.442H152.945ZM132.817 488.116H152.945V484.616H132.817V488.116ZM134.567 504.212V486.366H131.067V504.212H134.567ZM134.567 504.442V504.212H131.067V504.442H134.567ZM132.832 502.692H132.817V506.192H132.832V502.692ZM142.881 506.704C140.366 506.704 138.154 506.286 136.598 505.662C135.818 505.35 135.272 505.013 134.935 504.71C134.596 504.406 134.569 504.231 134.568 504.222L131.095 504.663C131.236 505.771 131.865 506.657 132.597 507.315C133.331 507.974 134.271 508.5 135.296 508.911C137.351 509.735 140.021 510.204 142.881 510.204V506.704ZM151.194 504.222C151.193 504.231 151.166 504.406 150.827 504.71C150.49 505.013 149.943 505.35 149.163 505.662C147.608 506.286 145.396 506.704 142.881 506.704V510.204C145.74 510.204 148.411 509.735 150.466 508.911C151.491 508.5 152.431 507.974 153.165 507.315C153.897 506.657 154.525 505.771 154.666 504.663L151.194 504.222ZM152.945 502.692H152.93V506.192H152.945V502.692ZM151.195 504.212V504.442H154.695V504.212H151.195ZM151.195 486.366V504.212H154.695V486.366H151.195Z"
                         fill="black"
-                        fill-opacity="0.2"
+                        mask="url(#path-258-inside-10_11_129)"
+                        />
+                    </g>
+                    <path
+                      id="Vector 3_10"
+                      d="M133.119 488.049C138.553 498.586 152.14 498.863 152.589 487.427"
+                      stroke="black"
+                      stroke-width="1.75"
                       />
+                    <g id="Group 7_10">
+                      <mask
+                        id="mask9_11_129"
+                        style="mask-type:alpha"
+                        maskUnits="userSpaceOnUse"
+                        x="132"
+                        y="482"
+                        width="21"
+                        height="9"
+                        >
+                        <path
+                          id="Ellipse 5_10"
+                          d="M152.07 486.689C152.07 486.974 151.937 487.321 151.536 487.72C151.132 488.123 150.504 488.525 149.657 488.882C147.967 489.595 145.572 490.056 142.881 490.056C140.19 490.056 137.794 489.595 136.104 488.882C135.258 488.525 134.629 488.123 134.225 487.72C133.825 487.321 133.692 486.974 133.692 486.689C133.692 486.404 133.825 486.056 134.225 485.657C134.629 485.255 135.258 484.852 136.104 484.495C137.794 483.783 140.19 483.321 142.881 483.321C145.572 483.321 147.967 483.783 149.657 484.495C150.504 484.852 151.132 485.255 151.536 485.657C151.937 486.056 152.07 486.404 152.07 486.689Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                      </mask>
+                      <g mask="url(#mask9_11_129)">
+                        <path
+                          id="Ellipse 4_10"
+                          d="M152.07 486.689C152.07 486.974 151.937 487.321 151.536 487.72C151.132 488.123 150.504 488.525 149.657 488.882C147.967 489.595 145.572 490.056 142.881 490.056C140.19 490.056 137.794 489.595 136.104 488.882C135.258 488.525 134.629 488.123 134.225 487.72C133.825 487.321 133.692 486.974 133.692 486.689C133.692 486.404 133.825 486.056 134.225 485.657C134.629 485.255 135.258 484.852 136.104 484.495C137.794 483.783 140.19 483.321 142.881 483.321C145.572 483.321 147.967 483.783 149.657 484.495C150.504 484.852 151.132 485.255 151.536 485.657C151.937 486.056 152.07 486.404 152.07 486.689Z"
+                          fill="#C9BC9C"
+                          stroke="black"
+                          stroke-width="1.75"
+                          />
+                        <path
+                          id="Rectangle 16_10"
+                          d="M128.993 483.09L138.277 480.325C136.753 486.397 137.805 489.069 142.662 492.693L133.378 495.457L128.993 483.09Z"
+                          fill="black"
+                          fill-opacity="0.2"
+                          />
+                      </g>
                     </g>
                   </g>
                 </g>
               </g>
             </g>
           </g>
-        </g>
-      </svg>
-      <div class="function" *ngIf="!explain">
-        <div (click)="clear()" class="btn-function btn-clear">Xoá</div>
-        <!-- <div (click)="ok()" class="btn-function">OK</div> -->
+        </svg>
+        @if (!explain) {
+          <div class="function">
+            <div (click)="clear()" class="btn-function btn-clear">Xoá</div>
+            <!-- <div (click)="ok()" class="btn-function">OK</div> -->
+          </div>
+        }
       </div>
-    </div>
-  </div>`,
+    </div>`,
 })
 export class DynamicHtmlBebrasPaintingHouses implements OnInit {
   @Output() userResponse = new EventEmitter<object>();

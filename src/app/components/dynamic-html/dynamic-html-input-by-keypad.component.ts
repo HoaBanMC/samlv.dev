@@ -6,31 +6,33 @@ import { Subscription } from 'rxjs';
   selector: "app-dynamic-html-input-by-keypad",
   template: `
   <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
-  <div class="caculator" *ngIf="displayPad">
-    <div class="message" [class.hidden]="!showError">Hãy chọn một ô cần nhập!</div>
-    <div class="keynumbers">
+  @if (displayPad) {
+    <div class="caculator">
+      <div class="message" [class.hidden]="!showError">Hãy chọn một ô cần nhập!</div>
+      <div class="keynumbers">
         <div class="rowkeys">
-            <div class="numberkey" value="1">1</div>
-            <div class="numberkey" value="2">2</div>
-            <div class="numberkey" value="3">3</div>
+          <div class="numberkey" value="1">1</div>
+          <div class="numberkey" value="2">2</div>
+          <div class="numberkey" value="3">3</div>
         </div>
         <div class="rowkeys">
-            <div class="numberkey" value="4">4</div>
-            <div class="numberkey" value="5">5</div>
-            <div class="numberkey" value="6">6</div>
+          <div class="numberkey" value="4">4</div>
+          <div class="numberkey" value="5">5</div>
+          <div class="numberkey" value="6">6</div>
         </div>
         <div class="rowkeys">
-            <div class="numberkey" value="7">7</div>
-            <div class="numberkey" value="8">8</div>
-            <div class="numberkey" value="9">9</div>
+          <div class="numberkey" value="7">7</div>
+          <div class="numberkey" value="8">8</div>
+          <div class="numberkey" value="9">9</div>
         </div>
         <div class="rowkeys">
-            <div class="numberkey symbol"></div>
-            <div class="numberkey" value="0">0</div>
-            <div class="numberkey backspace" value="backspace" title="Xoá"></div>
+          <div class="numberkey symbol"></div>
+          <div class="numberkey" value="0">0</div>
+          <div class="numberkey backspace" value="backspace" title="Xoá"></div>
         </div>
+      </div>
     </div>
-  </div>`
+  }`
 })
 export class DynamicHtmlInputByKeypadComponent implements OnDestroy {
   @Output() userResponse = new EventEmitter<object>();

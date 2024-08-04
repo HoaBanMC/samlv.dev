@@ -5,14 +5,16 @@ import { Draggable } from 'gsap/Draggable';
 @Component({
   selector: 'app-dynamic-picture-dragdrop-answer',
   template: `<div class="question-container">
-  <div class="question-config" *ngIf="isEntry">
-    <div class="btn-config btn-red" (click)="changeMode()">
-      {{isEdit ? 'Tắt' : 'Bật'}} chỉnh sửa
-    </div>
-    <div class="btn-config" (click)="saveEdit()">Lưu</div>
-  </div>
-  <div class="question-content" #questionEl [mathJax]="content" (loadComplete)="loadComplete()"></div>
-</div>`
+    @if (isEntry) {
+      <div class="question-config">
+        <div class="btn-config btn-red" (click)="changeMode()">
+          {{isEdit ? 'Tắt' : 'Bật'}} chỉnh sửa
+        </div>
+        <div class="btn-config" (click)="saveEdit()">Lưu</div>
+      </div>
+    }
+    <div class="question-content" #questionEl [mathJax]="content" (loadComplete)="loadComplete()"></div>
+  </div>`
 })
 export class DynamicPictureDragdropAnswerComponent {
   @ViewChild('questionEl') questionEl!: ElementRef;

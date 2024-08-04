@@ -3,13 +3,15 @@ import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChil
 @Component({
   selector: 'app-dynamic-picture-pick-answer',
   template: `<div class="question-container">
-  <div class="question-config" *ngIf="isEntry">
-    <div class="btn-config btn-red" (click)="changeMode()">
-      {{isEdit ? 'Tắt' : 'Bật'}} chỉnh sửa
-    </div>
-    <div class="btn-config" (click)="saveEdit()">Lưu</div>
-  </div>
-  <div class="question-content" #questionEl [mathJax]="content" (loadComplete)="loadComplete()"></div>
+    @if (isEntry) {
+      <div class="question-config">
+        <div class="btn-config btn-red" (click)="changeMode()">
+          {{isEdit ? 'Tắt' : 'Bật'}} chỉnh sửa
+        </div>
+        <div class="btn-config" (click)="saveEdit()">Lưu</div>
+      </div>
+    }
+    <div class="question-content" #questionEl [mathJax]="content" (loadComplete)="loadComplete()"></div>
   </div>`
 })
 export class DynamicPicturePickAnswerComponent {

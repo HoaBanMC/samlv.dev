@@ -6,13 +6,17 @@ import { Subscription } from 'rxjs';
   selector: "app-dynamic-html-text-by-keypad",
   template: `
   <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
-  <div class="caculator" *ngIf="displayPad">
-    <div class="message" [class.hidden]="!showError">Hãy chọn một ô cần nhập!</div>
-    <div class="keynumbers">
-        <div *ngFor="let k of listChars" class="numberkey" attr.value="{{k}}">{{k}}</div>
+  @if (displayPad) {
+    <div class="caculator">
+      <div class="message" [class.hidden]="!showError">Hãy chọn một ô cần nhập!</div>
+      <div class="keynumbers">
+        @for (k of listChars; track k) {
+          <div class="numberkey" attr.value="{{k}}">{{k}}</div>
+        }
         <div class="numberkey backspace" value="backspace" title="Xoá"></div>
+      </div>
     </div>
-  </div>`
+  }`
 })
 export class DynamicHtmlTextByKeypadComponent implements OnDestroy {
   @Output() userResponse = new EventEmitter<object>();

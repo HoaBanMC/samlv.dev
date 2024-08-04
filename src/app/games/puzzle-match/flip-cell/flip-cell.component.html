@@ -1,254 +1,295 @@
-<ng-container *ngIf="matchInfo?.listCard?.length">
-    <div class="game-teams">
-        <div class="list-team">
-            <div class="team" [class.team-active]="matchInfo.currentTeam === team.id" *ngFor="let team of listTeam">
-                <div class="team-name team-{{team.id}}">
-                    {{team.name}}
-                </div>
-                <div class="team-score">
-                    {{team.score}}
-                </div>
-            </div>
+@if (matchInfo?.listCard?.length) {
+  <div class="game-teams">
+    <div class="list-team">
+      @for (team of listTeam; track team) {
+        <div class="team" [class.team-active]="matchInfo.currentTeam === team.id">
+          <div class="team-name team-{{team.id}}">
+            {{team.name}}
+          </div>
+          <div class="team-score">
+            {{team.score}}
+          </div>
         </div>
-        <div class="game-config">
-            <div class="btn-config" (click)="exitMatch()">
-                <i class="fa fa-times" aria-hidden="true"></i>
+      }
+    </div>
+    <div class="game-config">
+      <div class="btn-config" (click)="exitMatch()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+      <div class="btn-config" (click)="editTeam()">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </div>
+      <div class="btn-config" (click)="soundConfig()">
+        @if (isSoundOn) {
+          <i class="fa fa-volume-up" aria-hidden="true"></i>
+        }
+        @if (!isSoundOn) {
+          <i class="fa fa-volume-off" aria-hidden="true"></i>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="game-cards">
+    <div class="card-wrapper">
+      @for (row of matchInfo.listCard; track row; let index = $index) {
+        <div class="card-row" [style.height.%]="cardSize.height"
+          [class.card-leftIn]="index === 0 || (index === (matchInfo.listCard?.length - 1) && index > 1)"
+          >
+          @for (col of row; track col) {
+            <div class="cardx" [class.has-flip-card]="col.hasFlip" (click)="selectCard(col)"
+              [style.width.%]="cardSize.width" [style.zIndex]="col.zIndex">
+              <div class="card-bg">
+                <div class="card-number">{{col.id}}</div>
+              </div>
             </div>
-            <div class="btn-config" (click)="editTeam()">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-            </div>
-            <div class="btn-config" (click)="soundConfig()">
-                <i *ngIf="isSoundOn" class="fa fa-volume-up" aria-hidden="true"></i>
-                <i *ngIf="!isSoundOn" class="fa fa-volume-off" aria-hidden="true"></i>
-            </div>
+          }
         </div>
+      }
     </div>
-    <div class="game-cards">
-        <div class="card-wrapper">
-            <div class="card-row" [style.height.%]="cardSize.height"
-                [class.card-leftIn]="index === 0 || (index === (matchInfo.listCard?.length - 1) && index > 1)"
-                *ngFor="let row of matchInfo.listCard; index as index">
-                <div class="cardx" [class.has-flip-card]="col.hasFlip" (click)="selectCard(col)"
-                    [style.width.%]="cardSize.width" [style.zIndex]="col.zIndex" *ngFor="let col of row">
-                    <div class="card-bg">
-                        <div class="card-number">{{col.id}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="btn-replay2" [class.btn-replay2-show]="showReplayBtn" (click)="replayMatch()">
-        <i class="fa fa-refresh" aria-hidden="true"></i>
-    </div>
-</ng-container>
+  </div>
+  <div class="btn-replay2" [class.btn-replay2-show]="showReplayBtn" (click)="replayMatch()">
+    <i class="fa fa-refresh" aria-hidden="true"></i>
+  </div>
+}
 
 <app-modal-common [clickOutsideClose]="selectedCard?.hasFlip" [displayX]="false" [id]="idOpenCard">
-    <ng-template>
-        <div class="card-open">
-            <div class="card-open-top">
-                <div class="card-open-top-team">
-                    Team {{matchInfo.currentTeam}}
-                </div>
-                <div class="card-open-point">
-                    {{selectedCard.score}}
-                </div>
-                <div class="card-open-x" (click)="closeOpenCard('idOpenCard')">
-                    X
-                </div>
-            </div>
-            <div class="card-open-content">
-                <div class="card-open-question" *ngIf="selectedCard.type === EnumTypeCard.QUESTION">
-                    <app-questions (userAnswer)="userAnswer($event)"
-                        [question]="selectedCard?.question?.dataStandard"></app-questions>
-                    <div class="card-open-question-answer" *ngIf="selectedCard.hasFlip">
-                        <div class="card-open-question-title">
-                            <span class="text-green" *ngIf="selectedCard?.doRight">Chính xác!</span>
-                            <span class="text-red" *ngIf="!selectedCard?.doRight">Không chính xác</span>
-                        </div>
-                        <div class="card-open-explain" [mathJax]="selectedCard?.question?.dataStandard?.explain"></div>
-                    </div>
-                </div>
-                <div class="card-open-question" *ngIf="selectedCard.type === EnumTypeCard.NOT_QUES">
-                    <div class="card-open-img">
-                        <img src="https://media.baamboozle.com/bbzl-prod-eu-west-5/img/power-ups/shark.png" alt="">
-                    </div>
-                    <div class="card-open-text">
-                        {{selectedCard.text}}
-                    </div>
-                </div>
-            </div>
-            <div class="card-actions">
-                <div class="card-open-answer"
-                    *ngIf="selectedCard.type === EnumTypeCard.QUESTION && !selectedCard.hasFlip">
-                    <div class="btn-answer" (click)="submitAnswer()">
-                        Trả lời
-                    </div>
-                </div>
-
-                <ng-container *ngIf="selectedCard.type === EnumTypeCard.NOT_QUES && !selectedCard.hasFlip">
-                    <!-- WIN/LOSE POINT / GO_LAST_PLACE / GO_FIRST_PLACE-->
-                    <div class="card-open-answer" *ngIf="selectedCard.code === EnumTypeNotQues.WIN_POINT ||
-                            selectedCard.code === EnumTypeNotQues.LOSE_POINT || 
-                            selectedCard.code === EnumTypeNotQues.GO_LAST_PLACE ||
-                            selectedCard.code === EnumTypeNotQues.GO_FIRST_PLACE">
-                        <div class="btn-answer" (click)="submitNotQues(null)">
-                            Xác nhận
-                        </div>
-                    </div>
-                    <!-- OTHER_TEAM_LOSE_POINT / TAKE_POINT_FROM_TEAM / 
-                        OTHER_TEAM_WIN_POINT / GIVE_POINT_TO_TEAM /
-                        SWAP_POINT_WITH_TEAM -->
-                    <ng-container *ngIf="selectedCard.code === EnumTypeNotQues.TAKE_POINT_FROM_TEAM ||
-                        selectedCard.code === EnumTypeNotQues.OTHER_TEAM_LOSE_POINT ||
-                        selectedCard.code === EnumTypeNotQues.OTHER_TEAM_WIN_POINT|| 
-                        selectedCard.code === EnumTypeNotQues.SWAP_POINT_WITH_TEAM|| 
-                        selectedCard.code === EnumTypeNotQues.GIVE_POINT_TO_TEAM">
-                        <div class="btn-list" *ngIf="matchInfo?.teamInfo?.length > 2">
-                            <ng-container *ngFor="let team of matchInfo.teamInfo">
-                                <div class="btn-answer" (click)="submitNotQues({pickTeam: team.id})"
-                                    *ngIf="matchInfo.currentTeam !== team.id">
-                                    Team {{team.id}}
-                                </div>
-                            </ng-container>
-                        </div>
-                        <div class="card-open-answer" *ngIf="matchInfo?.teamInfo?.length <= 2;">
-                            <div class="btn-answer" (click)="submitNotQues(null)">
-                                Xác nhận
-                            </div>
-                        </div>
-                    </ng-container>
-                </ng-container>
-
-                <div class="card-open-answer" *ngIf="selectedCard.hasFlip">
-                    <div class="btn-answer btn-team-answer" (click)="closeOpenCard('idOpenCard')">
-                        Đóng
-                    </div>
-                </div>
-            </div>
+  <ng-template>
+    <div class="card-open">
+      <div class="card-open-top">
+        <div class="card-open-top-team">
+          Team {{matchInfo.currentTeam}}
         </div>
-    </ng-template>
+        <div class="card-open-point">
+          {{selectedCard.score}}
+        </div>
+        <div class="card-open-x" (click)="closeOpenCard('idOpenCard')">
+          X
+        </div>
+      </div>
+      <div class="card-open-content">
+        @if (selectedCard.type === EnumTypeCard.QUESTION) {
+          <div class="card-open-question">
+            <app-questions (userAnswer)="userAnswer($event)"
+            [question]="selectedCard?.question?.dataStandard"></app-questions>
+            @if (selectedCard.hasFlip) {
+              <div class="card-open-question-answer">
+                <div class="card-open-question-title">
+                  @if (selectedCard?.doRight) {
+                    <span class="text-green">Chính xác!</span>
+                  }
+                  @if (!selectedCard?.doRight) {
+                    <span class="text-red">Không chính xác</span>
+                  }
+                </div>
+                <div class="card-open-explain" [mathJax]="selectedCard?.question?.dataStandard?.explain"></div>
+              </div>
+            }
+          </div>
+        }
+        @if (selectedCard.type === EnumTypeCard.NOT_QUES) {
+          <div class="card-open-question">
+            <div class="card-open-img">
+              <img src="https://media.baamboozle.com/bbzl-prod-eu-west-5/img/power-ups/shark.png" alt="">
+            </div>
+            <div class="card-open-text">
+              {{selectedCard.text}}
+            </div>
+          </div>
+        }
+      </div>
+      <div class="card-actions">
+        @if (selectedCard.type === EnumTypeCard.QUESTION && !selectedCard.hasFlip) {
+          <div class="card-open-answer"
+            >
+            <div class="btn-answer" (click)="submitAnswer()">
+              Trả lời
+            </div>
+          </div>
+        }
+
+        @if (selectedCard.type === EnumTypeCard.NOT_QUES && !selectedCard.hasFlip) {
+          <!-- WIN/LOSE POINT / GO_LAST_PLACE / GO_FIRST_PLACE-->
+          @if (selectedCard.code === EnumTypeNotQues.WIN_POINT ||
+            selectedCard.code === EnumTypeNotQues.LOSE_POINT ||
+            selectedCard.code === EnumTypeNotQues.GO_LAST_PLACE ||
+            selectedCard.code === EnumTypeNotQues.GO_FIRST_PLACE) {
+            <div class="card-open-answer">
+              <div class="btn-answer" (click)="submitNotQues(null)">
+                Xác nhận
+              </div>
+            </div>
+          }
+          <!-- OTHER_TEAM_LOSE_POINT / TAKE_POINT_FROM_TEAM /
+          OTHER_TEAM_WIN_POINT / GIVE_POINT_TO_TEAM /
+          SWAP_POINT_WITH_TEAM -->
+          @if (selectedCard.code === EnumTypeNotQues.TAKE_POINT_FROM_TEAM ||
+            selectedCard.code === EnumTypeNotQues.OTHER_TEAM_LOSE_POINT ||
+            selectedCard.code === EnumTypeNotQues.OTHER_TEAM_WIN_POINT||
+            selectedCard.code === EnumTypeNotQues.SWAP_POINT_WITH_TEAM||
+            selectedCard.code === EnumTypeNotQues.GIVE_POINT_TO_TEAM) {
+            @if (matchInfo?.teamInfo?.length > 2) {
+              <div class="btn-list">
+                @for (team of matchInfo.teamInfo; track team) {
+                  @if (matchInfo.currentTeam !== team.id) {
+                    <div class="btn-answer" (click)="submitNotQues({pickTeam: team.id})"
+                      >
+                      Team {{team.id}}
+                    </div>
+                  }
+                }
+              </div>
+            }
+            @if (matchInfo?.teamInfo?.length <= 2;) {
+              <div class="card-open-answer">
+                <div class="btn-answer" (click)="submitNotQues(null)">
+                  Xác nhận
+                </div>
+              </div>
+            }
+          }
+        }
+
+        @if (selectedCard.hasFlip) {
+          <div class="card-open-answer">
+            <div class="btn-answer btn-team-answer" (click)="closeOpenCard('idOpenCard')">
+              Đóng
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </ng-template>
 </app-modal-common>
 
 <app-modal-common [clickOutsideClose]="false" [displayX]="false" [id]="idWinCard">
-    <ng-template>
-        <div class="bravo-effect">
-            <div class="before"></div>
-            <div class="after"></div>
+  <ng-template>
+    <div class="bravo-effect">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+    <div class="card-open">
+      <div class="card-open-top">
+        <div class="card-open-point">
+          &nbsp;
         </div>
-        <div class="card-open">
-            <div class="card-open-top">
-                <div class="card-open-point">
-                    &nbsp;
-                </div>
-                <div class="card-open-x" (click)="closeOpenCard('idWinCard')">
-                    X
-                </div>
-            </div>
-            <div class="card-open-content">
-                <div class="card-open-question">
-                    <div class="card-open-img">
-                        <img src="https://media.baamboozle.com/bbzl-prod-eu-west-5/img/power-ups/shark.png" alt="">
-                    </div>
-                    <div class="card-open-tier" *ngIf="!winnerTeam?.id">
-                        Huề cả làng !!!
-                    </div>
-                    <div class="card-open-tier typewriter" *ngIf="winnerTeam?.id">
-                        <div class="typewriter-text">Đội {{winnerTeam?.id}} chiến thắng !!!</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-actions">
-                <div class="card-open-answer">
-                    <div class="btn-answer btn-team-replay" (click)="replayMatch()">
-                        Làm lại
-                    </div>
-                </div>
-            </div>
+        <div class="card-open-x" (click)="closeOpenCard('idWinCard')">
+          X
         </div>
-    </ng-template>
+      </div>
+      <div class="card-open-content">
+        <div class="card-open-question">
+          <div class="card-open-img">
+            <img src="https://media.baamboozle.com/bbzl-prod-eu-west-5/img/power-ups/shark.png" alt="">
+          </div>
+          @if (!winnerTeam?.id) {
+            <div class="card-open-tier">
+              Huề cả làng !!!
+            </div>
+          }
+          @if (winnerTeam?.id) {
+            <div class="card-open-tier typewriter">
+              <div class="typewriter-text">Đội {{winnerTeam?.id}} chiến thắng !!!</div>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="card-actions">
+        <div class="card-open-answer">
+          <div class="btn-answer btn-team-replay" (click)="replayMatch()">
+            Làm lại
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </app-modal-common>
 
 <app-modal-common [clickOutsideClose]="false" [displayX]="false" [id]="idEditTeam">
-    <ng-template>
-        <div class="card-open card-edit-team">
-            <div class="card-open-top">
-                <div class="card-open-point">
-                    Chỉnh sửa
-                </div>
-                <div class="card-open-x" (click)="closeOpenCard('idEditTeam')">
-                    X
-                </div>
-            </div>
-            <div class="card-open-content">
-                <div class="card-open-box card-box-title">
-                    <div class="box-title">
-                        Tên
-                    </div>
-                    <div class="box-title box-title-score">
-                        Điểm
-                    </div>
-                </div>
-                <div class="card-open-box">
-                    <div class="card-box-item" *ngFor="let team of listTeam">
-                        <input class="box-item" type="text" [(ngModel)]="team.name">
-                        <input class="box-item box-score" type="number" [(ngModel)]="team.score">
-                    </div>
-                </div>
-            </div>
-            <div class="card-actions">
-                <div class="card-open-answer">
-                    <div class="btn-answer btn-team-replay" (click)="saveEditTeam()">
-                        Lưu
-                    </div>
-                </div>
-            </div>
+  <ng-template>
+    <div class="card-open card-edit-team">
+      <div class="card-open-top">
+        <div class="card-open-point">
+          Chỉnh sửa
         </div>
-    </ng-template>
+        <div class="card-open-x" (click)="closeOpenCard('idEditTeam')">
+          X
+        </div>
+      </div>
+      <div class="card-open-content">
+        <div class="card-open-box card-box-title">
+          <div class="box-title">
+            Tên
+          </div>
+          <div class="box-title box-title-score">
+            Điểm
+          </div>
+        </div>
+        <div class="card-open-box">
+          @for (team of listTeam; track team) {
+            <div class="card-box-item">
+              <input class="box-item" type="text" [(ngModel)]="team.name">
+              <input class="box-item box-score" type="number" [(ngModel)]="team.score">
+            </div>
+          }
+        </div>
+      </div>
+      <div class="card-actions">
+        <div class="card-open-answer">
+          <div class="btn-answer btn-team-replay" (click)="saveEditTeam()">
+            Lưu
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </app-modal-common>
 
 
 <app-modal-common [clickOutsideClose]="false" [displayX]="false" [id]="idInitGameFlip">
-    <ng-template>
-        <div class="card-open">
-            <div class="card-open-top">
-                <div class="card-open-point">
-                    Cấu hình trò chơi
-                </div>
-                <!-- <div class="card-open-x" (click)="closeOpenCard('idEditTeam')">
-                    X
-                </div> -->
-            </div>
-            <div class="card-open-content">
-                <div class="card-open-config">
-                    <div class="card-open-config-item">
-                        <div class="option-title">Team</div>
-                        <div class="options">
-                            <div class="option" (click)="changeTeam(opt)" [class.option-active]="teamCount === opt.team"
-                                *ngFor="let opt of listOption;">
-                                {{opt.team}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-open-config-item">
-                        <div class="option-title">Grid Size</div>
-                        <div class="options">
-                            <div class="option" (click)="changeSize(index)"
-                                [class.option-active]="gridSizeSelected === index"
-                                [class.option-disabled]="size > (listQuestion?.length + 3)"
-                                *ngFor="let size of gridSizes.size;index as index">
-                                {{size}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-actions">
-                <div class="card-open-answer">
-                    <div class="btn-answer btn-team-replay" (click)="playMatch()">
-                        Xác nhận
-                    </div>
-                </div>
-            </div>
+  <ng-template>
+    <div class="card-open">
+      <div class="card-open-top">
+        <div class="card-open-point">
+          Cấu hình trò chơi
         </div>
-    </ng-template>
+        <!-- <div class="card-open-x" (click)="closeOpenCard('idEditTeam')">
+        X
+      </div> -->
+    </div>
+    <div class="card-open-content">
+      <div class="card-open-config">
+        <div class="card-open-config-item">
+          <div class="option-title">Team</div>
+          <div class="options">
+            @for (opt of listOption; track opt) {
+              <div class="option" (click)="changeTeam(opt)" [class.option-active]="teamCount === opt.team"
+                >
+                {{opt.team}}
+              </div>
+            }
+          </div>
+        </div>
+        <div class="card-open-config-item">
+          <div class="option-title">Grid Size</div>
+          <div class="options">
+            @for (size of gridSizes.size; track size; let index = $index) {
+              <div class="option" (click)="changeSize(index)"
+                [class.option-active]="gridSizeSelected === index"
+                [class.option-disabled]="size > (listQuestion?.length + 3)"
+                >
+              {{size}}</div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-actions">
+      <div class="card-open-answer">
+        <div class="btn-answer btn-team-replay" (click)="playMatch()">
+          Xác nhận
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
 </app-modal-common>

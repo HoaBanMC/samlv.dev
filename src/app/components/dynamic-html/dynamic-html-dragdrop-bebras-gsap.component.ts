@@ -14,30 +14,31 @@ export interface DirectionChangePosition {
 @Component({
   selector: 'app-dynamic-html-dragdrop-bebras-gsap',
   template: `
-      <div *ngIf="isEntry">
+      @if (isEntry) {
+        <div>
           <div class="info-form">
-              <strong>Hiển thị lưới: </strong>
-              <button type="button" (click)="turnOnOffAlign()">{{isOnAlign ? 'Bật' : 'Tắt'}}</button>
-            </div>
-            <div class="info-form">
-              <br/>
-              <strong>Căn lề: </strong>
-              <label for="top">
-                  <span>top</span>
-                  <input type="number" value="0" id="top" (change)="inputEvent($event, 'top')">
-              </label>
-              <label for="bottom">
-                  <span>bottom</span>
-                  <input type="number" value="0" id="bottom" (change)="inputEvent($event, 'bottom')">
-              </label>
-              <label for="left">
-                  <span>left</span>
-                  <input type="number" value="0" id="left" (change)="inputEvent($event, 'left')">
-              </label>
-              <label for="right">
-                  <span>right</span>
-                  <input type="number" value="0" id="right" (change)="inputEvent($event, 'right')">
-              </label>
+            <strong>Hiển thị lưới: </strong>
+            <button type="button" (click)="turnOnOffAlign()">{{isOnAlign ? 'Bật' : 'Tắt'}}</button>
+          </div>
+          <div class="info-form">
+            <br/>
+            <strong>Căn lề: </strong>
+            <label for="top">
+              <span>top</span>
+              <input type="number" value="0" id="top" (change)="inputEvent($event, 'top')">
+            </label>
+            <label for="bottom">
+              <span>bottom</span>
+              <input type="number" value="0" id="bottom" (change)="inputEvent($event, 'bottom')">
+            </label>
+            <label for="left">
+              <span>left</span>
+              <input type="number" value="0" id="left" (change)="inputEvent($event, 'left')">
+            </label>
+            <label for="right">
+              <span>right</span>
+              <input type="number" value="0" id="right" (change)="inputEvent($event, 'right')">
+            </label>
           </div>
           <div class="percent-position">
             <strong>Giá trị cần lấy: </strong>
@@ -50,13 +51,14 @@ export interface DirectionChangePosition {
             <span>right: {{directionChangePosition.right}}</span>
           </div>
           <div class="info-form">
-            <br/>  
+            <br/>
             <h3>Nội dung hiển thị: </h3>
             <hr/><br/>
           </div>
-      </div>
-    <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
-  `,
+        </div>
+      }
+      <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
+      `,
 })
 export class DynamicHtmlDragdropBebrasGsapComponent implements OnInit {
   @Output() userResponse = new EventEmitter<object>();

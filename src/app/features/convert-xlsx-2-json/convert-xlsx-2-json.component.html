@@ -1,9 +1,0 @@
-<h1>Convert XLSX to JSON</h1>
-
-<input #fileInput (change)="importFile($event)" type="file" class="fileUpload" accept=".xlsx">
-
-@if (refExcelData?.length) {
-@for (item of refExcelData; track $index) {
-<p><b>stt:</b> {{item.stt}} |<b>typeSchool:</b> {{item.typeSchool}} | <b>nameSchool:</b> {{item.nameSchool}}</p>
-}
-}

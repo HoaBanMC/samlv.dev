@@ -8,19 +8,23 @@ import { Subscription } from 'rxjs';
   template: `
   <div class="question-area">
     <div [mathJax]="content" (loadComplete)="loadComplete()"></div>
-    <div class="answer-ordered" [class.mathtype]="mathtype" *ngIf="listAnswerOpt?.length">
+    @if (listAnswerOpt?.length) {
+      <div class="answer-ordered" [class.mathtype]="mathtype">
         <div class="contains-dozone">
-            <div class="doZone" *ngFor="let c of cells"></div>
+          @for (c of cells; track c) {
+            <div class="doZone"></div>
+          }
         </div>
         <div class="buttons" id="buttonsZone">
-            <ng-container *ngFor="let opt of listAnswerOpt; index as index">
-                <div class="item" [class.answered]="isExplain" [attr.value]="mathtype ? opt.mathtype : opt.text"
-                  id="button-{{index}}">
-                  <span [mathJax]="opt.text"></span>
-                </div>
-            </ng-container>
+          @for (opt of listAnswerOpt; track opt; let index = $index) {
+            <div class="item" [class.answered]="isExplain" [attr.value]="mathtype ? opt.mathtype : opt.text"
+              id="button-{{index}}">
+              <span [mathJax]="opt.text"></span>
+            </div>
+          }
         </div>
-    </div>
+      </div>
+    }
   </div>
   `
 })

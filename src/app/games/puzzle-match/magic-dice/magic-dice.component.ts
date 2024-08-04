@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common";
+
 import { Component, OnInit } from "@angular/core";
 import { listOption, SOUND_MATCH, STORE_NAME } from "../common/config";
 import { FormsModule } from "@angular/forms";
@@ -16,11 +16,10 @@ import { MODAL_ID } from "../../../components/modal-common/modal-id.const";
     styleUrls: ["./magic-dice.component.scss"],
     standalone: true,
     imports: [
-        CommonModule,
-        FormsModule,
-        ModalCommonComponent,
-        MathjaxModule
-    ]
+    FormsModule,
+    ModalCommonComponent,
+    MathjaxModule
+]
 })
 export class MagicDiceComponent implements OnInit {
     idInitMagicDice = MODAL_ID.GAMES.PUZZLE_MATCH.INIT_MAGIC_DICE;

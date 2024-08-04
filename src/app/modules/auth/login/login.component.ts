@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
