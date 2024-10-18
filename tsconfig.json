@@ -21,11 +21,7 @@
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
-      "dom",
-      "scripthost"
-    ],
-    "types": [
-      "phaser"
+      "dom"
     ],
     "allowSyntheticDefaultImports": true
   },

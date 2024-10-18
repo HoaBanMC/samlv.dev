@@ -1,0 +1,32 @@
+:host::ng-deep {
+    @import "../../../scss/mathplay.scss";
+}
+
+#popup {
+    z-index: 10;
+    position: fixed;
+    top: -100%; /* Bắt đầu từ ngoài màn hình */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow: auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: top 0.5s ease-in-out;
+    color: #000;
+}
+#popup.show {
+    top: 100px; /* Vị trí xuất hiện popup */
+}
+
+.game-iframe {
+    width: 1366px;
+    height: 768px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1366/768;
+}
