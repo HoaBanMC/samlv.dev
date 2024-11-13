@@ -62,7 +62,12 @@ export class MathplayComponent implements OnInit {
           </div>
         </div>`;
 
-  constructor() {}
+  token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0dvZE1vZGUiOmZhbHNlLCJhdmF0YXIiOiJodHRwczovL2F2YXRhci5vbmx1eWVuLnZuL2F2YXRhci82NWJjOGRmMTZlNTJkYWE4NTczY2U4MWEvNjY4ZDBlYjEzODdmOWE2MjU3YWM4YTQ3LnBuZyIsInVzZXJJZCI6IjY1YmM4ZGYxNmU1MmRhYTg1NzNjZTgxYSIsInVzZXJOYW1lIjoiODQ1NTg5OTk5OTkiLCJpc1ZlcmlmaWVkIjpmYWxzZSwiR3JhZGVJZCI6IkMxMiIsIkRpc3BsYXlOYW1lIjoiWW91ZSIsIkJpcnRoZGF5IjoiMjAwMi0wNS0xMCIsIlByb3ZpbmNlSWQiOjEsIkRpc3RyaWN0SWQiOjE2LCJQaG9uZU51bWJlciI6Ijg0NTU4OTk5OTk5IiwiUGhvbmVDb3VudHJ5IjoiODQiLCJTY2hvb2xZZWFyIjoyMDI0LCJjb2RlQXBwIjoiTU9CSVNUVURZIiwiUm9sZSI6IlNUVURFTlQiLCJHZW5kZXIiOiJOQU0iLCJDcmVhdGVCeVNjaG9vbCI6MjgwLCJwcmVtaXVtIjpmYWxzZSwiY2FuQ2hhbmdlUGFzc3dvcmQiOnRydWUsIm5lZWRDaGFuZ2VQYXNzd29yZCI6dHJ1ZSwia2V5VG9rZW4iOiJiNGYwZDM4YTMxYWU1MzkxYTYxNDk1ZjgwNTc1OGVjZSIsInBhY2thZ2VzIjoiRURUIiwianRpIjoiMzlmMTZjYWQtODFhYS00M2YwLTg3OWYtODEwMzlkYTk0NDA5IiwiaWF0IjoxNzI5ODI0MTA5LCJuYmYiOjE3Mjk4MjQxMDksImV4cCI6MTczMjQxNjEwOSwiaXNzIjoiRURNSUNSTyIsImF1ZCI6Ik1PQklTVFVEWS5WTiJ9.JSZcj-5trzkbmuriXTuT2f0JHsdXFuM5fNNZEPlvxNA';
+
+  constructor() {
+    localStorage.setItem('token', this.token);
+  }
 
   ngOnInit() {
     document.getElementById('popupForm').addEventListener('submit', (e) => {
