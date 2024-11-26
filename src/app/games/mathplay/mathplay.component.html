@@ -1,17 +1,16 @@
 <div class="game-container">
   <iframe
-    src="/assets/ClawV4/index.html?id=663c426fb13296f3bdf86f2a&code=GAPTHU&e=1"
+    #iframeDiv
+    src="http://localhost:8060/tmp_js_export.html"
     class="game-iframe"
     style="border: none; display: block; margin: auto"
   ></iframe>
 </div>
 
-
-
 <div id="popup">
   <h3>Popup</h3>
-  <form id="popupForm">
+  <div id="popupForm">
     <app-dynamic-html></app-dynamic-html>
-    <button type="submit">Submit</button>
-  </form>
+    <button (click)="onSubmit()" type="button">Submit</button>
+  </div>
 </div>

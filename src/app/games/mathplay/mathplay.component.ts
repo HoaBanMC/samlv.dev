@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, viewChild } from '@angular/core';
 import { DynamicHTMLModule } from '../../components/dynamic-html/module';
 
 @Component({
@@ -9,6 +9,8 @@ import { DynamicHTMLModule } from '../../components/dynamic-html/module';
   imports: [DynamicHTMLModule],
 })
 export class MathplayComponent implements OnInit {
+  iframeDiv = viewChild<ElementRef<HTMLIFrameElement>>('iframeDiv');
+
   question = `       <div class="title">Look and choose:</div>
   
         <div class="content">
@@ -70,21 +72,6 @@ export class MathplayComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.getElementById('popupForm').addEventListener('submit', (e) => {
-      e.preventDefault(); // Ngăn chặn việc submit form thật sự
-      const inputData = 'hello';
-      // Gửi dữ liệu tới Godot
-      window.postMessage(
-        {
-          value: inputData,
-        },
-        '*'
-      );
-
-      // Ẩn popup sau khi submit
-      this.hidePopup();
-    });
-
     window.addEventListener('message', (event) => {
       if (event.data.action === 'openModal') {
         // Chạy hàm khi nhận được thông điệp từ Godot
@@ -94,7 +81,18 @@ export class MathplayComponent implements OnInit {
     });
   }
 
-  // JavaScript để điều khiển popup
+  onSubmit() {
+    const inputData = 'message from angular!';
+    // Gửi dữ liệu tới Godot
+    this.iframeDiv().nativeElement.contentWindow.postMessage(
+      {
+        value: inputData,
+      },
+      '*'
+    );
+    this.hidePopup();
+  }
+
   showPopup() {
     console.log('show modal');
     document.getElementById('popup').classList.add('show');
