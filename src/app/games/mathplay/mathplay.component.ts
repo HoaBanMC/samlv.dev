@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, viewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  viewChild,
+} from '@angular/core';
 import { DynamicHTMLModule } from '../../components/dynamic-html/module';
 
 @Component({
@@ -72,13 +78,16 @@ export class MathplayComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.addEventListener('message', (event) => {
-      if (event.data.action === 'openModal') {
-        // Chạy hàm khi nhận được thông điệp từ Godot
-        console.log(event.data);
-        this.showPopup();
-      }
-    });
+    console.log('start game!');
+  }
+
+  @HostListener('window:message', ['$event'])
+  onMessage(event: MessageEvent) {
+    if (event.data.action === 'openModal') {
+      // Chạy hàm khi nhận được thông điệp từ Godot
+      console.log(event.data);
+      this.showPopup();
+    }
   }
 
   onSubmit() {
