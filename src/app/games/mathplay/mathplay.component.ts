@@ -88,6 +88,33 @@ export class MathplayComponent implements OnInit {
       console.log(event.data);
       this.showPopup();
     }
+    if (event.data.action === 'fullscreen') {
+
+      console.log(event.data);
+      
+
+      this.toggleFullscreen();
+    }
+  }
+
+  toggleFullscreen() {
+    const doc: any = document;
+    if (!doc.fullscreenElement && !doc.webkitFullscreenElement) {
+      // Vào fullscreen
+      const docEl: any = document.documentElement;
+      if (docEl.requestFullscreen) {
+        docEl.requestFullscreen();
+      } else if (docEl.webkitRequestFullscreen) {
+        docEl.webkitRequestFullscreen();
+      }
+    } else {
+      // Thoát fullscreen
+      if (doc.exitFullscreen) {
+        doc.exitFullscreen();
+      } else if (doc.webkitExitFullscreen) {
+        doc.webkitExitFullscreen();
+      }
+    }
   }
 
   onSubmit() {
