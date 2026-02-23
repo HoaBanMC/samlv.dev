@@ -1,0 +1,46 @@
+# Compiled output
+**/dist/
+**/tmp/
+**/out-tsc/
+**/.angular/
+
+# Node
+**/node_modules/
+npm-debug.log
+yarn-error.log
+bun.lock (not needed if using npm/yarn, but bun is being used here, keep it for now? Actually user often wants lock files, but I'll follow standard practice)
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Antigravity artifacts
+.gemini/
+brain/
+implementation_plan*.md
+task.md
+walkthrough.md
+analyze_template_reference*.webp
+icon_color_audit*.webp
+research_dev_portfolios*.webp
+verify_all_pages*.webp
+verify_obsidian_slate_visuals*.webp
+verify_ui_redesign_daisyui*.webp
+media__*.png
+frontend/package-lock.json
+frontend/bun.lock
