@@ -15,10 +15,10 @@ import { ThemeService } from '../../services/theme.service';
           <!-- Logo -->
           <a routerLink="/" class="flex items-center gap-3 group">
             <div class="w-10 h-10 bespoke-bracket flex items-center justify-center">
-              <span class="text-primary font-display font-black text-xl">P</span>
+              <span class="text-primary font-display font-black text-xl">S</span>
             </div>
             <span class="font-display font-black text-xs uppercase tracking-[0.3em]">
-              Profile<span class="text-primary">.dev</span>
+              samlv<span class="text-primary">.dev</span>
             </span>
           </a>
 
@@ -30,7 +30,7 @@ import { ThemeService } from '../../services/theme.service';
                   [routerLink]="link.path"
                   routerLinkActive="!text-primary bg-primary/5"
                   [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-                  class="px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-dim hover:text-primary transition-all"
+                  class="px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-text-dim hover:text-primary transition-all"
                 >
                   {{ link.label() }}
                 </a>
@@ -40,7 +40,7 @@ import { ThemeService } from '../../services/theme.service';
             <!-- Theme Toggle -->
             <button
               (click)="ts.toggleTheme()"
-              class="p-2 rounded-lg bg-white/5 border border-white/5 hover:border-primary/30 transition-all text-xs"
+              class="p-2 rounded-lg bg-bg-card border border-border-subtle hover:border-primary/40 transition-all text-xs"
               [title]="ts.theme() === 'light' ? 'Dark Mode' : 'Light Mode'"
             >
               @if (ts.theme() === 'light') {
@@ -55,14 +55,14 @@ import { ThemeService } from '../../services/theme.service';
             <!-- Language Switcher -->
             <button
               (click)="langService.toggleLang()"
-              class="group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 hover:border-primary/30 transition-all"
+              class="group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border-subtle hover:border-primary/30 transition-all"
             >
               <span
                 class="text-[10px] font-black uppercase tracking-widest"
                 [class.text-primary]="langService.lang() === 'en'"
                 >EN</span
               >
-              <span class="w-2 h-[1px] bg-white/20"></span>
+              <span class="w-2 h-px bg-border-subtle"></span>
               <span
                 class="text-[10px] font-black uppercase tracking-widest"
                 [class.text-primary]="langService.lang() === 'vi'"
@@ -74,7 +74,7 @@ import { ThemeService } from '../../services/theme.service';
           <!-- Mobile menu button -->
           <button
             (click)="mobileMenuOpen.set(!mobileMenuOpen())"
-            class="md:hidden p-2 text-dim hover:text-primary"
+            class="md:hidden p-2 text-text-dim hover:text-primary"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -98,7 +98,7 @@ import { ThemeService } from '../../services/theme.service';
               <a
                 [routerLink]="link.path"
                 (click)="mobileMenuOpen.set(false)"
-                class="block text-[10px] font-black uppercase tracking-widest text-dim hover:text-primary px-4 py-2"
+                class="block text-[10px] font-black uppercase tracking-widest text-text-dim hover:text-primary px-4 py-2"
               >
                 {{ link.label() }}
               </a>

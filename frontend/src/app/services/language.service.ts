@@ -1,4 +1,5 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, effect, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export type Lang = 'en' | 'vi';
 
@@ -44,7 +45,7 @@ export class LanguageService {
           label: 'Build Stack',
         },
         modules: {
-          label: 'Modules_',
+          label: 'Projects_',
           total: 'TOTAL',
         },
         contact: 'Get in Touch',
@@ -52,28 +53,28 @@ export class LanguageService {
       profile: {
         subtitle: 'Identity_',
         headline: 'I AM',
-        bio: 'Passionate about building modern web applications with Angular, interactive 3D modules with Godot, and high-performance computation with Rust WebAssembly.',
-        role: 'Senior Developer',
+        bio: 'Passionate about building modern web applications with Angular and interactive 3D modules with Godot Engine. Focused on clean architecture and high-performance frontend systems.',
+        role: 'Angular & Godot Developer',
         experience: {
           title: 'The Journey_',
           items: [
             {
               year: '2024 — Present',
-              title: 'Senior Full-Stack Developer',
-              company: 'Tech Corp',
-              desc: 'Leading development of high-performance Angular 21 applications, integrating Godot 3D modules and Rust WASM systems.',
+              title: 'Senior Frontend Developer',
+              company: 'Freelance / Projects',
+              desc: 'Specializing in Angular 21 development, focusing on Zoneless architecture and Signal-based state management.',
             },
             {
               year: '2022 — 2024',
-              title: 'Frontend Engineer',
-              company: 'Design Agency',
-              desc: 'Architected responsive interfaces and scalable component libraries with TypeScript and TailwindCSS.',
+              title: 'Web & Game Developer',
+              company: 'Creative Studio',
+              desc: 'Architected responsive interfaces and integrated Godot 3D components into web platforms.',
             },
             {
               year: '2020 — 2022',
-              title: 'Indie Developer',
-              company: 'Startup',
-              desc: 'Explored game mechanics in Godot and transitioned into full-stack web engineering.',
+              title: 'Junior Developer',
+              company: 'Independent',
+              desc: 'Mastered modern CSS, TypeScript, and began exploring game engine integration for the web.',
             },
           ],
         },
@@ -101,7 +102,7 @@ export class LanguageService {
       dashboard: {
         title: 'BẢNG ĐIỀU KHIỂN_',
         subtitle: 'Tổng quan hệ thống',
-        desc: 'Các module được tuyển chọn cho kỹ thuật thực nghiệm và khám phá thiết kế.',
+        desc: 'Các dự án cá nhân và module kỹ thuật thực nghiệm.',
         profile_card: {
           label: 'Hồ sơ đang hoạt động',
           title: 'XEM DANH TÍNH.',
@@ -115,7 +116,7 @@ export class LanguageService {
           label: 'Công nghệ',
         },
         modules: {
-          label: 'Module_',
+          label: 'Dự án_',
           total: 'TỔNG CỘNG',
         },
         contact: 'Liên hệ ngay',
@@ -123,28 +124,28 @@ export class LanguageService {
       profile: {
         subtitle: 'Danh tính_',
         headline: 'TÔI LÀ',
-        bio: 'Đam mê xây dựng các ứng dụng web hiện đại kết hợp Angular, game development với Godot Engine, và high-performance computing với Rust WebAssembly.',
-        role: 'Lập trình viên Senior',
+        bio: 'Đam mê xây dựng các ứng dụng web hiện đại với Angular và phát triển game/ứng dụng 3D tương tác với Godot Engine. Tập trung vào kiến trúc sạch và hiệu suất cao.',
+        role: 'Lập trình viên Angular & Godot',
         experience: {
           title: 'Hành trình_',
           items: [
             {
               year: '2024 — Hiện tại',
-              title: 'Lập trình viên Full-Stack Senior',
-              company: 'Tập đoàn Công nghệ',
-              desc: 'Dẫn dắt phát triển ứng dụng Angular 21 hiệu suất cao, tích hợp module Godot 3D và hệ thống Rust WASM.',
+              title: 'Lập trình viên Frontend Senior',
+              company: 'Freelance / Dự án',
+              desc: 'Chuyên sâu phát triển ứng dụng Angular 21, tập trung vào kiến trúc Zoneless và quản lý state bằng Signals.',
             },
             {
               year: '2022 — 2024',
-              title: 'Kỹ sư Frontend',
-              company: 'Agency Thiết kế',
-              desc: 'Xây dựng kiến trúc giao diện responsive và thư viện component mở rộng với TypeScript và TailwindCSS.',
+              title: 'Lập trình viên Web & Game',
+              company: 'Creative Studio',
+              desc: 'Xây dựng giao diện responsive và tích hợp các thành phần Godot 3D lên nền tảng web.',
             },
             {
               year: '2020 — 2022',
-              title: 'Lập trình viên độc lập',
-              company: 'Startup',
-              desc: 'Khám phá cơ chế game trong Godot và chuyển hướng sang kỹ thuật web full-stack.',
+              title: 'Lập trình viên trẻ',
+              company: 'Độc lập',
+              desc: 'Làm chủ CSS hiện đại, TypeScript và bắt đầu khám phá việc tích hợp game engine vào web.',
             },
           ],
         },
@@ -153,7 +154,22 @@ export class LanguageService {
     },
   };
 
+  private platformId = inject(PLATFORM_ID);
+
   t = computed(() => this.translations[this.lang()]);
+
+  constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+      const savedLang = localStorage.getItem('lang_preference') as Lang;
+      if (savedLang && (savedLang === 'en' || savedLang === 'vi')) {
+        this.lang.set(savedLang);
+      }
+
+      effect(() => {
+        localStorage.setItem('lang_preference', this.lang());
+      });
+    }
+  }
 
   toggleLang() {
     this.lang.set(this.lang() === 'en' ? 'vi' : 'en');

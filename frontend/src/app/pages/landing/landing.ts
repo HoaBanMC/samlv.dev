@@ -20,7 +20,7 @@ import { LanguageService } from '../../services/language.service';
       <main class="relative z-10 max-w-5xl animate-reveal bespoke-bracket p-12 lg:p-20">
         <header class="mb-12">
           <div class="inline-flex items-center gap-3 mb-8">
-            <span class="w-12 h-[1px] bg-primary"></span>
+            <span class="w-12 h-px bg-primary"></span>
             <span class="text-xs font-black uppercase tracking-[0.3em] text-primary">{{
               ls.t().landing.version
             }}</span>
@@ -33,7 +33,7 @@ import { LanguageService } from '../../services/language.service';
               ls.t().landing.headline.split(' ').slice(1).join(' ')
             }}</span>
           </h1>
-          <p class="text-xl lg:text-2xl text-dim max-w-2xl leading-relaxed font-sans font-light">
+          <p class="text-xl lg:text-2xl text-text-dim max-w-2xl leading-relaxed font-sans font-light">
             {{ ls.t().landing.subheadline }}
           </p>
         </header>
@@ -51,15 +51,15 @@ import { LanguageService } from '../../services/language.service';
 
           <div class="flex gap-12">
             <div class="flex flex-col">
-              <span class="text-[10px] uppercase tracking-widest text-dim mb-1">{{
+              <span class="text-[10px] uppercase tracking-widest text-text-dim mb-1">{{
                 ls.t().landing.focus
               }}</span>
               <span class="text-sm font-bold uppercase tracking-tighter"
-                >Angular / Rust / Godot</span
+                >Angular / Godot</span
               >
             </div>
             <div class="flex flex-col">
-              <span class="text-[10px] uppercase tracking-widest text-dim mb-1">{{
+              <span class="text-[10px] uppercase tracking-widest text-text-dim mb-1">{{
                 ls.t().landing.available
               }}</span>
               <span class="text-sm font-bold uppercase tracking-tighter">{{
@@ -76,7 +76,7 @@ import { LanguageService } from '../../services/language.service';
           class="text-[10px] uppercase tracking-[0.5em] origin-right rotate-90 translate-x-12 translate-y-12 whitespace-nowrap"
           >{{ ls.t().landing.scroll }}</span
         >
-        <div class="w-[1px] h-24 bg-white/20 relative overflow-hidden">
+        <div class="w-px h-24 bg-white/20 relative overflow-hidden">
           <div
             class="absolute top-0 left-0 w-full h-1/2 bg-primary animate-[scroll_2s_infinite]"
           ></div>
@@ -86,7 +86,7 @@ import { LanguageService } from '../../services/language.service';
 
     <!-- Expertise Section (Bespoke Grid) -->
     <section
-      class="py-32 px-6 lg:px-24 bg-white/[0.01] border-y border-white/5 relative overflow-hidden"
+      class="py-32 px-6 lg:px-24 bg-bg-card border-y border-border-subtle relative overflow-hidden"
     >
       <div class="max-w-7xl mx-auto relative z-10">
         <h2 class="text-5xl font-display font-bold mb-24 tracking-tighter">
@@ -96,10 +96,10 @@ import { LanguageService } from '../../services/language.service';
         <div class="grid lg:grid-cols-3 gap-8">
           @for (card of highlights(); track card.title; let i = $index) {
             <div
-              class="group p-10 bg-white/5 border border-white/10 rounded-2xl hover:border-primary/40 transition-all duration-300"
+              class="group p-10 bg-bg-card border border-border-subtle rounded-2xl hover:border-primary/40 transition-all duration-300"
             >
               <div
-                class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform duration-500"
+                class="w-16 h-16 rounded-2xl bg-bg-card/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform duration-500"
                 [class]="card.color"
               >
                 <i [class]="card.icon"></i>
@@ -107,11 +107,11 @@ import { LanguageService } from '../../services/language.service';
               <h3 class="text-3xl font-display font-bold mb-6 tracking-tight uppercase">
                 {{ card.title }}
               </h3>
-              <p class="text-dim leading-relaxed mb-8">{{ card.desc }}</p>
+              <p class="text-text-dim leading-relaxed mb-8">{{ card.desc }}</p>
               <div class="flex flex-wrap gap-2">
                 @for (tech of card.techs; track tech) {
                   <span
-                    class="px-3 py-1 rounded-full bg-white/5 text-[10px] font-black uppercase tracking-widest text-primary/70 border border-white/5"
+                    class="px-3 py-1 rounded-full bg-bg-card/50 text-[10px] font-black uppercase tracking-widest text-primary/70 border border-border-subtle"
                     >{{ tech }}</span
                   >
                 }
@@ -157,14 +157,6 @@ export class Landing {
       color: 'text-brand-angular',
       border: 'border-l-primary/30',
       techs: ['RxJS', 'Signals', 'NGRX'],
-    },
-    {
-      title: 'Rust & WASM',
-      desc: 'Developing high-performance systems and WebAssembly modules for blazingly fast computations in the browser.',
-      icon: 'fa-brands fa-rust',
-      color: 'text-brand-rust',
-      border: 'border-l-primary/10',
-      techs: ['Cargo', 'Wasm-Pack', 'Serde'],
     },
     {
       title: 'Game Engine Visualization',

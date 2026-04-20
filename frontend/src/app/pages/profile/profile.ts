@@ -12,7 +12,7 @@ interface Skill {
 @Component({
   selector: 'app-profile',
   template: `
-    <div class="min-h-screen bg-bg-deep text-white font-sans transition-colors duration-500 pb-24">
+    <div class="min-h-screen bg-bg-deep font-sans transition-colors duration-500 pb-24">
       <!-- Main Content Container -->
       <div class="max-w-5xl mx-auto px-6 py-12 md:py-24 space-y-32">
         <!-- Hero Section -->
@@ -45,20 +45,21 @@ interface Skill {
             >
               {{ name() }}
             </h1>
-            <p class="text-xl text-dim leading-relaxed max-w-2xl">
+            <p class="text-xl text-text-dim leading-relaxed max-w-2xl">
               {{ ls.t().profile.bio }}
             </p>
 
             <!-- Hero Actions -->
             <div class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
-              <button
+              <a
+                href="mailto:losammc@gmail.com"
                 class="px-8 py-4 bg-primary text-white font-bold rounded-full hover:shadow-primary/20 hover:shadow-2xl active:scale-95 transition-all flex items-center gap-3"
               >
                 <i class="fa-solid fa-envelope"></i>
                 <span>Hire Me</span>
-              </button>
+              </a>
               <button
-                class="px-8 py-4 bg-white/5 text-white font-bold border border-white/10 rounded-full hover:bg-white/10 transition-all flex items-center gap-3"
+                class="px-8 py-4 bg-bg-card text-text-main font-bold border border-border-subtle rounded-full hover:bg-bg-card/80 transition-all flex items-center gap-3"
               >
                 <i class="fa-solid fa-file-pdf"></i>
                 <span>Download CV</span>
@@ -105,7 +106,7 @@ interface Skill {
                 </div>
 
                 <div
-                  class="flex justify-between items-center text-[10px] uppercase font-black tracking-widest text-dim"
+                  class="flex justify-between items-center text-[10px] uppercase font-black tracking-widest text-text-dim"
                 >
                   <span>Proficiency</span>
                   <span [class]="'font-mono ' + skill.colorClass">{{ skill.level }}%</span>
@@ -129,7 +130,7 @@ interface Skill {
 export class Profile {
   ls = inject(LanguageService);
 
-  name = signal('Khoa');
+  name = signal('Lò Văn Sậm');
 
   socials = signal([
     { icon: 'fa-brands fa-github', label: 'GitHub', url: 'https://github.com/khoa-dev' },
@@ -140,49 +141,35 @@ export class Profile {
   skills = signal<Skill[]>([
     {
       name: 'Angular',
-      level: 90,
+      level: 95,
       icon: 'fa-brands fa-angular',
       color: 'var(--color-brand-angular)',
       colorClass: 'text-brand-angular',
     },
     {
       name: 'TypeScript',
-      level: 88,
+      level: 90,
       icon: 'fa-brands fa-js',
       color: 'var(--color-brand-typescript)',
       colorClass: 'text-brand-typescript',
     },
     {
       name: 'Godot Engine',
-      level: 75,
+      level: 85,
       icon: 'fa-solid fa-gamepad',
       color: 'var(--color-brand-godot)',
       colorClass: 'text-brand-godot',
     },
     {
-      name: 'Rust',
-      level: 70,
-      icon: 'fa-brands fa-rust',
-      color: 'var(--color-brand-rust)',
-      colorClass: 'text-brand-rust',
-    },
-    {
-      name: 'WebAssembly',
-      level: 65,
-      icon: 'fa-solid fa-bolt',
-      color: 'var(--color-secondary)',
-      colorClass: 'text-secondary',
-    },
-    {
       name: 'TailwindCSS',
-      level: 85,
+      level: 90,
       icon: 'fa-solid fa-palette',
       color: 'var(--color-brand-tailwind)',
       colorClass: 'text-brand-tailwind',
     },
     {
       name: 'GLSL',
-      level: 60,
+      level: 70,
       icon: 'fa-solid fa-wand-magic-sparkles',
       color: 'var(--color-secondary)',
       colorClass: 'text-secondary',

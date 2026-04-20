@@ -8,6 +8,13 @@
   --color-secondary: #0f172a; /* Navy */
   --color-accent: #f43f5e; /* Rose */
 
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-card: var(--bg-card);
+  --color-text-main: var(--text-main);
+  --color-text-dim: var(--text-dim);
+  --color-border-subtle: var(--border-subtle);
+  --color-glass-bg: var(--glass-bg);
+
   --radius-bespoke: 1.5rem;
 
   /* Standard Technical Brand Colors */
@@ -24,8 +31,8 @@
   --bg-deep: #f8fafc;
   --bg-card: #ffffff;
   --text-main: #0f172a;
-  --text-dim: #475569;
-  --border-subtle: rgba(15, 23, 42, 0.1);
+  --text-dim: #1e293b;
+  --border-subtle: rgba(15, 23, 42, 0.2);
   --grid-color: rgba(15, 23, 42, 0.03);
   --glass-bg: rgba(255, 255, 255, 0.7);
 }
